@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoSports &mdash; Sports Made Simple</title>
+  <meta name="description" content="GoSports helps teams, clubs, and athletes get organized, get equipped, and get playing.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo">Go<span>Sports</span></a>
+      <nav class="nav" id="nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Sports, organized.</h1>
+        <p>GoSports helps teams, clubs, and athletes get set up, equipped, and playing &mdash; without the hassle.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="#services" class="btn btn-outline">What we do</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About GoSports</h2>
+        <p class="lead">
+          We're building GoSports to make it easier for sports organizations of every size to run smoothly &mdash;
+          from local clubs to competitive teams. Whether it's scheduling, equipment, or community, we've got you covered.
+        </p>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Focused on sports</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Support</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">India</span>
+            <span class="stat-label">Based, growing fast</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-alt">
+      <div class="container">
+        <h2>What we offer</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Team Management</h3>
+            <p>Tools and support to organize rosters, schedules, and communication for your team or club.</p>
+          </div>
+          <div class="card">
+            <h3>Equipment &amp; Gear</h3>
+            <p>Sourcing and supply of quality sports equipment tailored to your needs.</p>
+          </div>
+          <div class="card">
+            <h3>Events &amp; Tournaments</h3>
+            <p>Planning and running competitions, from local matches to larger tournaments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Get in touch</h2>
+        <p class="lead">Have a question or want to work with us? Send a message and we'll get back to you.</p>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-note" id="formNote" hidden>Thanks! This form isn't wired up to a server yet &mdash; reach us directly at <a href="mailto:hello@gosports.in">hello@gosports.in</a> in the meantime.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> GoSports. All rights reserved.</span>
+      <a href="mailto:hello@gosports.in">hello@gosports.in</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
