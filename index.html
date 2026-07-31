@@ -1,116 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GoSports &mdash; Sports Made Simple</title>
-  <meta name="description" content="GoSports helps teams, clubs, and athletes get organized, get equipped, and get playing.">
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoSports Foundation — Building the Ecosystem Behind Every Champion</title>
+<meta name="description" content="GoSports Foundation builds the ecosystem — coaches, academies, policy, science — that turns talent into lasting sporting excellence across India.">
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="logo">Go<span>Sports</span></a>
-      <nav class="nav" id="nav">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="nav-logo"><span class="mark">Go</span>Sports</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="programmes.html">Programmes</a></li>
+      <li><a href="funders.html">Our Funders</a></li>
+      <li><a href="get-involved.html">Get Involved</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="get-involved.html" class="btn btn-ghost btn-sm">Partner With Us</a>
     </div>
-  </header>
+  </nav>
+</header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-inner">
-        <h1>Sports, organized.</h1>
-        <p>GoSports helps teams, clubs, and athletes get set up, equipped, and playing &mdash; without the hassle.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="#services" class="btn btn-outline">What we do</a>
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">GoSports Foundation · Est. 2008</span>
+        <h1>Behind every champion is a system that works.</h1>
+        <p class="lede">We build the ecosystem around India's athletes — coaches, academies, sports science, and policy — so talent turns into consistent, global-level performance.</p>
+        <div class="hero-ctas">
+          <a href="#impact" class="btn btn-primary">See our impact</a>
+          <a href="get-involved.html" class="btn btn-ghost-light">Get involved</a>
         </div>
       </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About GoSports</h2>
-        <p class="lead">
-          We're building GoSports to make it easier for sports organizations of every size to run smoothly &mdash;
-          from local clubs to competitive teams. Whether it's scheduling, equipment, or community, we've got you covered.
-        </p>
-        <div class="stats">
-          <div class="stat">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Focused on sports</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">24/7</span>
-            <span class="stat-label">Support</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">India</span>
-            <span class="stat-label">Based, growing fast</span>
-          </div>
-        </div>
+      <div class="rings-wrap" role="img" aria-label="Diagram of four concentric layers: the athlete at the centre, surrounded by coaches and family, then academies and systems, then policy and partners">
+        <svg viewBox="0 0 400 400">
+          <circle cx="200" cy="200" r="185" fill="none" stroke="rgba(244,245,240,0.14)" stroke-width="1"/>
+          <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(244,245,240,0.22)" stroke-width="1"/>
+          <circle cx="200" cy="200" r="95" fill="none" stroke="#E8A62A" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+          <circle cx="200" cy="200" r="40" fill="#C1442E"/>
+          <circle cx="200" cy="200" r="40" fill="none" stroke="#F4F5F0" stroke-width="1" opacity="0.25"/>
+        </svg>
       </div>
-    </section>
-
-    <section id="services" class="section section-alt">
-      <div class="container">
-        <h2>What we offer</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Team Management</h3>
-            <p>Tools and support to organize rosters, schedules, and communication for your team or club.</p>
-          </div>
-          <div class="card">
-            <h3>Equipment &amp; Gear</h3>
-            <p>Sourcing and supply of quality sports equipment tailored to your needs.</p>
-          </div>
-          <div class="card">
-            <h3>Events &amp; Tournaments</h3>
-            <p>Planning and running competitions, from local matches to larger tournaments.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Get in touch</h2>
-        <p class="lead">Have a question or want to work with us? Send a message and we'll get back to you.</p>
-        <form class="contact-form" id="contactForm">
-          <div class="form-row">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send message</button>
-          <p class="form-note" id="formNote" hidden>Thanks! This form isn't wired up to a server yet &mdash; reach us directly at <a href="mailto:hello@gosports.in">hello@gosports.in</a> in the meantime.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>&copy; <span id="year"></span> GoSports. All rights reserved.</span>
-      <a href="mailto:hello@gosports.in">hello@gosports.in</a>
     </div>
-  </footer>
+    <div class="container">
+      <ul class="small" style="display:flex;gap:1.75rem;flex-wrap:wrap;margin-top:1.5rem;color:#C9CCE0;list-style:none;padding:0;">
+        <li style="display:flex;align-items:center;gap:0.5rem;"><span style="width:9px;height:9px;border-radius:50%;background:#C1442E;display:inline-block;"></span>Athlete</li>
+        <li style="display:flex;align-items:center;gap:0.5rem;"><span style="width:9px;height:9px;border-radius:50%;background:#E8A62A;display:inline-block;"></span>Coaches &amp; family</li>
+        <li style="display:flex;align-items:center;gap:0.5rem;"><span style="width:9px;height:9px;border-radius:50%;border:1px solid #C9CCE0;display:inline-block;"></span>Academies &amp; systems</li>
+        <li style="display:flex;align-items:center;gap:0.5rem;"><span style="width:9px;height:9px;border-radius:50%;border:1px solid #5a5f80;display:inline-block;"></span>Policy &amp; partners</li>
+      </ul>
+    </div>
+  </section>
 
-  <script src="assets/js/main.js"></script>
+  <!-- ============ AUDIENCE LANES — signature section ============ -->
+  <section class="lanes-section">
+    <div class="container">
+      <div class="lanes-head">
+        <span class="eyebrow">Find your lane</span>
+        <h2>Seven ways to move with us</h2>
+        <p>Whichever lane you're running in, there's a place for you in GoSports' ecosystem.</p>
+      </div>
+      <div class="lanes">
+        <a class="lane" href="programmes.html" style="--lane-color:#C1442E">
+          <span class="lane-who"><span class="lane-dot"></span>Athlete managers &amp; academies</span>
+          <span class="lane-what">Strengthen your academy with our Academy Development Model — sports science, infrastructure, and coach capacity building.</span>
+          <span class="lane-cta">See our programmes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lane" href="get-involved.html#partner" style="--lane-color:#E8A62A">
+          <span class="lane-who"><span class="lane-dot"></span>CSR professionals</span>
+          <span class="lane-what">Fund accountable, outcome-tracked programmes with a partner that reports on real, measurable impact.</span>
+          <span class="lane-cta">Partner with us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lane" href="programmes.html" style="--lane-color:#3E6B4F">
+          <span class="lane-who"><span class="lane-dot"></span>Athletes</span>
+          <span class="lane-what">Access funding, sports science, mentorship, and a structured pathway to global competition.</span>
+          <span class="lane-cta">Explore support <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lane" href="get-involved.html#partner" style="--lane-color:#8F2E1C">
+          <span class="lane-who"><span class="lane-dot"></span>Ecosystem partners</span>
+          <span class="lane-what">Universities, equipment manufacturers, and government bodies — co-build the policy, research, and infrastructure Indian sport needs.</span>
+          <span class="lane-cta">Co-build with us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lane" href="get-involved.html#donate" style="--lane-color:#C1442E">
+          <span class="lane-who"><span class="lane-dot"></span>Philanthropists &amp; foundations</span>
+          <span class="lane-what">Back systems built to outlast a single season — transparent, tracked, and designed for sustained impact.</span>
+          <span class="lane-cta">Give with purpose <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lane" href="careers.html" style="--lane-color:#E8A62A">
+          <span class="lane-who"><span class="lane-dot"></span>Job applicants</span>
+          <span class="lane-what">Join a team building the systems behind India's sporting future — see current openings and life at GoSports.</span>
+          <span class="lane-cta">View careers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lane" href="sapa-centre.html" style="--lane-color:#3E6B4F">
+          <span class="lane-who"><span class="lane-dot"></span>Researchers</span>
+          <span class="lane-what">Access India's largest sport-and-physical-activity dataset, our published studies, and policy toolkits.</span>
+          <span class="lane-cta">See our research <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHO WE ARE ============ -->
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:center;gap:3rem;">
+      <div>
+        <span class="eyebrow">Who we are</span>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);">A catalyst for a sporting nation.</h2>
+        <p class="mt-2" style="color:var(--ink-soft);font-size:1.05rem;">From early mornings to defining moments, every athlete's journey is shaped by effort, setbacks, and resilience. While the world sees results, we see everything behind them — the coaches, families, and community that make performance possible. Championing excellence is what drives us, every day.</p>
+      </div>
+      <div class="ph-media wide">[ 2-minute film: inside the GoSports ecosystem ]</div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE DO ============ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Delivering impact through five strategic pillars</h2>
+        <p>We partner with federations, government, corporations, foundations, and individuals whose desire for change enables us to design programmes that help athletes, academies, coaches, and ecosystem stakeholders reach their full potential.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="card"><span class="num">01</span><h3>Athletes</h3><p>Funding, sports science, nutrition, mentorship, and competition exposure.</p></div>
+        <div class="card"><span class="num">02</span><h3>Academies</h3><p>Infrastructure, performance systems, and coach capacity building.</p></div>
+        <div class="card"><span class="num">03</span><h3>Communities</h3><p>Grassroots participation and physical literacy programmes.</p></div>
+        <div class="card"><span class="num">04</span><h3>Governments</h3><p>Policy co-development, research, and strategic advisory.</p></div>
+      </div>
+      <p class="small mt-2">With 18 years of experience across elite sport, academies, and legal and policy frameworks, we build programmes that convert investment into sustained, measurable impact.</p>
+    </div>
+  </section>
+
+  <!-- ============ HOW WE DO IT ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How we do it</span>
+        <h2>Research, then policy, then delivery — in that order</h2>
+        <p>We don't start with programmes. We start by researching what's actually broken, then work with government and partners to fix the policy, then build the on-ground programme to deliver it. That sequence is what makes the results durable.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="num">01</span>
+          <h3>Research &amp; the SAPA Stack</h3>
+          <p>A seven-layer framework — spanning governance, innovation, capacity, and policy — that treats sport and physical activity as one connected system, not isolated programmes. Producing India-centric data, toolkits, and indices.</p>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <h3>The Academy Development Model</h3>
+          <p>Our framework for strengthening academies from the ground up: athlete pathways, coaching and technology, infrastructure and sports science, and governance — built alongside the academy, not imposed on it.</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <h3>A transparent selection process</h3>
+          <p>A 9-step, multi-stage process — from outreach through expert review to due diligence — used to select every athlete and academy we support.</p>
+        </div>
+      </div>
+      <div class="hero-ctas mt-2" style="justify-content:flex-start;">
+        <a href="sapa-centre.html" class="btn btn-ghost">Read our research approach</a>
+        <a href="programmes.html#selection" class="btn btn-ghost">See the selection process</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMPACT / STATS ============ -->
+  <section class="section-ink section-tight" id="impact">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our impact</span>
+        <h2>Championing excellence in Indian sport</h2>
+        <p>India's sporting potential remains largely untapped — sport contributes just 0.1% of GDP. GoSports Foundation addresses this through a data-driven model delivering 50,000+ interventions every year, across 25 states and 33 sports.</p>
+      </div>
+    </div>
+    <div class="stats-strip">
+      <div class="stat"><span class="n">250+</span><span class="l">Elite athletes supported</span></div>
+      <div class="stat"><span class="n">60+</span><span class="l">Olympians &amp; Paralympians</span></div>
+      <div class="stat"><span class="n">33</span><span class="l">Sports across 25 states</span></div>
+      <div class="stat"><span class="n">100+</span><span class="l">International medals</span></div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Voices</span>
+        <h2>Hear from our athletes and changemakers</h2>
+      </div>
+      <div data-tabs>
+        <div class="t-tabs" role="tablist">
+          <button class="t-tab" role="tab" aria-selected="true">Partner</button>
+          <button class="t-tab" role="tab" aria-selected="false">Academy</button>
+          <button class="t-tab" role="tab" aria-selected="false">Athlete</button>
+          <button class="t-tab" role="tab" aria-selected="false">Expert</button>
+        </div>
+        <div class="t-pane active">
+          <div class="testimonial">
+            <blockquote>"Infosys Foundation and GoSports Foundation share a joint passion for strengthening the sports ecosystem in India — nurturing exceptional youngsters through an integrated programme that fosters excellence at the academy, coach, and athlete levels."</blockquote>
+            <cite><b>Sumit Virmani</b>Global Chief Marketing Officer, Infosys; Trustee, Infosys Foundation</cite>
+          </div>
+        </div>
+        <div class="t-pane">
+          <div class="testimonial">
+            <blockquote>"Through this partnership, we've brought access to technology, structured support, and performance insights that weren't available to us growing up. It's not just athletes, but coaches and the larger ecosystem that benefit."</blockquote>
+            <cite><b>Ashwini Nachappa</b>Founder, Ashwini Sports Foundation</cite>
+          </div>
+        </div>
+        <div class="t-pane">
+          <div class="testimonial">
+            <blockquote>"After the World Cup, I suffered a shoulder injury and was sent for treatment and recovery. Alongside rehabilitation, I continued training and improved my batting, fitness, and strength. Thanks to their support, I recovered fully and grew stronger as a cricketer."</blockquote>
+            <cite><b>Falak Naz</b>Indian Cricketer, Equal Hue Cricket Excellence Programme</cite>
+          </div>
+        </div>
+        <div class="t-pane">
+          <div class="testimonial">
+            <blockquote>"The room was filled with lived experiences, challenges, and practical solutions shaped by the athletes themselves. Initiatives like these play a critical role in enabling athletes to understand their rights and advocate for themselves with confidence."</blockquote>
+            <cite><b>Shruti Pushkarna</b>Founder &amp; CEO, Karuneti Consulting</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHO'S FUNDED US ============ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Who's funded us</span>
+        <h2>Backed by partners who ask for outcomes, not just logos</h2>
+        <p>Every programme runs because a corporate partner, foundation, federation, or government body funded it — and holds us accountable for what it achieves.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3 style="font-size:1.05rem;">Corporate CSR</h3>
+          <p class="small">Infosys Foundation, IndusInd Bank, and Aditya Birla Group each fund a named, tracked programme.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.05rem;">Federations &amp; government</h3>
+          <p class="small">BCCI, the International Shooting Sport Federation, and the Government of India, through policy and commissioned work.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.05rem;">See the full picture</h3>
+          <p class="small">Every partner, what they fund, and how we report back.</p>
+          <a href="funders.html" class="link" style="font-size:0.85rem;font-weight:700;color:var(--clay);display:inline-block;margin-top:0.4rem;">Our Funders page →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT'S NEXT ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What we're doing next</span>
+        <h2>Where the ecosystem is headed</h2>
+        <p>18 years in, this is where we're pointed next — new hubs, new research, and a wider circle of people who've been part of the journey.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="card" style="border-color:var(--clay);"><span class="num">→</span><h3>The Performance Institute</h3><p>An Axis Bank x GoSports Foundation initiative — a hub for sports science, athlete testing, and applied research at CSE, Bengaluru.</p><a href="performance-institute.html" class="link" style="font-size:0.85rem;font-weight:700;color:var(--clay);display:inline-block;margin-top:0.4rem;">Learn more →</a></div>
+        <div class="card"><span class="num">→</span><h3>SAPA Centre</h3><p>A dedicated hub for our research and policy work, launching as its own site and linking back here.</p></div>
+        <div class="card"><span class="num">→</span><h3>Thought Leadership</h3><p>A home for our monthly newsletter and feature pieces from leadership on the future of Indian sport.</p></div>
+        <div class="card"><span class="num">→</span><h3>Alumni Network</h3><p>Reconnecting with past programmes, projects, and the athletes who came through them.</p></div>
+      </div>
+      <div class="note mt-2"><b>Beta note:</b> these are confirmed in-progress initiatives from internal planning docs, not yet public — shown here so stakeholders see the roadmap, not just the present.</div>
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Recognition</span>
+        <h2>Achievements &amp; honours</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><p><b>Rashtriya Khel Protsahan Puruskar (RKPP)</b><br>2019</p></div>
+        <div class="card"><p><b>CII Sports Business Awards</b><br>2025</p></div>
+        <div class="card"><p><b>FICCI — Indian Sports Award</b></p></div>
+        <div class="card"><p><b>CSR Journal Excellence Award</b><br>2017</p></div>
+        <div class="card"><p><b>BT-CSR Excellence Awards</b><br>2017</p></div>
+        <div class="card"><p><b>Brew Awards</b><br>2015</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- ============ COME WORK FOR US ============ -->
+  <section class="section section-ink section-tight">
+    <div class="container grid grid-2" style="align-items:center;gap:2rem;">
+      <div>
+        <span class="eyebrow">Come work for us</span>
+        <h2 style="font-size:clamp(1.7rem,3.2vw,2.3rem);color:#fff;">Help build the system, not just support it.</h2>
+        <p style="color:#C9CCE0;margin-top:0.75rem;max-width:55ch;">Join a mission-driven team strengthening India's sporting ecosystem through research, innovation, and high-performance programmes.</p>
+      </div>
+      <div style="text-align:left;">
+        <a href="careers.html" class="btn btn-ghost-light">See open positions</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER CTA ============ -->
+<section class="footer-cta">
+  <div class="container footer-cta-row">
+    <div>
+      <h2>Become a changemaker.</h2>
+      <p>Build ecosystems of excellence. Drive meaningful change.</p>
+      <span class="hashtag">#ChampioningExcellence</span>
+    </div>
+    <a href="get-involved.html" class="btn" style="background:#fff;color:var(--clay);">Get involved</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-logo" style="color:#fff;"><span class="mark">Go</span>Sports</div>
+        <p class="small mt-1" style="color:#8A8FB0;">A system-level sports development organisation building research-backed frameworks that champion excellence across Indian sport. Est. 2008.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="funders.html">Our Funders</a></li>
+          <li><a href="sapa-centre.html">SAPA Centre</a></li>
+          <li><a href="performance-institute.html">Performance Institute</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+          <li><a href="get-involved.html#donate">Donate</a></li>
+          <li><a href="get-involved.html#partner">Partner</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@gosports.in">info@gosports.in</a></li>
+          <li><a href="mailto:gearforgold@gosports.in">gearforgold@gosports.in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> GoSports Foundation. Beta site — content in review.</span>
+      <span>#ChampioningExcellence</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
