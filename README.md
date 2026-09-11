@@ -53,10 +53,16 @@ isn't focusable. Full-width tap targets restored via `.nav-links li{ width:100% 
 **Regression tested** at 375 / 768 / 1280px across all 20 pages: zero horizontal overflow, all 30
 images resolve, no console errors, mobile menu opens and closes correctly.
 
-**Known issue, not yet fixed:** `assets/css/styles.css:6` loads Google Fonts via CSS `@import`,
-which serialises the page load (HTML → CSS → font CSS → font files). Moving it to
-`<link rel="preconnect">` + `<link>` in each `<head>` would measurably improve first paint, but it
-touches all 20 files — worth doing as its own change.
+**Brand styleguide applied.** The site now uses the live gosports.in palette and typography rather
+than the beta's own "stadium navy / track clay" system: brand red `#C71B23`, brand dark `#101619`,
+white page, Satoshi type, and the brand's pill buttons (100px radius, 12px 32px, 14px). Card and
+image corners moved from 2px to 16px to sit with the rounder brand language. Full rationale and the
+two judgement calls made (keeping IBM Plex Mono for labels; keeping gold/green as sparing accents)
+are in section 4.
+
+**Fixed as part of that:** fonts previously loaded through a CSS `@import`, which serialised the page
+load (HTML → CSS → font CSS → font files). They now load from `<link rel="preconnect">` + `<link>`
+tags in each `<head>`.
 
 ---
 
@@ -207,13 +213,13 @@ Per direction from GoSports leadership, this page has been built in full — inc
 
 ## 4. Design notes
 
-- **Palette:** deep navy (`#12172B`), track-clay red (`#C1442E`), medal gold (`#E8A62A`) on a cool paper-white background — grounded in athletics (track surface, stadium lights, medal) rather than a generic corporate-nonprofit look.
-- **Typography:** Big Shoulders Display (condensed, scoreboard/signage character) for headings, IBM Plex Sans for body text, IBM Plex Mono for stats and labels.
+- **Palette:** matched to the live gosports.in brand — brand red (`#C71B23`), brand dark (`#101619`), neutral greys on white, with hairline `rgba(145,148,149,.28)` borders. Medal gold (`#E8A62A`) and pitch green (`#3E6B4F`) are retained as sparing accents for the hero rings and lane colours; the brand itself has no secondary colour, so drop them if you want strict fidelity.
+- **Typography:** Satoshi (the live site's face, via Fontshare) for headings and body, with Manrope as fallback — matching gosports.in. IBM Plex Mono is kept for eyebrows, stats and labels: the brand has no mono face, and that treatment carries ~70 usages of this site's structure. Headings run at weight 600 with 1.14 line-height; the previous condensed face was set at 800/1.02 and those values look cramped in a geometric sans.
 - **Signature idea:** the "concentric rings" motif on the homepage hero (athlete at the centre, surrounded by coaches/family, academies/systems, and policy/partners) is a direct visual translation of GoSports' own language — "we build the ecosystem around the athlete." The "Find your lane" audience section on the homepage echoes the same idea using running-track lanes.
 - **Fundraising section (Get Involved + Our Funders):** restructured after reviewing the live gosports.in donation flow (a bare amount-picker with no context) against [The Majurity Trust's "Who We Are" page](https://www.majurity.sg/who-we-are-majurity/), which explains what different levels of giving fund, names real people behind its major gifts, and keeps a running donor wall. GoSports' beta now gives each donation amount a concrete "what this funds" line, proposes an unrestricted "Sustaining the System" giving tier, and adds a donor wall built to grow. All of it uses only real names already in the source content — nothing here invents a donor or board member that doesn't exist.
 - **Photo &amp; logo extraction:** Trustee/Board photos and Foundation Partner logos in this beta were cropped directly from page renders of the Annual Report PDF (not separately supplied image files). They're usable for an internal beta review, but swap in proper source files — official headshots, brand-supplied logo packs — before anything here goes to a public audience.
 - All interactive elements (accordion, tabs, mobile nav) are plain JavaScript, no dependencies.
-- Fonts load from Google Fonts via CDN — this requires an internet connection when the site is viewed (normal for any deployed site; won't work in a fully offline preview).
+- Fonts load via `<link>` tags in each page `<head>` (Satoshi from Fontshare, Manrope + IBM Plex Mono from Google). This needs an internet connection when the site is viewed — normal for any deployed site, but it won't render in its intended faces in a fully offline preview.
 
 ---
 

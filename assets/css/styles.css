@@ -3,26 +3,30 @@
    Design system: "The Ecosystem" — concentric rings + track lanes
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap');
+/* Fonts are loaded with <link> tags in each page <head>, not @import — an
+   @import here serialises the load (HTML -> CSS -> font CSS -> font files). */
 
 :root{
-  /* --- color tokens --- */
-  --ink:        #12172B;   /* deep stadium-night navy — primary dark */
-  --ink-soft:   #3A4066;   /* softened navy — secondary text on paper */
-  --paper:      #F4F5F0;   /* cool paper white — page background */
-  --paper-raised:#FFFFFF;  /* card surfaces */
-  --clay:       #C1442E;   /* running-track clay — primary accent */
-  --clay-deep:  #8F2E1C;   /* pressed / hover state */
-  --gold:       #E8A62A;   /* medal gold — sparing highlight only */
+  /* --- color tokens — matched to the live gosports.in brand --- */
+  --ink:        #101619;   /* brand dark — primary dark surface + headings */
+  --ink-soft:   #5F6365;   /* brand muted — secondary text on paper */
+  --paper:      #FFFFFF;   /* page background */
+  --paper-raised:#FFFFFF;  /* card surfaces (separated by --line, not fill) */
+  --clay:       #C71B23;   /* brand red — primary accent */
+  --clay-deep:  #A8161D;   /* pressed / hover state */
+  --gold:       #E8A62A;   /* medal gold — sparing highlight only (see note) */
   --green:      #3E6B4F;   /* pitch green — used once, for a single lane */
-  --line:       #DBD6C9;   /* hairline on paper */
-  --line-dark:  rgba(244,245,240,0.18); /* hairline on ink */
-  --paper-dim:  #EAEBE3;
+  --line:       rgba(145,148,149,0.28); /* brand hairline on paper */
+  --line-dark:  rgba(245,245,245,0.18); /* hairline on ink */
+  --paper-dim:  #F5F6F7;   /* alt section bands */
 
   /* --- type --- */
-  --font-display: 'Big Shoulders Display', sans-serif;
-  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  /* Satoshi is the live site's face; Manrope is its loaded secondary.
+     IBM Plex Mono is kept for eyebrows/labels — the brand has no mono face
+     and it carries ~70 usages of this site's structure. */
+  --font-display: 'Satoshi', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Satoshi', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --container: 1200px;
 }
@@ -40,7 +44,10 @@ body{
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
 ul{ margin:0; padding:0; list-style:none; }
-h1,h2,h3,h4{ font-family:var(--font-display); margin:0; line-height:1.02; letter-spacing:0.002em; font-weight:800; }
+/* Satoshi is a geometric sans, not a condensed poster face like the previous
+   display font — so headings need more leading, less weight, and tighter
+   tracking than the 800/1.02 the old face was set at. */
+h1,h2,h3,h4{ font-family:var(--font-display); margin:0; line-height:1.14; letter-spacing:-0.015em; font-weight:600; }
 p{ margin:0; }
 button{ font-family:inherit; }
 
@@ -87,10 +94,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   gap:0.5rem;
   font-family:var(--font-body);
   font-weight:600;
-  font-size:0.95rem;
-  padding:0.85rem 1.6rem;
-  border-radius:2px;
-  border:1.5px solid transparent;
+  font-size:0.875rem;
+  padding:0.75rem 2rem;
+  border-radius:100px;
+  border:1px solid transparent;
   cursor:pointer;
   transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color .15s ease;
 }
@@ -106,7 +113,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ---------- header / nav ---------- */
 .site-header{
   position:sticky; top:0; z-index:100;
-  background:rgba(244,245,240,0.92);
+  background:rgba(255,255,255,0.92);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
@@ -116,7 +123,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .nav-logo{
   font-family:var(--font-display);
-  font-weight:800;
+  font-weight:700;
   font-size:1.5rem;
   letter-spacing:0.01em;
   display:flex; align-items:center; gap:0.55rem;
@@ -167,12 +174,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   display:grid; grid-template-columns:1.1fr 0.9fr; gap:3rem; align-items:center;
 }
 .hero h1{
-  font-size:clamp(2.6rem, 5.4vw, 4.4rem);
+  font-size:clamp(2.1rem, 4.4vw, 3.5rem);
   color:#fff;
   text-transform:none;
 }
 .hero .lede{
-  font-size:1.15rem; color:#C9CCE0; max-width:46ch; margin-top:1.25rem;
+  font-size:1.15rem; color:#C7CACB; max-width:46ch; margin-top:1.25rem;
 }
 .hero-ctas{ display:flex; gap:1rem; margin-top:2.25rem; flex-wrap:wrap; }
 .hero .eyebrow{ color:var(--gold); }
@@ -183,7 +190,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .rings-wrap svg{ width:100%; height:100%; }
 .ring-label{
   font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase;
-  fill:#C9CCE0;
+  fill:#C7CACB;
 }
 
 @media (max-width:900px){
@@ -194,7 +201,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ---------- lanes (audience selector) — the signature interaction ---------- */
 .lanes-section{ background:var(--paper); padding:4rem 0 3rem; }
 .lanes-head{ max-width:60ch; margin-bottom:2.25rem; }
-.lanes-head h2{ font-size:clamp(1.9rem,3.4vw,2.6rem); }
+.lanes-head h2{ font-size:clamp(1.65rem,2.9vw,2.15rem); }
 .lanes-head p{ color:var(--ink-soft); margin-top:0.9rem; font-size:1.02rem; }
 
 .lanes{ border-top:1px solid var(--line); }
@@ -218,7 +225,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .lane:hover::before{ transform:scaleY(1); }
 .lane-who{
   display:flex; align-items:center; gap:0.75rem;
-  font-family:var(--font-display); font-weight:700; font-size:1.15rem; color:var(--ink);
+  font-family:var(--font-display); font-weight:600; font-size:1.1rem; color:var(--ink);
 }
 .lane-dot{ width:10px; height:10px; border-radius:50%; background:var(--lane-color, var(--clay)); flex:none; }
 .lane-what{ color:var(--ink-soft); font-size:0.98rem; max-width:62ch; }
@@ -237,9 +244,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .section-alt{ background:var(--paper-dim); }
 .section-ink{ background:var(--ink); color:var(--paper); }
 .section-head{ max-width:64ch; margin-bottom:2.5rem; }
-.section-head h2{ font-size:clamp(1.9rem,3.6vw,2.7rem); }
+.section-head h2{ font-size:clamp(1.65rem,3vw,2.2rem); }
 .section-head p{ color:var(--ink-soft); margin-top:1rem; font-size:1.03rem; }
-.section-ink .section-head p{ color:#C9CCE0; }
+.section-ink .section-head p{ color:#C7CACB; }
 
 /* ---------- pillar / feature cards ---------- */
 .grid{ display:grid; gap:1.5rem; }
@@ -253,7 +260,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background:var(--paper-raised);
   border:1px solid var(--line);
   padding:1.85rem;
-  border-radius:2px;
+  border-radius:16px;
 }
 .card h3{ font-size:1.3rem; margin-bottom:0.65rem; }
 .card p{ color:var(--ink-soft); font-size:0.96rem; }
@@ -267,7 +274,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .stat{ padding:2rem 1.25rem; border-right:1px solid var(--line-dark); }
 .stat:last-child{ border-right:none; }
 .stat .n{ font-family:var(--font-mono); font-size:2.4rem; font-weight:600; color:var(--gold); display:block; }
-.stat .l{ font-size:0.85rem; color:#C9CCE0; margin-top:0.35rem; }
+.stat .l{ font-size:0.85rem; color:#C7CACB; margin-top:0.35rem; }
 @media (max-width:760px){
   .stats-strip{ grid-template-columns:repeat(2,1fr); }
   .stat{ border-bottom:1px solid var(--line-dark); }
@@ -279,7 +286,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding:2.5rem; position:relative;
 }
 .testimonial blockquote{
-  font-family:var(--font-display); font-weight:600; font-size:1.4rem; line-height:1.25; margin:0;
+  font-family:var(--font-display); font-weight:600; font-size:1.3rem; line-height:1.25; margin:0;
 }
 .testimonial cite{ display:block; font-style:normal; margin-top:1.25rem; font-size:0.9rem; color:var(--ink-soft); }
 .testimonial cite b{ color:var(--ink); display:block; font-weight:700; }
@@ -307,7 +314,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .accordion-trigger{
   width:100%; text-align:left; background:none; border:none; cursor:pointer;
   padding:1.25rem 0; display:flex; justify-content:space-between; align-items:center; gap:1rem;
-  font-family:var(--font-display); font-weight:700; font-size:1.05rem; color:var(--ink);
+  font-family:var(--font-display); font-weight:600; font-size:1.02rem; color:var(--ink);
 }
 .accordion-trigger .plus{ font-family:var(--font-mono); color:var(--clay); font-size:1.2rem; flex:none; }
 .accordion-panel{ max-height:0; overflow:hidden; transition:max-height 0.25s ease; }
@@ -317,7 +324,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 figure.media{ margin:0; }
 .media img{
   width:100%; height:auto; display:block;
-  border:1px solid var(--line); border-radius:2px;
+  border:1px solid var(--line); border-radius:16px;
   background:var(--paper-dim);
 }
 .media.wide img{ aspect-ratio:16/9; object-fit:cover; }
@@ -343,6 +350,7 @@ figure.media{ margin:0; }
   text-align:center; padding:1rem;
   min-height:220px;
 }
+.ph-media{ border-radius:16px; }
 .ph-media.square{ aspect-ratio:1/1; min-height:0; }
 .ph-media.wide{ aspect-ratio:16/9; min-height:0; }
 
@@ -355,26 +363,26 @@ figure.media{ margin:0; }
 
 /* ---------- footer ---------- */
 .footer-cta{ background:var(--clay); color:#fff; padding:4rem 0; text-align:left; }
-.footer-cta h2{ font-size:clamp(2rem,4vw,3rem); color:#fff; }
-.footer-cta p{ margin-top:0.75rem; color:#F6DAD3; max-width:50ch; }
+.footer-cta h2{ font-size:clamp(1.75rem,3.3vw,2.4rem); color:#fff; }
+.footer-cta p{ margin-top:0.75rem; color:#F7D9DA; max-width:50ch; }
 .footer-cta-row{ display:flex; justify-content:space-between; align-items:flex-end; gap:2rem; flex-wrap:wrap; }
 .hashtag{ font-family:var(--font-mono); font-size:0.85rem; letter-spacing:0.06em; margin-top:1.5rem; display:inline-block; }
 
-.site-footer{ background:var(--ink); color:#C9CCE0; padding:3.5rem 0 2rem; }
+.site-footer{ background:var(--ink); color:#C7CACB; padding:3.5rem 0 2rem; }
 .footer-grid{ display:grid; grid-template-columns:1.4fr repeat(4,1fr); gap:2rem; }
 .footer-grid h4{ font-family:var(--font-body); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em; color:#fff; margin-bottom:1rem; font-weight:700; }
 .footer-grid ul li{ margin-bottom:0.6rem; font-size:0.9rem; }
 .footer-grid ul li a:hover{ color:#fff; }
 .footer-bottom{
   margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--line-dark);
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:0.8rem; color:#8A8FB0;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:0.8rem; color:#8C9092;
 }
 @media (max-width:900px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
 
 /* ---------- page hero (interior pages) ---------- */
 .page-hero{ background:var(--ink); color:#fff; padding:3.5rem 0 3rem; }
-.page-hero h1{ font-size:clamp(2.2rem,4.6vw,3.4rem); color:#fff; max-width:22ch; }
-.page-hero .lede{ color:#C9CCE0; max-width:60ch; margin-top:1rem; font-size:1.05rem; }
+.page-hero h1{ font-size:clamp(1.85rem,3.7vw,2.7rem); color:#fff; max-width:22ch; }
+.page-hero .lede{ color:#C7CACB; max-width:60ch; margin-top:1rem; font-size:1.05rem; }
 .breadcrumb{ font-family:var(--font-mono); font-size:0.75rem; color:var(--gold); margin-bottom:1rem; letter-spacing:0.04em; }
 
 /* ---------- programme cards ---------- */
@@ -388,7 +396,7 @@ figure.media{ margin:0; }
 
 /* ---------- notes / callouts (for beta transparency) ---------- */
 .note{
-  border:1px dashed var(--clay); background:#FBEDE9; color:var(--clay-deep);
+  border:1px dashed var(--clay); background:#FCEDEE; color:var(--clay-deep);
   padding:1rem 1.25rem; font-size:0.88rem; margin-bottom:1.5rem;
 }
 .note b{ color:var(--clay-deep); }
@@ -411,7 +419,7 @@ figure.media{ margin:0; }
 
 /* ---------- donor wall (dense text list) ---------- */
 .donor-wall{
-  background:var(--ink); color:#C9CCE0; padding:2rem;
+  background:var(--ink); color:#C7CACB; padding:2rem;
   columns:4; column-gap:2rem;
 }
 .donor-wall div{ break-inside:avoid; font-size:0.88rem; padding:0.4rem 0; border-bottom:1px solid var(--line-dark); }
