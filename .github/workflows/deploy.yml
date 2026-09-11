@@ -1,0 +1,76 @@
+name: Deploy betagsf.sreeb.dev
+
+# Push to main -> rsync the site to Hostinger over SSH.
+# Only site files are shipped; repo-only files are excluded so they never
+# exist on the server at all. .htaccess denies them as a second layer in
+# case they ever arrive by another route (e.g. a manual git pull on the box).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-betagsf
+  cancel-in-progress: true
+
+env:
+  SSH_HOST: 145.79.58.193
+  SSH_PORT: "65002"
+  SSH_USER: u306132917
+  REMOTE_PATH: domains/betagsf.sreeb.dev/public_html/
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install SSH key
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          if [ -n "${{ secrets.SSH_KNOWN_HOSTS }}" ]; then
+            printf '%s\n' "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          else
+            echo "::warning::SSH_KNOWN_HOSTS not set - trusting host key on first use"
+            ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          fi
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Show what will deploy
+        run: git log --oneline -1
+
+      - name: Rsync to Hostinger
+        run: |
+          rsync -az --delete --itemize-changes \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '.gitignore' \
+            --exclude 'README.md' \
+            --exclude 'DEPLOY.md' \
+            -e "ssh -p $SSH_PORT -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes" \
+            ./ "$SSH_USER@$SSH_HOST:$REMOTE_PATH"
+
+      - name: Verify live
+        run: |
+          sleep 3
+          fail=0
+          check() {
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://betagsf.sreeb.dev$1")
+            if [ "$code" = "$2" ]; then echo "ok   $1 -> $code"
+            else echo "FAIL $1 -> $code (expected $2)"; fail=1; fi
+          }
+          check /                              200
+          check /robots.txt                    200
+          check /assets/img/academy-cohort.jpg 200
+          check /README.md                     404
+          check /DEPLOY.md                     404
+          check /.gitignore                    403
+          check /.git/config                   404
+          echo "--- headers ---"
+          curl -sI https://betagsf.sreeb.dev/ | grep -i 'x-robots-tag\|x-content-type-options' || true
+          echo "--- noindex meta ---"
+          curl -s https://betagsf.sreeb.dev/ | grep -o '<meta name="robots"[^>]*>' || { echo "MISSING noindex meta"; fail=1; }
+          exit $fail

@@ -1,17 +1,33 @@
 # Deploying betagsf.sreeb.dev
 
 **Host:** Hostinger (Business plan), behind Hostinger's edge CDN (`server: hcdn`)
-**Pipeline:** hPanel Git integration + GitHub webhook — a push to `main` is a deploy
+**Pipeline:** GitHub Actions → `rsync` over SSH — a push to `main` is a deploy
 **Build step:** none — the repository *is* the site
 
 ---
 
 ## 1. How a deploy works
 
-hPanel Git clones this whole repository into the subdomain's web root and, on
-each webhook call from GitHub, pulls `main`. There is no build and no file
-filtering: **every tracked file lands in the web root.** `.htaccess` is what
-decides which of those files the public can actually fetch.
+`.github/workflows/deploy.yml` runs on every push to `main`. It checks the repo
+out on a GitHub runner and `rsync`s it to the web root over SSH, with
+`--delete` so the server is an exact mirror of `main`. There is no build step.
+
+Repo-only files are **excluded from the transfer**, so they never exist on the
+server: `.git/`, `.github/`, `.gitignore`, `README.md`, `DEPLOY.md`. `.htaccess`
+denies the same set as a second layer, in case one ever arrives by another route
+(a manual `git pull` on the box, a File Manager upload).
+
+Two defences, deliberately: exclusion means the file isn't there (404); the
+`.htaccess` rule means that even if it is, it can't be fetched (403).
+
+**Credentials:** repo secret `SSH_PRIVATE_KEY` holds an ed25519 key whose public
+half is registered in hPanel → Advanced → SSH Access → SSH keys. Optional secret
+`SSH_KNOWN_HOSTS` pins the server host key; without it the workflow trusts the
+key on first use and logs a warning.
+
+> ⚠️ Hostinger SSH keys are **account-wide**, not per-site. This deploy key can
+> reach every site on the hosting account, not just betagsf. hPanel offers no
+> `command=` restriction, so treat the secret accordingly.
 
 ## 2. What is served vs denied
 
@@ -20,10 +36,11 @@ decides which of those files the public can actually fetch.
 | `*.html` (20 pages) | ✅ 200 | The site |
 | `assets/css/`, `assets/js/`, `assets/img/` | ✅ 200 | The site |
 | `robots.txt` | ✅ 200 | Must be readable to do its job (see §3) |
-| `README.md`, `DEPLOY.md` | ⛔ 403 | Internal notes — README holds photo-provenance detail that should not be public |
-| `.htaccess`, `.gitignore`, any dotfile | ⛔ 403 | Repository/server config |
+| `README.md`, `DEPLOY.md` | ⛔ 404 | Not shipped (rsync excludes them). `.htaccess` would also 403 them |
+| `.htaccess`, any dotfile | ⛔ 403 | Server config — `.htaccess` must ship, so it is denied rather than excluded |
+| `.gitignore` | ⛔ 404 | Not shipped |
 | `LICENSE` (if ever added) | ⛔ 403 | Not part of the site |
-| `.git/` and everything under it | ⛔ 404 | Created by the hPanel clone; exposing it would leak the full history |
+| `.git/` and everything under it | ⛔ 404 | Not shipped. `RedirectMatch` also 404s it, for the stale clone left by the old setup |
 | Directory listings | ⛔ | `Options -Indexes` |
 
 The deny rule is a `FilesMatch` on the file name: `(^\.|\.md$|^LICENSE$)`.
@@ -75,19 +92,42 @@ redirect loop).
 
 ## 5. First-time setup (or re-connecting)
 
-1. **The web root must be empty.** hPanel's Git clone refuses a non-empty
-   directory. Anything there is reproducible from this repo, so delete it.
-2. hPanel → Advanced → GIT → Create repository:
-   - Repository: `https://github.com/Saugato26/gosports.in.git`
-   - Branch: `main`
-   - Directory: the subdomain's document root
-   - The repo is public, so no deploy key is needed.
-3. Deploy, then copy the **auto-deployment webhook URL** from the same page.
-4. GitHub → repo Settings → Webhooks → Add webhook: paste the URL, content type
-   `application/json`, "Just the push event", Active. (Requires repo admin.)
+1. Generate a keypair: `ssh-keygen -t ed25519 -C gh-actions-deploy-betagsf -f ./gsf_deploy -N ""`
+2. hPanel → Advanced → SSH Access → **SSH keys** → add `gsf_deploy.pub`.
+3. GitHub → repo Settings → Secrets and variables → Actions → New secret:
+   - `SSH_PRIVATE_KEY` = the full contents of `gsf_deploy` (including the
+     BEGIN/END lines).
+   - `SSH_KNOWN_HOSTS` (recommended) = output of
+     `ssh-keyscan -p 65002 145.79.58.193`.
+   Both require repo admin on `Saugato26/gosports.in`.
+4. Push to `main`, or run the workflow manually from the Actions tab.
 
-`.htaccess` must be on `main` **before** the first deploy — otherwise that
-deploy publishes `README.md`.
+The workflow verifies the live site itself and fails the run if any check is
+wrong, so a red build means the deploy did not land as intended.
+
+### Manual deploy, no CI
+
+The web root is also a git checkout, so the server can pull directly:
+
+```sh
+ssh -p 65002 u306132917@145.79.58.193 \
+  'cd domains/betagsf.sreeb.dev/public_html && \
+   git fetch --depth=1 origin main && git reset --hard FETCH_HEAD && git clean -fd'
+```
+
+Note this ships *every* tracked file, including `README.md` and `DEPLOY.md` —
+they are then 403 by `.htaccess` rather than absent. Don't mix the two routes
+casually; `rsync --delete` will remove what the pull added.
+
+### Routes that did not work
+
+- **hPanel → Advanced → GIT** is now a GitHub App OAuth install, not the old
+  "repository URL + branch + directory + webhook URL" form. There is no webhook
+  URL to copy any more.
+- **Hostinger cron jobs** were tried as a polling deploy (`*/5` git fetch/reset).
+  The jobs registered and appeared in hPanel but never executed — no output, no
+  `FETCH_HEAD`, not even a bare `touch` landing. Don't rely on account cron here
+  without proving it fires first.
 
 ## 6. Checking a deploy
 
@@ -98,5 +138,8 @@ done
 curl -sI https://betagsf.sreeb.dev/ | grep -i x-robots-tag
 ```
 
-Expected: `/` 200 · `README.md` 403 · `DEPLOY.md` 403 · `.git/config` 403 or
-404 · `robots.txt` 200 · `X-Robots-Tag` present.
+Expected after a CI deploy: `/` 200 · `README.md` 404 · `DEPLOY.md` 404 ·
+`.git/config` 404 · `robots.txt` 200 · `X-Robots-Tag` present.
+
+After a manual `git pull` deploy instead: `README.md` and `DEPLOY.md` are 403
+rather than 404, because they are present but denied.
