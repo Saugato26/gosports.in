@@ -21,7 +21,7 @@ AuthUserFile /home/u306132917/domains/betagsf.sreeb.dev/.htpasswd
 Require valid-user
 
 # --- Deny repository files that are not part of the site ---------------
-<FilesMatch "(^\.|\.md$|^LICENSE$)">
+<FilesMatch "(^\.|\.md$|\.sh$|^LICENSE$)">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>

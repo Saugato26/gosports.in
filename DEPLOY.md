@@ -13,7 +13,9 @@ out on a GitHub runner and `rsync`s it to the web root over SSH, with
 `--delete` so the server is an exact mirror of `main`. There is no build step.
 
 Repo-only files are **excluded from the transfer**, so they never exist on the
-server: `.git/`, `.github/`, `.gitignore`, `README.md`, `DEPLOY.md`. `.htaccess`
+server: `.git/`, `.github/`, `.gitignore`, `README.md`, `DEPLOY.md`,
+`fetch-live-images.sh`, and `assets/img/live/` (the 27 MB raw archive pulled from
+gosports.in — the optimised versions in `assets/img/gallery/` are what ships). `.htaccess`
 denies the same set as a second layer, in case one ever arrives by another route
 (a manual `git pull` on the box, a File Manager upload).
 
@@ -43,7 +45,7 @@ key on first use and logs a warning.
 | `.git/`, `.github/` and everything under them | ⛔ 404 | Not shipped. `RedirectMatch 404 /\.git(hub)?(/\|$)` also 404s them — `.github/workflows/deploy.yml` names the server IP, port and user, and `FilesMatch` can't catch it because it matches on basename |
 | Directory listings | ⛔ | `Options -Indexes` |
 
-The deny rule is a `FilesMatch` on the file name: `(^\.|\.md$|^LICENSE$)`.
+The deny rule is a `FilesMatch` on the file name: `(^\.|\.md$|\.sh$|^LICENSE$)`.
 **Adding a file?** Anything ending `.md` or starting with `.` is automatically
 hidden; anything else you commit is public. If you add another internal file
 type (notes, `.txt` drafts, source images), extend the pattern — and re-check it
