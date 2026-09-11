@@ -41,7 +41,7 @@ body{
   line-height:1.55;
   -webkit-font-smoothing:antialiased;
 }
-img{ max-width:100%; display:block; }
+img{ max-width:100%; height:auto; display:block; }
 a{ color:inherit; text-decoration:none; }
 ul{ margin:0; padding:0; list-style:none; }
 /* Satoshi is a geometric sans, not a condensed poster face like the previous
@@ -436,3 +436,60 @@ figure.media{ margin:0; }
 .mt-1{ margin-top:1rem; } .mt-2{ margin-top:2rem; } .mt-3{ margin-top:3rem; }
 .text-center{ text-align:center; margin-left:auto; margin-right:auto; }
 .small{ font-size:0.85rem; color:var(--ink-soft); }
+
+/* ---------- gallery (asset library) ---------- */
+.gal-nav{ position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--line); padding:0.7rem 0; }
+.gal-nav .chips{ display:flex; gap:0.5rem; flex-wrap:wrap; }
+.chip{
+  font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase;
+  padding:0.42rem 0.85rem; border:1px solid var(--line); border-radius:100px; color:var(--ink-soft); background:var(--paper);
+}
+.chip:hover,.chip[aria-current]{ border-color:var(--ink); color:var(--ink); }
+.chip small{ opacity:0.6; margin-left:0.35em; }
+.gal-section{ padding:3rem 0; border-bottom:1px solid var(--line); scroll-margin-top:4.5rem; }
+.gal-section:last-of-type{ border-bottom:0; }
+.gal-head{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+.gal-head h2{ font-size:clamp(1.35rem,2.4vw,1.75rem); }
+.gal-head p{ color:var(--ink-soft); margin:0.35rem 0 0; max-width:60ch; }
+.gal-grid{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); }
+.gal-grid.people{ grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
+.gal-grid.logos{ grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); }
+.gal-grid.tall{ grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); }
+.gal-item{
+  display:block; width:100%; border:1px solid var(--line); border-radius:16px; overflow:hidden;
+  background:var(--paper-dim); text-align:left; padding:0; cursor:zoom-in; font:inherit; color:inherit;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.gal-item:hover{ transform:translateY(-2px); box-shadow:0 6px 24px rgba(16,22,25,0.08); }
+.gal-item:focus-visible{ outline:2px solid var(--clay); outline-offset:2px; }
+.gal-item img{ width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; display:block; background:var(--paper-dim); }
+.tall .gal-item img{ aspect-ratio:3/4; }
+.people .gal-item{ text-align:center; background:var(--paper); padding:1.1rem 0.6rem 0.4rem; }
+.people .gal-item img{ width:110px; height:110px; aspect-ratio:1/1; border-radius:50%; margin:0 auto; border:1px solid var(--line); }
+.logos .gal-item{ background:#fff; padding:1rem; }
+.logos .gal-item img{ aspect-ratio:16/9; object-fit:contain; background:#fff; }
+#programme-identities .gal-item img{ aspect-ratio:1/1; }
+.gal-cap{ padding:0.65rem 0.85rem 0.8rem; font-size:0.8rem; color:var(--ink-soft); line-height:1.4; }
+.people .gal-cap{ padding:0.6rem 0.2rem 0.5rem; }
+.gal-cap b{ color:var(--ink); font-weight:600; display:block; }
+.gal-meta{ display:block; margin-top:0.25rem; font-family:var(--font-mono); font-size:0.66rem; letter-spacing:0.04em; color:var(--ink-soft); opacity:0.75; }
+.gal-flag{ display:inline-block; margin-top:0.3rem; font-family:var(--font-mono); font-size:0.64rem; letter-spacing:0.04em; color:var(--clay); }
+
+dialog.lightbox{ border:0; padding:0; background:transparent; max-width:min(96vw,1400px); width:auto; }
+dialog.lightbox::backdrop{ background:rgba(16,22,25,0.92); }
+.lb-body{ display:flex; flex-direction:column; align-items:center; gap:0.75rem; }
+.lb-body img{ max-width:min(96vw,1400px); max-height:78vh; width:auto; height:auto; border-radius:12px; background:#fff; }
+.lb-cap{ color:#F5F5F5; text-align:center; font-size:0.95rem; max-width:80ch; }
+.lb-cap .gal-meta{ color:#C7CACB; opacity:1; }
+.lb-ctl{ display:flex; gap:0.5rem; align-items:center; }
+.lb-ctl button,.lb-ctl a{
+  font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.05em; text-transform:uppercase;
+  background:transparent; color:#F5F5F5; border:1px solid rgba(245,245,245,0.35); border-radius:100px; padding:0.5rem 1rem; cursor:pointer;
+}
+.lb-ctl button:hover,.lb-ctl a:hover{ background:#F5F5F5; color:var(--ink); }
+@media (max-width:640px){
+  .gal-grid{ grid-template-columns:repeat(2,1fr); gap:0.6rem; }
+  .gal-grid.people{ grid-template-columns:repeat(3,1fr); }
+  .people .gal-item img{ width:76px; height:76px; }
+  .gal-cap{ font-size:0.74rem; padding:0.5rem 0.6rem 0.6rem; }
+}
