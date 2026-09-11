@@ -1,0 +1,56 @@
+# betagsf.sreeb.dev — beta staging config
+# Deployed via hPanel Git, which clones the whole repository into the web root.
+# That means repository files are web-reachable unless denied here.
+
+# --- Keep the beta out of search results -------------------------------
+# Third layer, alongside the noindex meta tag on all 20 pages and robots.txt.
+# Applies to every response including images and CSS, which meta tags cannot cover.
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
+</IfModule>
+
+# --- Deny repository files that are not part of the site ---------------
+<FilesMatch "(^\.|\.md$|^LICENSE$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# --- Deny the .git directory the deploy creates ------------------------
+RedirectMatch 404 /\.git(/|$)
+
+# --- No directory listings ---------------------------------------------
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# --- Compression --------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript image/svg+xml
+</IfModule>
+
+# --- Caching ------------------------------------------------------------
+# Images are content-addressed by name and change rarely; HTML must stay fresh
+# so a git deploy is visible immediately rather than after a cache expiry.
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg        "access plus 7 days"
+    ExpiresByType image/png         "access plus 7 days"
+    ExpiresByType image/svg+xml     "access plus 7 days"
+    ExpiresByType text/css          "access plus 1 day"
+    ExpiresByType application/javascript "access plus 1 day"
+    ExpiresByType text/html         "access plus 0 seconds"
+</IfModule>
+
+# --- Security headers ---------------------------------------------------
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Note: HTTPS redirect is handled at the Hostinger edge (hcdn) and is
+# deliberately not duplicated here, to avoid a redirect loop behind the CDN.
