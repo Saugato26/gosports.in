@@ -60,10 +60,13 @@ jobs:
           sleep 3
           fail=0
           code() { curl -s -o /dev/null -w '%{http_code}' "$@"; }
+          # $2 may list several acceptable codes, space separated.
           check() {
             c=$(code "https://betagsf.sreeb.dev$1")
-            if [ "$c" = "$2" ]; then echo "ok   $1 -> $c"
-            else echo "FAIL $1 -> $c (expected $2)"; fail=1; fi
+            for want in $2; do
+              if [ "$c" = "$want" ]; then echo "ok   $1 -> $c"; return; fi
+            done
+            echo "FAIL $1 -> $c (expected one of: $2)"; fail=1
           }
           # The beta sits behind HTTP basic auth, so an unauthenticated request
           # must be 401. That is the proof the gate is live - including for
@@ -74,8 +77,12 @@ jobs:
           # The deny rules outrank Require valid-user, so these answer before
           # the auth challenge and stay 403/404 with or without credentials.
           check /README.md                     403
-          check /.git/config                   404
-          check /.github/workflows/deploy.yml  404
+          # .git and .github are denied by RedirectMatch, but when the path
+          # exists on disk the server answers 403 before the redirect fires.
+          # Either code is a denial; which one shows depends on whether a
+          # previous manual git-pull deploy left the directory there.
+          check /.git/config                   "404 403"
+          check /.github/workflows/deploy.yml  "404 403"
           # Content checks need credentials. Optional: set repo secret
           # BETA_BASIC_AUTH to "user:password" to enable them.
           if [ -n "$BETA_AUTH" ]; then
