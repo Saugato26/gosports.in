@@ -6,8 +6,19 @@
 # Third layer, alongside the noindex meta tag on all 20 pages and robots.txt.
 # Applies to every response including images and CSS, which meta tags cannot cover.
 <IfModule mod_headers.c>
-    Header set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
+    Header always set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
 </IfModule>
+
+# --- Password-protect the whole beta -----------------------------------
+# The only airtight answer: robots.txt Disallow stops a compliant crawler
+# fetching the page, so it never sees the noindex tag, and the bare URL can
+# still surface. A 401 cannot be indexed at all. It also covers images, which
+# LiteSpeed serves on a fast path that skips mod_headers entirely.
+# .htpasswd lives OUTSIDE the web root - see DEPLOY.md section 5.
+AuthType Basic
+AuthName "GoSports beta"
+AuthUserFile /home/u306132917/domains/betagsf.sreeb.dev/.htpasswd
+Require valid-user
 
 # --- Deny repository files that are not part of the site ---------------
 <FilesMatch "(^\.|\.md$|^LICENSE$)">
@@ -20,8 +31,12 @@
     </IfModule>
 </FilesMatch>
 
-# --- Deny the .git directory the deploy creates ------------------------
-RedirectMatch 404 /\.git(/|$)
+# --- Deny the .git and .github directories -----------------------------
+# .git is left over from the old clone; .github holds the deploy workflow,
+# which names the server IP, port and username. FilesMatch cannot catch
+# .github/workflows/deploy.yml - it matches on basename, and "deploy.yml"
+# looks like an ordinary file - so deny by path instead.
+RedirectMatch 404 /\.git(hub)?(/|$)
 
 # --- No directory listings ---------------------------------------------
 <IfModule mod_autoindex.c>
@@ -48,8 +63,8 @@ RedirectMatch 404 /\.git(/|$)
 
 # --- Security headers ---------------------------------------------------
 <IfModule mod_headers.c>
-    Header set X-Content-Type-Options "nosniff"
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
 # Note: HTTPS redirect is handled at the Hostinger edge (hcdn) and is

@@ -40,7 +40,7 @@ key on first use and logs a warning.
 | `.htaccess`, any dotfile | ⛔ 403 | Server config — `.htaccess` must ship, so it is denied rather than excluded |
 | `.gitignore` | ⛔ 404 | Not shipped |
 | `LICENSE` (if ever added) | ⛔ 403 | Not part of the site |
-| `.git/` and everything under it | ⛔ 404 | Not shipped. `RedirectMatch` also 404s it, for the stale clone left by the old setup |
+| `.git/`, `.github/` and everything under them | ⛔ 404 | Not shipped. `RedirectMatch 404 /\.git(hub)?(/\|$)` also 404s them — `.github/workflows/deploy.yml` names the server IP, port and user, and `FilesMatch` can't catch it because it matches on basename |
 | Directory listings | ⛔ | `Options -Indexes` |
 
 The deny rule is a `FilesMatch` on the file name: `(^\.|\.md$|^LICENSE$)`.
@@ -57,10 +57,23 @@ against `git ls-files` so it still matches none of the site files.
 | `<meta name="robots" content="noindex, nofollow">` | all 20 pages | Pages, if a crawler fetches them anyway |
 | `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet` | `.htaccess` | Every response — including images and CSS, which meta tags can't cover |
 
-Known limitation: `Disallow` blocks **crawling**, not **indexing**. A crawler
-that obeys it never fetches a page, so never sees the `noindex` tag or header —
-the bare URL can still appear in results if something public links to it. For
-an unlinked beta this is acceptable; HTTP basic auth is the only airtight option.
+**Layer 4, and the only airtight one: HTTP basic auth.** `.htaccess` requires a
+valid user for every request. A 401 cannot be indexed at all.
+
+Two limitations made the first three layers insufficient on their own:
+
+- `Disallow` blocks **crawling**, not **indexing**. A crawler that obeys it
+  never fetches the page, so never sees the `noindex` tag or header — the bare
+  URL can still appear in results if anything public links to it.
+- **`X-Robots-Tag` does not reach images on this host.** Measured, not assumed:
+  HTML, CSS, JS and `.txt` all carry the header, but `.jpg` and `.png` carry
+  neither it nor `nosniff`, on cache MISS as well as HIT — so it is the origin,
+  not the CDN. LiteSpeed serves image types on a static fast path that skips
+  `mod_headers`. (`mod_expires` *does* apply to them — images return
+  `max-age=604800` as configured — so `.htaccess` is being read; only the
+  header table is skipped.) The directives now use `Header always set`, which
+  may or may not change this; **it has not been verified**. Basic auth closes
+  the gap regardless.
 
 **When the site goes to production, all three must be removed** — including the
 meta tag on every page.
@@ -91,6 +104,21 @@ deliberately **not** repeated in `.htaccess` (doing so behind the CDN risks a
 redirect loop).
 
 ## 5. First-time setup (or re-connecting)
+
+**`.htpasswd` must exist before `.htaccess` reaches the server**, or every
+request 500s. Create it first, over SSH:
+
+```sh
+ssh -p 65002 u306132917@145.79.58.193 \
+  "printf '%s\\n' 'gsfbeta:\$apr1\$SvMR8ivr\$Y9NEDbsxTpK3w7ZSveWaD.' \
+   > domains/betagsf.sreeb.dev/.htpasswd && chmod 600 domains/betagsf.sreeb.dev/.htpasswd"
+```
+
+It sits one level above the web root, so it is not web-reachable at all — and
+it is deliberately not in the repo, since the repo is public.
+
+To change the password later: `htpasswd -c .htpasswd gsfbeta` on any machine
+with Apache tools, or `openssl passwd -apr1` to generate the hash by hand.
 
 1. Generate a keypair: `ssh-keygen -t ed25519 -C gh-actions-deploy-betagsf -f ./gsf_deploy -N ""`
 2. hPanel → Advanced → SSH Access → **SSH keys** → add `gsf_deploy.pub`.
