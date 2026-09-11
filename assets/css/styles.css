@@ -136,13 +136,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .nav-toggle span{ display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; }
 
 @media (max-width: 900px){
+  /* NOTE: .site-header uses backdrop-filter, which makes it the containing
+     block for position:fixed children. So `inset`/`%` here resolve against the
+     64px-tall header, not the viewport — the panel collapsed to 32px and stayed
+     on screen. Size and translate it in viewport units instead. */
   .nav-links{
-    position:fixed; inset:64px 0 0 0; background:var(--paper);
+    position:fixed; top:64px; left:0; right:0;
+    height:calc(100dvh - 64px);
+    background:var(--paper);
     flex-direction:column; align-items:flex-start; gap:0; padding:1rem 1.5rem;
-    transform:translateY(-110%); transition:transform 0.25s ease; overflow-y:auto;
+    transform:translateY(-110vh); transition:transform 0.25s ease, visibility 0.25s;
+    overflow-y:auto; visibility:hidden;
   }
-  .nav-links.open{ transform:translateY(0); }
-  .nav-links a{ padding:0.9rem 0; width:100%; border-bottom:1px solid var(--line); }
+  .nav-links.open{ transform:translateY(0); visibility:visible; }
+  .nav-links li{ width:100%; }
+  .nav-links a{ padding:0.9rem 0; width:100%; display:block; border-bottom:1px solid var(--line); }
   .nav-toggle{ display:block; }
   .nav-cta .btn-ghost{ display:none; }
 }
@@ -304,6 +312,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .accordion-trigger .plus{ font-family:var(--font-mono); color:var(--clay); font-size:1.2rem; flex:none; }
 .accordion-panel{ max-height:0; overflow:hidden; transition:max-height 0.25s ease; }
 .accordion-panel p{ padding:0 0 1.35rem; color:var(--ink-soft); max-width:70ch; }
+
+/* ---------- real photography ---------- */
+figure.media{ margin:0; }
+.media img{
+  width:100%; height:auto; display:block;
+  border:1px solid var(--line); border-radius:2px;
+  background:var(--paper-dim);
+}
+.media.wide img{ aspect-ratio:16/9; object-fit:cover; }
+.media.square img{ aspect-ratio:1/1; object-fit:cover; }
+.media figcaption{
+  margin-top:0.6rem;
+  font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.04em; line-height:1.5;
+  color:var(--ink-soft);
+}
+/* fixed circular headshot — matches the trustee treatment above */
+.headshot{
+  width:88px; height:88px; flex:none;
+  border-radius:50%; object-fit:cover; border:1px solid var(--line);
+}
 
 /* ---------- placeholder media (no real photo assets yet) ---------- */
 .ph-media{

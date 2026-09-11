@@ -27,6 +27,39 @@ This is a **static HTML/CSS/JS site** — no build step, no server required. It 
 
 ---
 
+## 1a. What changed in this pass (11 Sep 2026)
+
+The site went from "structurally complete but unillustrated" to "illustrated", and one blocking
+mobile bug was fixed along the way.
+
+**Photography — 18 of 28 placeholders filled.** 23 assets extracted from the FY 2025–26 Annual
+Report (Version 6), cropped and optimised to 2.2 MB total. Six athletes are named on the evidence of
+their own story pages; the rest are honestly labelled as representative. Full provenance and the 10
+deliberately-open slots are in section 3a. Pages that previously had zero images — the homepage,
+Gear for Gold, all 11 athlete stories, Get Involved, SAPA Centre — now have them.
+
+**Fixed: the mobile menu was completely broken.** On every one of the 20 pages, at any width
+≤900px, the nav panel collapsed to a 32px strip showing only "Home" — it also overlapped the logo,
+and tapping the toggle did nothing. About Us, Programmes, Our Funders, Get Involved and Careers were
+**unreachable on a phone**.
+
+Cause: `.site-header` uses `backdrop-filter`, which makes it the *containing block* for its
+`position: fixed` children. So `inset: 64px 0 0 0` on `.nav-links` resolved against the 64px-tall
+header instead of the viewport, and `translateY(-110%)` moved the panel by only 35px. Fixed in
+`assets/css/styles.css` by sizing and translating the panel in viewport units
+(`height: calc(100dvh - 64px)`, `translateY(-110vh)`), plus `visibility` toggling so the closed menu
+isn't focusable. Full-width tap targets restored via `.nav-links li{ width:100% }`.
+
+**Regression tested** at 375 / 768 / 1280px across all 20 pages: zero horizontal overflow, all 30
+images resolve, no console errors, mobile menu opens and closes correctly.
+
+**Known issue, not yet fixed:** `assets/css/styles.css:6` loads Google Fonts via CSS `@import`,
+which serialises the page load (HTML → CSS → font CSS → font files). Moving it to
+`<link rel="preconnect">` + `<link>` in each `<head>` would measurably improve first paint, but it
+touches all 20 files — worth doing as its own change.
+
+---
+
 ## 2. Site map
 
 | Page | File | Built from |
@@ -63,18 +96,106 @@ This is a **static HTML/CSS/JS site** — no build step, no server required. It 
 
 This beta now pulls real data from two source documents: the original vendor content/wireframe doc, and GoSports' **FY 2025–26 Annual Report** (`GSF_ANNUAL_REPORT_-_VERSION_4_.pdf`). Here's what's real, what's extracted, and what's still a placeholder:
 
-- **All 12 programme pages** (`programme-*.html`): executive summaries, FY 2025–26 snapshot stats, one athlete impact story, and 1–2 beneficiary testimonials per programme — all real, pulled directly from the Annual Report. Photos of athletes are still placeholder blocks (the report's athlete photography wasn't extracted into this beta); everything else is real.
+- **All 12 programme pages** (`programme-*.html`): executive summaries, FY 2025–26 snapshot stats, one athlete impact story, and 1–2 beneficiary testimonials per programme — all real, pulled directly from the Annual Report. Athlete photography is now in place on 11 of the 12 pages — 6 of those are the named athlete themselves, 5 are sport-matched representative shots. See section 3a.
 - **Trustees &amp; Board Members** (`about.html`): six real people (Nandan Kamath, Abhishek Laxminarayan, Thomas Ollapally, Unmish Parthasarathi, Meghana Narayan, Deepthi Bopaiah) with real bios and **real photos**, cropped directly from the Annual Report.
 - **Executive Leadership** (`about.html`): Saugato Banerjee and Sonali Anna Philip's names and titles come from a dense staff-directory page in the report — worth a quick confirmation with HR, since titles were harder to parse cleanly from that layout than the Trustee bios were. John Gloster's title (Director of Sports Science) is carried over from the original vendor content, corroborated by a testimonial mentioning him in this report, but not independently re-confirmed.
 - **Foundation Partner logos** (`funders.html`): six real logos (Rainmatter by Zerodha, Nandi Housing, LawNK, Dr. Syed Ahmed Memorial Charitable Trust, Fusion Finance, MVS) cropped directly from the report. They're report-quality crops, not brand-supplied source files — ask each partner for their current logo asset before this goes live anywhere public.
 - **Our Funders page**: every corporate, foundation, and federation/government partner named is real, collated from the Annual Report — including which programme each one funds. This replaces the earlier, thinner placeholder list.
 - **SAPA Centre page** (`sapa-centre.html`): new. Built from sports-society.org (the Sports and Society Accelerator's own site), since GoSports' Annual Report references the SAPA Centre and SAPA Stack Framework without fully explaining them. Confirmed: SSA was co-founded by Nandan Kamath (GoSports' own Managing Trustee).
-- **Photos and video** (athletes in action, academies, events): still placeholder grey blocks everywhere except the Trustee/Board photos and partner logos described above. Real athlete/event photography from the report wasn't pulled in — that's a reasonable next step if you want to close this gap further.
+- **Photography** (athletes in action, academies, events): **18 of the original 28 image placeholders are now filled** with real photography extracted from the FY 2025–26 Annual Report (see section 3a below for the full provenance table and the 10 that remain open).
 - **Careers:** no open roles were listed in any source document, so the page invites CVs by email instead of showing fake postings.
 - **Contact emails** (`partnerships@gosports.in`, `volunteer@gosports.in`, `giving@gosports.in`, `careers@gosports.in`): still invented for this beta to make CTAs functional — **confirm or replace with real inboxes before this goes further than internal review.**
 - **Giving tiers on Get Involved** (`#donate`): the six amounts match the live donation page exactly; the "what this funds" line next to each is illustrative copy, not a confirmed cost.
 - **"Sustaining the System" section on Our Funders** (`#sustaining`): a **proposed** new giving category modelled on peer foundations — not something GoSports currently runs. Flagged in-page as a recommendation.
 - **"What's Next" section on the homepage:** SAPA Centre is now real and linked; Thought Leadership and Alumni Network remain as noted in the original vendor content. The Performance Institute now has its own full page and a featured spot here.
+
+---
+
+## 3a. Image provenance — read this before the site goes public
+
+All photography was extracted from **`GSF ANNUAL REPORT - VERSION 6.pdf`** (90 pages, the newest
+version — note the rest of this README's *copy* came from Version 4). Images were cropped to the
+slot's aspect ratio and resized down to fit; **nothing was upscaled**, so a few are soft (flagged
+below). Assets live in `assets/img/`.
+
+**Attribution method.** The Annual Report places each athlete's photo on the same page as that
+athlete's own written story. Where the photo came from the named athlete's story page *and* the
+sport matches the slot, the athlete is named in the `alt` text. Everywhere else the `alt` text
+describes the scene generically and the markup carries an HTML comment marked
+`REPRESENTATIVE IMAGE`. **No photo asserts an identity that isn't evidenced.**
+
+### Named athletes (6) — photo from that athlete's own story page
+
+| Page | Asset | Athlete | Evidence |
+|---|---|---|---|
+| `programme-ehcep.html` | `athlete-tanmayee-behera.jpg` | Tanmayee Behera, Cricket | Report p51, her story page; wearing Odisha kit (she plays for Odisha) |
+| `programme-gltadp.html` | `athlete-aneesh-gowda.jpg` | Aneesh Gowda, Swimming | Report p56, his story page |
+| `programme-mrtss.html` | `athlete-mantra-lokesh.jpg` | Mantra Lokesh, Para Athletics | Report p61, his story page |
+| `programme-rdamp.html` | `athlete-raja-muthupandi.jpg` | Raja Muthupandi, Weightlifting | Report p71, his story page |
+| `programme-samarth.html` | `athlete-yash-kumar.jpg` | Yash Kumar, Para Canoe | Report p77, his story page |
+| `programme-tayyari-jeet-ki.html` | `athlete-mishka-choudhary.jpg` | Mishka Choudhary, Sports Climbing | Report p82, her story page |
+
+### Representative images (5) — sport-matched, athlete NOT identified
+
+Each is flagged in-page with an HTML comment. Swap for a photo of the actual athlete when one exists.
+
+| Page | Asset | Note |
+|---|---|---|
+| `programme-abcssw.html` | `sport-badminton-doubles.jpg` | Doubles pair in India colours, from the ABCSSW section opener. Source is only 450×450 — **soft**, replace when possible. |
+| `programme-pcp.html` | `sport-swimming.jpg` | Swimming, not para swimming — the report had no para-swimming photo. |
+| `programme-rcb-cares.html` | `sport-athletics-highjump.jpg` | From the RCB Cares section opener; athletics, correct programme. |
+| `programme-ubhar.html` | `academy-cohort.jpg` | Cohort photo standing in for the Bhoir Gymkhana academy. |
+| `programme-gear-for-gold.html` | `gfg-gallery-1…4.jpg` | 4-up "Capturing impact" gallery: badminton, weightlifting, swimming, sports-science testing. |
+
+### Other images placed
+
+`home-ecosystem.jpg` (homepage, para javelin — the slot was a video, so the caption says the film is
+still in production), `volunteer-event.jpg` (Get Involved), `sapa-convening.jpg` (SAPA Centre),
+`gfg-academy.jpg` (Gear for Gold intro).
+
+### Still open — 10 placeholders left, deliberately
+
+These were left as `.ph-media` blocks because **no honest asset exists** in the source material.
+Substituting an athlete's face for a named executive, or another facility for the CSE campus, would
+have been a fabrication:
+
+| Slot | What's needed |
+|---|---|
+| `about.html` ×3 | Headshots: Saugato Banerjee, Sonali Anna Philip, John Gloster |
+| `performance-institute.html:319` | John Gloster headshot (same asset as above) |
+| `performance-institute.html:66` | Architectural **render** of the PI laboratory building |
+| `performance-institute.html:202` | Photo of the Centre for Sports Excellence campus, Bengaluru |
+| `careers.html` ×3 | Staff portraits — **and** the three testimonial quotes, which are still "Testimonial to be added" |
+| `programme-cm-aces.html:69` | Biri Takar, Para-Badminton — no para-badminton photo in the report |
+
+### Unused assets held in the repo
+
+Four extracted images are committed but not yet placed on a page, because the honest home for them
+isn't obvious. All four are web-ready:
+
+- `athlete-ekta-bhyan.jpg` — para club throw, Kobe 2024. Her name is legible on the bib, so this must
+  only ever be used to represent **Ekta Bhyan**. It was *not* used for the para-badminton slot.
+- `cohort-equal-hue.jpg` — cohort photo whose banner reads "Equal Hue Cricket Excellence Programme",
+  so it belongs on EHCEP material, not Gear for Gold.
+- `science-testing.jpg` — 1600×900 sports-science testing session. The obvious home is the
+  Performance Institute page, but both of its open slots ask for specific things (a building render
+  and the CSE campus), so it would have been mislabelled there. A square crop of this image *is* in
+  use as `gfg-gallery-4.jpg`.
+- `team-group.jpg` — 1600×900 photo of the full Foundation team. Would suit an About page "our team"
+  section, which doesn't exist yet.
+
+The two programme logos extracted from the report (`logo-ubhar.png`, `logo-tayyari-jeet-ki.png`) *are*
+now placed, on their respective programme pages above the funder note.
+
+### Known caveats
+
+- These are **crops out of a PDF**, not original photography. Ask the comms team for the original
+  files before any public launch — several are below ideal resolution (`athlete-tanmayee-behera.jpg`
+  is 407×407, `sport-badminton-doubles.jpg` 450×450).
+- **Model release / consent:** these images were cleared for the Annual Report. Confirm the same
+  consent covers website use, especially for the minors visible in the cohort photos.
+
+---
 
 ### ⚠️ A flag on The Performance Institute page
 
