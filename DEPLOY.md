@@ -111,8 +111,15 @@ request 500s. Create it first, over SSH:
 ```sh
 ssh -p 65002 u306132917@145.79.58.193 \
   "printf '%s\\n' 'gsfbeta:\$apr1\$SvMR8ivr\$Y9NEDbsxTpK3w7ZSveWaD.' \
-   > domains/betagsf.sreeb.dev/.htpasswd && chmod 600 domains/betagsf.sreeb.dev/.htpasswd"
+   > domains/betagsf.sreeb.dev/.htpasswd && chmod 644 domains/betagsf.sreeb.dev/.htpasswd"
 ```
+
+**Mode must be 644, not 600.** LiteSpeed's worker does not run as `u306132917`,
+so a 600 file is unreadable to it — and it reports that as **401, not 500**, so
+it looks exactly like a wrong password. If correct credentials are rejected,
+check the mode before you touch the hash. The file is still not web-reachable:
+it sits above the web root, and `/.htpasswd`, `/../.htpasswd` and the
+percent-encoded traversal all return 403.
 
 It sits one level above the web root, so it is not web-reachable at all — and
 it is deliberately not in the repo, since the repo is public.
