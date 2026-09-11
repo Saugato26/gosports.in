@@ -50,27 +50,41 @@ jobs:
             --exclude '.gitignore' \
             --exclude 'README.md' \
             --exclude 'DEPLOY.md' \
-            -e "ssh -p $SSH_PORT -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes" \
+            -e "ssh -p $SSH_PORT -i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey -o BatchMode=yes" \
             ./ "$SSH_USER@$SSH_HOST:$REMOTE_PATH"
 
       - name: Verify live
+        env:
+          BETA_AUTH: ${{ secrets.BETA_BASIC_AUTH }}
         run: |
           sleep 3
           fail=0
+          code() { curl -s -o /dev/null -w '%{http_code}' "$@"; }
           check() {
-            code=$(curl -s -o /dev/null -w '%{http_code}' "https://betagsf.sreeb.dev$1")
-            if [ "$code" = "$2" ]; then echo "ok   $1 -> $code"
-            else echo "FAIL $1 -> $code (expected $2)"; fail=1; fi
+            c=$(code "https://betagsf.sreeb.dev$1")
+            if [ "$c" = "$2" ]; then echo "ok   $1 -> $c"
+            else echo "FAIL $1 -> $c (expected $2)"; fail=1; fi
           }
-          check /                              200
-          check /robots.txt                    200
-          check /assets/img/academy-cohort.jpg 200
-          check /README.md                     404
-          check /DEPLOY.md                     404
-          check /.gitignore                    403
+          # The beta sits behind HTTP basic auth, so an unauthenticated request
+          # must be 401. That is the proof the gate is live - including for
+          # images, which no noindex layer reaches on this host.
+          check /                              401
+          check /assets/img/academy-cohort.jpg 401
+          check /robots.txt                    401
+          # The deny rules outrank Require valid-user, so these answer before
+          # the auth challenge and stay 403/404 with or without credentials.
+          check /README.md                     403
           check /.git/config                   404
-          echo "--- headers ---"
-          curl -sI https://betagsf.sreeb.dev/ | grep -i 'x-robots-tag\|x-content-type-options' || true
-          echo "--- noindex meta ---"
-          curl -s https://betagsf.sreeb.dev/ | grep -o '<meta name="robots"[^>]*>' || { echo "MISSING noindex meta"; fail=1; }
+          check /.github/workflows/deploy.yml  404
+          # Content checks need credentials. Optional: set repo secret
+          # BETA_BASIC_AUTH to "user:password" to enable them.
+          if [ -n "$BETA_AUTH" ]; then
+            for p in / /assets/img/academy-cohort.jpg; do
+              c=$(code -u "$BETA_AUTH" "https://betagsf.sreeb.dev$p")
+              if [ "$c" = "200" ]; then echo "ok   $p -> 200 (authenticated)"
+              else echo "FAIL $p -> $c authenticated (expected 200)"; fail=1; fi
+            done
+          else
+            echo "::notice::BETA_BASIC_AUTH not set - authenticated content checks skipped"
+          fi
           exit $fail
