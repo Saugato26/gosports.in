@@ -600,6 +600,11 @@ dialog.lightbox::backdrop{ background:rgba(16,22,25,0.92); }
 .award b{ display:block; font-size:0.95rem; line-height:1.3; }
 .award span{ display:block; font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-soft); margin-top:0.35rem; }
 .award .verified{ color:#2E7D4F; letter-spacing:0.04em; }
+/* awards with a public source link out to it */
+a.award{ display:block; color:inherit; text-decoration:none; transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+a.award:hover, a.award:focus-visible{ border-color:var(--clay); transform:translateY(-3px); box-shadow:0 10px 28px rgba(16,22,25,0.08); outline:none; }
+.award .award-src{ color:var(--clay); font-weight:600; margin-top:0.85rem; }
+@media (prefers-reduced-motion:reduce){ a.award{ transition:none; } a.award:hover, a.award:focus-visible{ transform:none; } }
 
 /* Logo lockup in the header and footer */
 .nav-logo img{ height:34px; width:auto; display:block; }
