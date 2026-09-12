@@ -94,9 +94,12 @@ without anyone remembering a manual step:
 | HTML, CSS, JS, `.webmanifest`, `.txt` | `no-cache`: a copy may be kept, but it is checked with the server on every load (an unchanged file is a tiny 304) |
 | Images (JPEG, PNG, WebP, SVG, ICO …) | 1 hour |
 
-- **CSS/JS versions are stamped automatically.** The deploy workflow rewrites
-  every `styles.css?v=…` and `main.js?v=…` to the commit's short SHA before
-  uploading, so the `?v=` numbers in the repo no longer need bumping by hand.
+- **CSS/JS versions are stamped automatically.** Before uploading, the deploy
+  workflow rewrites every link to a file in `assets/css/` or `assets/js/`
+  (with or without an existing `?v=`) to `?v=<commit short SHA>`. Every
+  deploy gives stylesheets and scripts new URLs, so even a copy a browser
+  cached under an older, longer rule is never used again. The `?v=` numbers
+  in the repo are placeholders and never need bumping by hand.
   The workflow's verify step fails if the live homepage doesn't link the
   new version, or if HTML/CSS/JS stop sending `no-cache`.
 - **Replacing an image under the same filename** shows within the hour.

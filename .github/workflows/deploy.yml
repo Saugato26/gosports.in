@@ -42,17 +42,21 @@ jobs:
       - name: Show what will deploy
         run: git log --oneline -1
 
-      # Cache-busting without a manual step: every deploy rewrites the
-      # ?v= on styles.css and main.js to this commit's short SHA, so no
-      # browser or CDN can pair new HTML with an old stylesheet or script.
-      # The ?v= values in the repo are just placeholders from now on.
+      # Cache-busting without a manual step: every deploy stamps EVERY local
+      # stylesheet and script link (assets/css/*.css, assets/js/*.js), with
+      # or without an existing ?v=, with this commit's short SHA. Each deploy
+      # therefore gives them new URLs, so no browser or CDN can pair new HTML
+      # with an old copy - including copies cached under an older, longer
+      # cache rule that no header change can reach. ?v= values in the repo
+      # are placeholders; new CSS/JS files are covered automatically.
       - name: Stamp asset versions with the commit
         run: |
           v="${GITHUB_SHA::8}"
-          sed -i -E "s/(styles\.css|main\.js)\?v=[A-Za-z0-9]+/\1?v=$v/g" *.html
+          sed -i -E "s#(assets/(css|js)/[A-Za-z0-9._-]+\.(css|js))(\?v=[A-Za-z0-9._-]*)?\"#\1?v=$v\"#g" *.html
           echo "Stamped ?v=$v on $(grep -l "?v=$v" *.html | wc -l) pages"
-          if grep -nE '(styles\.css|main\.js)"' *.html; then
-            echo "::error::Unversioned stylesheet or script link found above"; exit 1
+          stale=$(grep -noE "assets/(css|js)/[A-Za-z0-9._-]+\.(css|js)[^\"]*\"" *.html | grep -v "?v=$v\"" || true)
+          if [ -n "$stale" ]; then
+            echo "$stale"; echo "::error::Stylesheet or script links above were not stamped"; exit 1
           fi
 
       - name: Rsync to Hostinger
@@ -108,10 +112,11 @@ jobs:
             echo "::notice::Site is behind basic auth and BETA_BASIC_AUTH is not set - freshness checks skipped"
           else
             v="${GITHUB_SHA::8}"
-            if curl -s "${auth[@]}" "https://betagsf.sreeb.dev/index.html?cb=$RANDOM" | grep -q "styles.css?v=$v"; then
-              echo "ok   homepage links styles.css?v=$v"
+            links=$(curl -s "${auth[@]}" "https://betagsf.sreeb.dev/index.html?cb=$RANDOM" | grep -oE "assets/(css|js)/[A-Za-z0-9._-]+\.(css|js)[^\"]*\"")
+            if [ -n "$links" ] && ! echo "$links" | grep -qv "?v=$v\""; then
+              echo "ok   homepage links all $(echo "$links" | wc -l | tr -d ' ') stylesheets/scripts at ?v=$v"
             else
-              echo "FAIL homepage does not link styles.css?v=$v"; fail=1
+              echo "FAIL homepage stylesheet/script links not all at ?v=$v:"; echo "$links"; fail=1
             fi
             for p in / /assets/css/styles.css /assets/js/main.js; do
               cc=$(curl -sI "${auth[@]}" "https://betagsf.sreeb.dev$p" | tr -d '\r' | grep -i '^cache-control:' | cut -d' ' -f2-)

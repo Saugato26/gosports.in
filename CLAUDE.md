@@ -54,8 +54,9 @@ Background lives elsewhere; read it before larger changes:
 
 ## Caching and deploy
 
-- A push to `main` deploys (rsync over SSH). The workflow stamps the commit SHA into every
-  `styles.css?v=` and `main.js?v=`, so never bump versions by hand.
+- A push to `main` deploys (rsync over SSH). The workflow stamps the commit SHA onto every
+  link to a file in `assets/css/` or `assets/js/`, so never bump `?v=` by hand, and new CSS/JS
+  files are covered as long as they live in those folders and are linked from the HTML.
 - HTML, CSS and JS are `no-cache`; images are cached for 1 hour. Don't change this without
   reading DEPLOY.md section 4. To swap an image instantly, use a new filename or clear the
   Hostinger cache (hPanel, or the Hostinger API's clear-website-cache for betagsf.sreeb.dev).
