@@ -49,15 +49,50 @@
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">How to read this</span>
-        <h2>Fourteen areas, one status each</h2>
-        <p>Each row is one thing a foundation site must get right. The status column is honest about the beta today: <span class="status status-done">Done</span> is built and checked, <span class="status status-partly">Partly</span> is started, <span class="status status-review">Review</span> works but needs someone's sign-off, <span class="status status-open">Open</span> hasn't been started. Tick items off by changing the status here as they close.</p>
+        <h2>Twenty areas, with evidence and priorities</h2>
+        <p>Each row is one thing a foundation site must get right. The status column is honest about the beta today: <span class="status status-done">Done</span> is reported complete in the beta record (see evidence limits below), <span class="status status-partly">Partly</span> is started, <span class="status status-review">Review</span> works but needs someone's sign-off, <span class="status status-open">Open</span> hasn't been started. New requirements below remain Open until implemented and demonstrated. Each new row names a responsible role and what would count as completion; assign actual people and dates before work starts.</p>
       </div>
       <div class="grid grid-4">
-        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">33</span><span class="small">Done</span></div>
-        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">10</span><span class="small">Partly</span></div>
-        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">9</span><span class="small">Review</span></div>
-        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">56</span><span class="small">Open</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);" data-status-count="done">23</span><span class="small">Done</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);" data-status-count="partly">20</span><span class="small">Partly</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);" data-status-count="review">10</span><span class="small">Review</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);" data-status-count="open">92</span><span class="small">Open</span></div>
       </div>
+    </div>
+  </section>
+
+
+  <section class="section section-alt" id="architecture-review">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">Architecture review · 12 September 2026</span><h2>A promising beta; safe team ownership is still to be built</h2><p>The simple static pages, shared styling, source notes and automated deployment are useful foundations. The missing layer is a publishing system that prevents routine mistakes, gives editors clear feedback and makes recovery easy. Marketing should own content and approval; a named technical owner should own the safeguards.</p></div>
+      <div class="grid grid-2">
+        <div class="card"><h3>What the repository shows</h3><ul class="t-list"><li>23 HTML files, shared CSS/JavaScript and direct deployment from main; no CMS or pre-deployment content test stage.</li><li>A local scan of HTML href/src targets and fragments found no missing local files or named anchors, but one placeholder Annual Report link on Our Funders. This does not test external destinations, CSS URLs, srcset, live server behaviour or inbox delivery.</li><li>Internal HTML pages are included in deployment. Password protection is commented out by prior request; search exclusion does not make material private.</li><li>Navigation and footer markup are copied across pages. Search metadata, image processing, link checks and approvals need repeatable defaults rather than editor memory.</li></ul></div>
+        <div class="card"><h3>Priorities for this beta</h3><ol class="t-list" style="list-style:decimal;"><li><b>Before public launch:</b> clear disclosure and consent, fix contact/action destinations, preserve donation and old URLs, enforce publish checks and prove recovery.</li><li><b>Before team ownership:</b> trial guided editing versus a structured CMS, share content records, practise preview/approval/undo and appoint owners.</li><li><b>After launch:</b> use monitoring, search and enquiry evidence to guide improvements. Defer optional features explicitly rather than treating every Open row as a launch blocker.</li></ol></div>
+      </div>
+      <p class="small mt-2"><b>Evidence limits:</b> this review inspected the local HTML, JavaScript, server/deploy configuration and project notes, and checked local HTML links. Earlier visual, contrast and device results remain historical claims, not newly rerun tests. Live hosting, branch protections, payments, permissions and source-document approvals were not verified. New rows are requirements, not implemented features. For rows 1–13, use Launch scope review to assign priorities before declaring readiness.</p>
+      <p class="small"><b>Reference guidance:</b> <a href="https://developers.google.com/search/docs/appearance/ai-features">Google: AI features and your website</a>; <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes">Google: site moves</a>; <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">W3C: tabs</a>; <a href="https://www.w3.org/WAI/ARIA/apg/patterns/accordion/">W3C: accordions</a>. Recommendations in the new sections are proposed acceptance criteria for GoSports; applicable legal and financial requirements need the responsible owners' review.</p>
+      <nav aria-label="Checklist areas"><h3>Jump to an area</h3><ul class="t-list">
+        <li><a href="#strategy">1 Strategy</a></li>
+        <li><a href="#content">2 Content</a></li>
+        <li><a href="#trust">3 Trust</a></li>
+        <li><a href="#brand">4 Brand</a></li>
+        <li><a href="#accessibility">5 Accessibility</a></li>
+        <li><a href="#performance">6 Performance</a></li>
+        <li><a href="#seo">7 Search</a></li>
+        <li><a href="#conversion">8 Giving and enquiries</a></li>
+        <li><a href="#legal">9 Privacy</a></li>
+        <li><a href="#security">10 Security</a></li>
+        <li><a href="#analytics">11 Measurement</a></li>
+        <li><a href="#launch">12 Launch</a></li>
+        <li><a href="#operations">13 Operations</a></li>
+        <li><a href="#claude">14 AI-assisted building</a></li>
+        <li><a href="#authoring">15 · Marketing ownership</a></li>
+        <li><a href="#publish-checks">16 · Automatic publishing checks</a></li>
+        <li><a href="#search-ai">17 · SEO and AI discovery</a></li>
+        <li><a href="#content-safety">18 · Athlete and editorial care</a></li>
+        <li><a href="#recovery">19 · Service ownership and recovery</a></li>
+        <li><a href="#release-plan">20 · Launch decisions and acceptance</a></li>
+      </ul></nav>
     </div>
   </section>
 
@@ -139,10 +174,10 @@
       <div class="section-head"><span class="eyebrow">5 · Accessibility</span><h2>Usable by everyone, including para athletes and their families</h2></div>
       <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead><tbody>
         <tr><td>Text contrast meets WCAG AA (4.5:1 body, 3:1 large)</td><td><span class="status status-done">Done</span></td><td>Automated check across all pages, zero failures</td></tr>
-        <tr><td>Every image has meaningful alt text</td><td><span class="status status-done">Done</span></td><td></td></tr>
+        <tr><td>Every image has meaningful alt text</td><td><span class="status status-review">Review</span></td><td>Alt attributes alone do not establish meaning. Review identity accuracy, decorative images with empty alt text, and representative photos beside named athlete stories.</td></tr>
         <tr><td>Heading levels in order on every page</td><td><span class="status status-done">Done</span></td><td></td></tr>
         <tr><td>Tap targets at least 24px, comfortably 44px on key actions</td><td><span class="status status-done">Done</span></td><td>One inline email link on Careers remains small</td></tr>
-        <tr><td>Keyboard navigation with visible focus</td><td><span class="status status-done">Done</span></td><td>Gold focus ring on all interactive elements</td></tr>
+        <tr><td>Keyboard navigation with visible focus</td><td><span class="status status-partly">Partly</span></td><td>Visible focus styling exists. main.js does not implement tab arrow-key navigation or accordion expanded-state updates; interaction and screen-reader tests remain required.</td></tr>
         <tr><td>Skip-to-content link for keyboard and screen-reader users</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>Reduced-motion preference respected</td><td><span class="status status-done">Done</span></td><td></td></tr>
         <tr><td>Text scales to 200% without breaking</td><td><span class="status status-open">Open</span></td><td>Not tested</td></tr>
@@ -160,9 +195,9 @@
         <tr><td>Responsive layout with no horizontal scrolling at any width</td><td><span class="status status-done">Done</span></td><td>Verified on all 21 pages</td></tr>
         <tr><td>Images resized, compressed and served in WebP</td><td><span class="status status-done">Done</span></td><td>Gallery assets are WebP; a few older JPEGs remain</td></tr>
         <tr><td>Images below the fold load lazily; sizes declared to avoid layout jumps</td><td><span class="status status-done">Done</span></td><td></td></tr>
-        <tr><td>Fonts preconnected, loaded without blocking</td><td><span class="status status-done">Done</span></td><td>Consider self-hosting Satoshi to remove the Fontshare dependency</td></tr>
-        <tr><td>Browser and CDN caching configured, with cache-busting for CSS and JS</td><td><span class="status status-done">Done</span></td><td>?v= stamp on every page</td></tr>
-        <tr><td>Core Web Vitals measured (Lighthouse or PageSpeed Insights) on Home and a programme page</td><td><span class="status status-open">Open</span></td><td>Not yet measured; target 90+ mobile</td></tr>
+        <tr><td>Fonts preconnected, loaded without blocking</td><td><span class="status status-partly">Partly</span></td><td>Preconnect and font display=swap are present, but external font stylesheets still participate in rendering. Test slow-network and font-failure behaviour; consider self-hosting with the appropriate licence.</td></tr>
+        <tr><td>Browser and CDN caching configured, with cache-busting for CSS and JS</td><td><span class="status status-partly">Partly</span></td><td>CSS/JS query versions and some expiry rules exist. WebP is absent from the explicit expiry list; CDN behaviour and replacing an image under the same filename need verification.</td></tr>
+        <tr><td>Core Web Vitals measured (Lighthouse or PageSpeed Insights) on Home and a programme page</td><td><span class="status status-open">Open</span></td><td>Measure representative templates on mobile. Track real-user LCP, INP and CLS when sufficient traffic exists; a Lighthouse score is a lab diagnostic, not proof of field performance.</td></tr>
         <tr><td>Total page weight budget (for example under 1.5 MB on Home)</td><td><span class="status status-open">Open</span></td><td></td></tr>
       </tbody></table></div>
     </div>
@@ -179,7 +214,7 @@
         <tr><td>Canonical URLs</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>Structured data (Organization / NGO, plus Event or Article where relevant)</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>Open Graph and Twitter card tags</td><td><span class="status status-open">Open</span></td><td>See Brand</td></tr>
-        <tr><td>Remove all three "no index" blocks at launch (robots.txt, meta tag, server header)</td><td><span class="status status-open">Open</span></td><td>Listed in DEPLOY.md §3</td></tr>
+        <tr><td>Production indexing rules separated from beta and internal-page rules</td><td><span class="status status-open">Open</span></td><td>Use a separate production configuration for approved public pages. Keep internal material excluded or protected; test both environments after deployment.</td></tr>
         <tr><td>Google Search Console and Bing Webmaster verified</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>Custom 404 page that keeps visitors on the site</td><td><span class="status status-open">Open</span></td><td></td></tr>
       </tbody></table></div>
@@ -208,14 +243,14 @@
     <div class="container">
       <div class="section-head"><span class="eyebrow">9 · Legal and privacy</span><h2>Meet Indian law and protect the people in the photos</h2></div>
       <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead><tbody>
-        <tr><td>Privacy policy covering forms, donations, analytics and cookies, aligned to the DPDP Act 2023</td><td><span class="status status-open">Open</span></td><td>Required once any form or analytics goes live</td></tr>
+        <tr><td>Privacy policy reviewed against applicable Indian data-protection requirements</td><td><span class="status status-open">Open</span></td><td>Privacy owner or counsel to confirm applicable requirements and commencement dates for actual data flows, audiences and service providers; publish an accurate notice before collection.</td></tr>
         <tr><td>Terms of use and donation / refund policy</td><td><span class="status status-open">Open</span></td><td>Payment gateways require a refund policy page</td></tr>
-        <tr><td>Cookie consent if analytics or embeds set cookies</td><td><span class="status status-open">Open</span></td><td>A cookie-free analytics tool (Plausible, Fathom) avoids the banner</td></tr>
+        <tr><td>Cookie consent if analytics or embeds set cookies</td><td><span class="status status-open">Open</span></td><td>Inventory cookies, embeds and personal-data processing, then have the privacy owner decide notice and consent behaviour for the actual configuration. A cookie-free product is not an automatic compliance exemption.</td></tr>
         <tr><td>Written consent for every identifiable person in photos, especially minors</td><td><span class="status status-review">Review</span></td><td>Images were cleared for the Annual Report; confirm web use is covered</td></tr>
         <tr><td>Rights to all photography (originals, not PDF crops) and partner logos</td><td><span class="status status-review">Review</span></td><td></td></tr>
         <tr><td>Trademark used correctly (GoSports Foundation ®)</td><td><span class="status status-done">Done</span></td><td>Logo carries the mark</td></tr>
         <tr><td>Third-party content (Performance Institute partnership) cleared for disclosure</td><td><span class="status status-review">Review</span></td><td>Leadership to confirm timing with the partner</td></tr>
-        <tr><td>Copyright line with year and registered entity name</td><td><span class="status status-open">Open</span></td><td>Footer year is blank</td></tr>
+        <tr><td>Copyright line with year and registered entity name</td><td><span class="status status-partly">Partly</span></td><td>main.js fills the year when JavaScript runs. Confirm the legal entity name and supply a useful non-JavaScript fallback.</td></tr>
       </tbody></table></div>
     </div>
   </section>
@@ -226,12 +261,12 @@
       <div class="section-head"><span class="eyebrow">10 · Security and hosting</span><h2>Hard to break, easy to restore</h2></div>
       <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead><tbody>
         <tr><td>HTTPS everywhere with automatic renewal</td><td><span class="status status-done">Done</span></td><td>Handled at the Hostinger CDN edge</td></tr>
-        <tr><td>Security headers (frame, sniffing, referrer, robots) and directory listing off</td><td><span class="status status-done">Done</span></td><td>.htaccess; see DEPLOY.md</td></tr>
-        <tr><td>No secrets, credentials or internal files reachable on the server</td><td><span class="status status-done">Done</span></td><td>Deploy excludes them and the server denies them; verified on each deploy</td></tr>
-        <tr><td>No third-party scripts beyond fonts (nothing to be compromised)</td><td><span class="status status-done">Done</span></td><td>Plain HTML, one script, no dependencies</td></tr>
-        <tr><td>Full site history and restore path</td><td><span class="status status-done">Done</span></td><td>Git is the backup; any commit can be redeployed</td></tr>
+        <tr><td>Security headers (frame, sniffing, referrer, robots) and directory listing off</td><td><span class="status status-partly">Partly</span></td><td>The local .htaccess config sets sniffing, referrer and beta robots headers and disables directory listing. No frame protection is configured here. Verify effective headers on HTML and assets at the host/CDN; review a Content Security Policy with required integrations.</td></tr>
+        <tr><td>No secrets, credentials or internal files reachable on the server</td><td><span class="status status-partly">Partly</span></td><td>Deploy excludes named repository files, but checklist.html and handover.html are shipped; Gallery is linked publicly. Noindex and an unlinked URL do not restrict access. Define a public-file allowlist and protect or exclude internal material.</td></tr>
+        <tr><td>Third-party dependencies inventoried and reviewed</td><td><span class="status status-partly">Partly</span></td><td>No third-party JavaScript is referenced by the current public pages; fonts are external dependencies. Hosting, accounts, the deployment pipeline and future integrations still need security ownership.</td></tr>
+        <tr><td>Full site history and restore path</td><td><span class="status status-partly">Partly</span></td><td>Git preserves tracked files, but a timed restore has not been evidenced. Back up hosting configuration and any future CMS, uploads, submissions and payment records separately; test recovery.</td></tr>
         <tr><td>Deploy key limited in scope</td><td><span class="status status-review">Review</span></td><td>Hostinger SSH keys are account-wide; treat the GitHub secret carefully</td></tr>
-        <tr><td>Beta protected by a password until launch</td><td><span class="status status-review">Review</span></td><td>Currently switched off</td></tr>
+        <tr><td>Beta protected by a password until launch</td><td><span class="status status-review">Review</span></td><td>Basic-auth directives are commented out by prior request. Leadership must resolve access and disclosure before wider sharing; noindex is not confidentiality. This review does not change that setting.</td></tr>
         <tr><td>Domain and hosting renewals on auto-renew, with two people holding access</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>Uptime monitoring with an alert to a person</td><td><span class="status status-open">Open</span></td><td></td></tr>
       </tbody></table></div>
@@ -243,7 +278,7 @@
     <div class="container">
       <div class="section-head"><span class="eyebrow">11 · Measurement</span><h2>Know what visitors do, without spying on them</h2></div>
       <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead><tbody>
-        <tr><td>Privacy-friendly analytics installed</td><td><span class="status status-open">Open</span></td><td>Plausible or Fathom avoids cookie banners; GA4 is free but needs consent</td></tr>
+        <tr><td>Privacy-friendly analytics installed</td><td><span class="status status-open">Open</span></td><td>Choose after mapping the data collected, retention, consent needs and access. Product choice alone does not settle privacy obligations.</td></tr>
         <tr><td>Goals tracked: donation clicks, partner enquiries, applications, careers emails</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>Campaign links (UTM) convention for social and newsletters</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>Monthly review of what's read and what's ignored, feeding content updates</td><td><span class="status status-open">Open</span></td><td></td></tr>
@@ -258,9 +293,9 @@
       <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead><tbody>
         <tr><td>Decision: replace gosports.in wholesale, or run the new site alongside first</td><td><span class="status status-open">Open</span></td><td>The current site is WordPress on the same host</td></tr>
         <tr><td>Content freeze and final sign-off from leadership</td><td><span class="status status-open">Open</span></td><td></td></tr>
-        <tr><td>All Review and Open items in the handover page closed</td><td><span class="status status-open">Open</span></td><td></td></tr>
+        <tr><td>Launch blockers closed and remaining scope explicitly agreed</td><td><span class="status status-open">Open</span></td><td>Close launch blockers, or remove the affected feature from launch scope. Record an owner and due date for agreed later improvements; a newsletter or public media kit need not delay a safe launch.</td></tr>
         <tr><td>Redirects tested for every old URL</td><td><span class="status status-open">Open</span></td><td></td></tr>
-        <tr><td>Remove beta notes, footer line, password and all three no-index blocks</td><td><span class="status status-open">Open</span></td><td></td></tr>
+        <tr><td>Switch approved public pages to production settings</td><td><span class="status status-open">Open</span></td><td>Enable indexing only for approved public pages. Keep private drafts and internal checklists protected or excluded; verify actual production headers, robots rules and page metadata.</td></tr>
         <tr><td>Test every email address and form end to end</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>Test on real devices: iPhone Safari, Android Chrome, Windows Chrome/Edge, Mac Safari</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>DNS change with low TTL, and a rollback plan</td><td><span class="status status-open">Open</span></td><td></td></tr>
@@ -276,12 +311,12 @@
       <div class="section-head"><span class="eyebrow">13 · Running it afterwards</span><h2>A site is a habit, not a project</h2></div>
       <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead><tbody>
         <tr><td>Named content owner with the authority to publish</td><td><span class="status status-open">Open</span></td><td>The content manager taking the handover</td></tr>
-        <tr><td>Editing workflow documented and practised once</td><td><span class="status status-done">Done</span></td><td>Handover page, "How to make changes safely"</td></tr>
-        <tr><td>Review step before publishing (a second pair of eyes on facts and names)</td><td><span class="status status-open">Open</span></td><td>GitHub pull requests give this for free if the team wants it</td></tr>
+        <tr><td>Editing workflow documented and practised once</td><td><span class="status status-partly">Partly</span></td><td>Instructions exist, but no observed marketing-team exercise is recorded. Handover currently recommends editing HTML and committing directly to main; replace this with the approved preview workflow before team ownership.</td></tr>
+        <tr><td>Review step before publishing (a second pair of eyes on facts and names)</td><td><span class="status status-open">Open</span></td><td>A pull request is only a review gate when approvals and passing checks are enforced. Repository protection settings have not been inspected; name the reviewer and prevent routine direct publishing.</td></tr>
         <tr><td>Update calendar: annual report yearly, programme numbers quarterly, team and board on change</td><td><span class="status status-open">Open</span></td><td></td></tr>
         <tr><td>Credentials register: GitHub, Hostinger, domain, gateway, analytics, form tool</td><td><span class="status status-open">Open</span></td><td></td></tr>
-        <tr><td>Quarterly check: broken links, outdated numbers, expired roles, accessibility re-run</td><td><span class="status status-open">Open</span></td><td>The audit script from 12 Sep can be re-run</td></tr>
-        <tr><td>Handover page kept current as items close</td><td><span class="status status-done">Done</span></td><td>Exists; needs the habit</td></tr>
+        <tr><td>Checks run on every publish, with scheduled maintenance afterwards</td><td><span class="status status-open">Open</span></td><td>Check internal links on every publish and external links on a recurring schedule, with an owner for alerts. Use quarterly reviews for deeper content and accessibility checks. No reusable audit script is checked into this repository.</td></tr>
+        <tr><td>Handover page kept current as items close</td><td><span class="status status-partly">Partly</span></td><td>Page exists; several instructions and status claims need reconciliation with this architecture review. Assign an owner and review date.</td></tr>
       </tbody></table></div>
     </div>
   </section>
@@ -313,7 +348,7 @@
           <h3>What a static site can't do alone</h3>
           <ul class="t-list">
             <li>Forms, donations and newsletters need a third-party service. Pick them early (see Giving and enquiries).</li>
-            <li>There is no CMS. Editing is through GitHub, which suits a small team with a clear owner. If many people need to publish, plan a move to a headless CMS later.</li>
+            <li>There is no CMS. Prove whether guided AI editing with protected templates or a structured CMS works for this team before choosing the long-term editing approach. Headcount alone does not settle that decision.</li>
             <li>Search over the site's own content isn't available without a service.</li>
           </ul>
         </div>
@@ -323,12 +358,98 @@
             <li>Describe the change in plain words, with the source for any fact.</li>
             <li>Claude edits, then shows the result at phone and desktop width.</li>
             <li>A second person checks names and numbers.</li>
-            <li>Push to <code>main</code>; it's live in about 40 seconds.</li>
+            <li>Publish the approved version only after required checks pass. Today main auto-deploys; the enforced approval and preview gates below still need implementation.</li>
             <li>Close the item on the handover page in the same change.</li>
-            <li>Re-run the audit before any launch or big content drop.</li>
+            <li>Check the deployed version and key journeys; show the team the result and recovery action. Run automatic checks on every publish.</li>
           </ol>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <section class="section section-alt" id="authoring">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">15 · Marketing ownership</span><h2>Make the safe way the easiest way</h2></div>
+      <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Owner and acceptance evidence</th></tr></thead><tbody>
+        <tr id="authoring-1"><td><b>Choose the editing approach through a real team trial</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Marketing lead + technical owner.</b> Compare guided AI editing with a structured CMS using the same tasks: update a statistic, add a programme, replace a photo, close a role and undo a mistake. Record assistance needed, time, recurring cost and export options; select only after two editors succeed.</td></tr>
+        <tr id="authoring-2"><td><b>Use structured content and shared page templates</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Store programmes, people, partners, impact figures and contacts as reusable records; generate repeated navigation/footer and page layouts from one source. Updating a contact or statistic once must update every intended appearance.</td></tr>
+        <tr id="authoring-3"><td><b>Give editors safe fields and automatic search defaults</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Provide plain-language fields for title, summary, image description, source, date and call to action. Generate page title, description, canonical address, social preview and applicable structured data; preview the results and validate overrides.</td></tr>
+        <tr id="authoring-4"><td><b>Choose internal destinations from a page and file picker</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Store stable references rather than typed URLs. On rename update incoming links and offer a redirect; block deleting a referenced page or document until a replacement or removal plan is supplied.</td></tr>
+        <tr id="authoring-5"><td><b>Validate image uploads and keep consent with the asset</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner + communications.</b> Create appropriately sized formats automatically, preview mobile crops and social crops, require alt text or decorative designation, and record credit, consent scope and expiry. Never infer a named athlete identity from a filename alone.</td></tr>
+        <tr id="authoring-6"><td><b>Provide drafts, private previews and a clear approval state</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Marketing lead + technical owner.</b> Editors can save without going live, preview phone and desktop, see exactly what changed and submit for review. Approve the exact version being published; later edits invalidate approval. Confidential previews require access control.</td></tr>
+        <tr id="authoring-7"><td><b>Limit editing permissions and manage simultaneous edits</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Separate editor, publisher and administrator access; protect layout, domain, payment and security settings. Detect competing changes, keep an audit trail, require individual accounts and MFA, and practise removing a departing user.</td></tr>
+        <tr id="authoring-8"><td><b>Demonstrate ownership without the original builder</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Marketing lead.</b> Two team members complete the trial and recover an accidental edit using plain-language instructions. Appoint a technical support contact, backup publisher and escalation route; reconcile handover instructions before sign-off.</td></tr>
+      </tbody></table></div>
+    </div>
+  </section>
+
+  <section class="section" id="publish-checks">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">16 · Automatic publishing checks</span><h2>Catch mistakes before visitors do</h2></div>
+      <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Owner and acceptance evidence</th></tr></thead><tbody>
+        <tr id="publish-checks-1"><td><b>Fail publication for broken internal links, anchors and assets</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Commit a repeatable check covering every generated public page, navigation, image, download, srcset and fragment; reject empty destinations and placeholder # links. A deliberately broken test link must prevent release. Local review found funders.html has a # Annual Report link.</td></tr>
+        <tr id="publish-checks-2"><td><b>Check external links with a useful failure policy</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner + marketing.</b> Validate new external destinations before approval; run scheduled checks with timeouts and retries. Distinguish 404/410 from transient outages, login challenges and bot blocking. Critical donation/application destinations require human confirmation if automated checks cannot verify them.</td></tr>
+        <tr id="publish-checks-3"><td><b>Enforce checks and approval before deployment</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> The checked-in workflow currently starts rsync after checkout with no content test stage. Add required checks and an independent publishing approval; verify branch/environment protections in the service. A failed check must leave the published version unchanged.</td></tr>
+        <tr id="publish-checks-4"><td><b>Test critical journeys and accessibility on every change</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Exercise menu, keyboard focus, tabs, accordions and primary calls to action at phone and desktop sizes. Add automated accessibility checks plus human keyboard/screen-reader review for changed interactions; alert on console errors and missing assets.</td></tr>
+        <tr id="publish-checks-5"><td><b>Validate search metadata, public content and page budgets</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Check missing/duplicate titles, canonical host, metadata/schema consistency, production noindex mistakes, placeholder copy and image/page-size limits. Require human evidence for claims and disclosure; a text scanner cannot prove facts or consent.</td></tr>
+        <tr id="publish-checks-6"><td><b>Deploy a complete release and verify its identity</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Publish a validated release atomically or provide equivalent protection from mixed old/new files; current rsync updates the live directory. Verify the deployed revision and real page content, links and key journeys, not just a 200 response. Keep the previous release ready.</td></tr>
+        <tr id="publish-checks-7"><td><b>Show actionable check results in plain language</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner + marketing.</b> Show page name, failing button/image, problem, suggested repair and owner. Separate blockers from warnings; any exception needs a reason, approver and expiry. Never present an unverified external link as passed.</td></tr>
+      </tbody></table></div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="search-ai">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">17 · SEO and AI discovery</span><h2>Make accurate information easy to find and cite</h2></div>
+      <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Owner and acceptance evidence</th></tr></thead><tbody>
+        <tr id="search-ai-1"><td><b>Define the foundation and each programme consistently</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Content lead.</b> Use approved organisation name, purpose, location, official profiles and programme names across pages. Give each programme a stable page with eligibility, support offered, application status and a verified contact; distinguish foundation, centre and partner relationships.</td></tr>
+        <tr id="search-ai-2"><td><b>Publish important answers as readable page text</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Content lead.</b> Answer real donor, athlete, parent and CSR questions in clear headings and concise text, not only images or downloads. Link to approved source reports and explain financial periods and cumulative versus annual totals.</td></tr>
+        <tr id="search-ai-3"><td><b>Keep facts sourced and maintained across all channels</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Content lead + programme owners.</b> Every impact figure needs a source, period, approver and review date. Maintain one approved value across site summaries and programme pages; show useful update dates, and flag overdue content instead of silently presenting it as current.</td></tr>
+        <tr id="search-ai-4"><td><b>Generate and validate structured data from approved content</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Use relevant supported types and stable entity identifiers; values must match visible text. Validate syntax and eligibility, and remove markup for absent features. Do not invent ratings, FAQs, awards or claims to influence search.</td></tr>
+        <tr id="search-ai-5"><td><b>Measure discovery without promising AI placement</b><br><span class="small">After launch</span></td><td><span class="status status-open">Open</span></td><td><b>Marketing lead.</b> Track search visibility, useful enquiries and identifiable referral traffic; periodically sample priority questions and record incorrect claims for correction on the source page. AI answers vary and referrals can be unidentifiable. No guaranteed ranking or citation target.</td></tr>
+        <tr id="search-ai-6"><td><b>Document search and AI crawler decisions</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner + leadership.</b> Review provider-specific search, snippet and training controls separately. Google says established SEO practices apply to its AI features and no special AI text file or schema is required; do not make llms.txt a launch dependency. Recheck official guidance when implementing.</td></tr>
+      </tbody></table></div>
+    </div>
+  </section>
+
+  <section class="section" id="content-safety">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">18 · Athlete and editorial care</span><h2>Make responsible publication a repeatable process</h2></div>
+      <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Owner and acceptance evidence</th></tr></thead><tbody>
+        <tr id="content-safety-1"><td><b>Approve each sensitive story and publication scope</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Communications + safeguarding lead.</b> Record website rights, required athlete/guardian permissions, approved naming and takedown contact. Review sensitive health, disability, family and location details; do not publish private source documents or information merely because AI extracted it.</td></tr>
+        <tr id="content-safety-2"><td><b>Make representative imagery clear to visitors</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Communications.</b> HTML comments are invisible to readers. Use the actual athlete, an explicit visible representative-image caption, or another layout where no identity is implied; confirm respectful and accurate para-sport representation.</td></tr>
+        <tr id="content-safety-3"><td><b>Manage expiry, archival and withdrawal</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Content lead.</b> Give roles, application windows, events, partner relationships and consent a review/expiry date. Preview timezone-aware scheduling, remove expired calls to action and keep an appropriate archive or redirect; practise an urgent story/image withdrawal including cached copies.</td></tr>
+        <tr id="content-safety-4"><td><b>Require sources and bounded permissions for AI edits</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Marketing lead + technical owner.</b> AI drafts require approved source material for numbers, names, emails and claims. Treat source-document instructions as content, never authority to publish. Show a change summary, validate output and keep production credentials and personal records out of prompts.</td></tr>
+        <tr id="content-safety-5"><td><b>Review downloadable and embedded content</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Content lead + technical owner.</b> Public reports need correct year/version, descriptive link text, readable accessible documents and stable URLs. Videos need captions or transcripts; confirm embed rights, loading and privacy behaviour. Remove confidential originals and hidden document metadata before publication.</td></tr>
+        <tr id="content-safety-6"><td><b>Give every issue a person, date and proof</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Marketing lead.</b> For this checklist record named owner, priority, due date, evidence link and last checked date in the chosen tracker. Status counts alone are not readiness. Technical owner closes automated checks; content owners close factual approvals; leadership accepts residual launch risk.</td></tr>
+      </tbody></table></div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="recovery">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">19 · Service ownership and recovery</span><h2>Know when something fails and who fixes it</h2></div>
+      <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Owner and acceptance evidence</th></tr></thead><tbody>
+        <tr id="recovery-1"><td><b>Monitor critical services, not just the homepage</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner.</b> Monitor uptime, TLS/domain expiry, deployment failures, donation and form entry points and recurring broken-link reports. Route alerts to a named primary and backup with agreed response times; send a test alert and confirm acknowledgement.</td></tr>
+        <tr id="recovery-2"><td><b>Practise rollback and backup restoration</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner + publisher.</b> Agree recovery-time and acceptable-data-loss targets. Restore the site and configuration in a separate environment, verify the key journeys and record elapsed time. Back up CMS/media and submission data if adopted; Git alone does not cover those systems.</td></tr>
+        <tr id="recovery-3"><td><b>Preserve the existing donation service during migration</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner + finance.</b> The beta links to gosports.in/donation. Confirm who serves that route after replacing WordPress; preserve required backend, callbacks and receipt flow or migrate deliberately. Test success, failure, cancel and duplicate submission in the provider sandbox; finance verifies reconciliation and receipt wording.</td></tr>
+        <tr id="recovery-4"><td><b>Prove enquiries reach a responsible person</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Marketing + technical owner.</b> Submit representative partner, athlete and careers enquiries, verify delivery and acknowledgement, and agree response times and backup cover. Provide accessible errors, retry behaviour and an alternate contact; never report success for a failed submission.</td></tr>
+        <tr id="recovery-5"><td><b>Own collected data throughout its life</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Privacy owner + technical owner.</b> Document storage, minimum fields, access, retention, deletion and provider responsibilities for enquiries, CVs, analytics and donations. Keep personal data out of URLs, logs and analytics events; review requirements with the responsible adviser.</td></tr>
+        <tr id="recovery-6"><td><b>Keep foundation control of accounts and suppliers</b><br><span class="small">Before team ownership</span></td><td><span class="status status-open">Open</span></td><td><b>Operations lead.</b> Use foundation-owned accounts, billing, password-manager access and recovery contacts. Record renewal dates, budgets, support arrangements, exports and exit steps for hosting, domain, editor/CMS, AI, forms and payments; prove a second authorised person can recover access.</td></tr>
+      </tbody></table></div>
+    </div>
+  </section>
+
+  <section class="section" id="release-plan">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">20 · Launch decisions and acceptance</span><h2>Launch only what is ready, then keep it healthy</h2></div>
+      <div class="table-wrap"><table class="data-table stack"><thead><tr><th>Item</th><th>Status</th><th>Owner and acceptance evidence</th></tr></thead><tbody>
+        <tr id="release-plan-1"><td><b>Inventory and test old URLs and downloadable files</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Technical owner + marketing.</b> Export existing URLs from the current site, sitemap, analytics and search tools; include donation routes, report PDFs, campaign/QR links and valuable media. Map each to a relevant replacement or intentional 404/410; test permanent redirects without loops or irrelevant homepage redirects.</td></tr>
+        <tr id="release-plan-2"><td><b>Decide what is public, private or deferred</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Leadership + content lead.</b> Resolve Performance Institute disclosure, invented inboxes, unsupported claims, consent and placeholders. Exclude or protect checklist/handover and decide whether Gallery is public. Launch may omit unfinished features; an unlinked or noindex page is still accessible.</td></tr>
+        <tr id="release-plan-3"><td><b>Sign off a production rehearsal and recovery decision</b><br><span class="small">Before public launch</span></td><td><span class="status status-open">Open</span></td><td><b>Publisher + technical owner.</b> Preview the exact release; test indexing, canonical domain, real 404 status, redirects, donor/enquiry journeys and mobile accessibility. Set launch owner, go/no-go criteria, rollback triggers and monitoring cover. Record proof rather than accepting an AI assertion that it passed.</td></tr>
+        <tr id="release-plan-4"><td><b>Review health at 24 hours, one week and monthly</b><br><span class="small">After launch</span></td><td><span class="status status-open">Open</span></td><td><b>Marketing lead + technical owner.</b> Check indexing/redirect errors, delivery, donation reconciliation, traffic and enquiry quality after launch. Monthly review overdue content, incidents and unresolved alerts; after a failure add a check that would catch its recurrence.</td></tr>
+      </tbody></table></div>
     </div>
   </section>
 
@@ -391,5 +512,11 @@
 </footer>
 
 <script src="assets/js/main.js?v=2026091207"></script>
+<script>
+// Totals always follow the status rows; the saved values also work without JavaScript.
+document.querySelectorAll('[data-status-count]').forEach(function (counter) {
+  counter.textContent = document.querySelectorAll('main tbody .status-' + counter.dataset.statusCount).length;
+});
+</script>
 </body>
 </html>
