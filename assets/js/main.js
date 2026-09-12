@@ -54,3 +54,20 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent = new Date().getFullYear();
   });
 });
+
+// Click-to-play YouTube embeds: swap the poster for the player only on demand,
+// so the page never loads YouTube's scripts for visitors who don't press play.
+document.querySelectorAll('.video-embed[data-video-id]').forEach(fig => {
+  const btn = fig.querySelector('.video-poster');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.className = 'video-frame';
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + fig.dataset.videoId + '?autoplay=1&rel=0';
+    iframe.title = btn.getAttribute('aria-label') || 'Video';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    btn.replaceWith(iframe);
+    iframe.focus();
+  });
+});
