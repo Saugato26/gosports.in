@@ -288,6 +288,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .card:has(> a.link){ display:flex; flex-direction:column; }
 a.card{ transition:border-color .15s ease, transform .15s ease; }
 a.card:hover{ border-color:var(--ink); transform:translateY(-2px); }
+/* People cards (About: leadership). Photos rest in greyscale, which also evens out
+   the mismatched source photos, and come alive under the pointer with a thin
+   brand-red ring that echoes the homepage's concentric rings. Only where hover
+   exists: phones always see full colour. */
+.person img{ transition:filter .35s ease, box-shadow .35s ease, transform .35s ease; }
+@media (hover:hover) and (pointer:fine){
+  .person img{ filter:grayscale(1) contrast(1.05); }
+  .person:hover img,
+  .person:focus-within img{ filter:none; transform:scale(1.03); box-shadow:0 0 0 4px var(--paper-raised), 0 0 0 6px var(--clay); }
+}
+@media (prefers-reduced-motion:reduce){
+  .person img{ transition:none; }
+  .person:hover img, .person:focus-within img{ transform:none; }
+}
+.person .note{ text-align:left; font-size:0.75rem; line-height:1.45; padding:0.6rem 0.75rem; margin:1rem 0 0; }
 .card h3{ font-size:1.3rem; margin-bottom:0.65rem; }
 .card p{ color:var(--ink-soft); font-size:0.96rem; }
 .card .num{ font-family:var(--font-mono); color:var(--clay); font-size:0.85rem; margin-bottom:0.75rem; display:block; }
