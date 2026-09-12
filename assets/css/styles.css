@@ -611,3 +611,15 @@ code{ font-family:var(--font-mono); font-size:0.85em; background:var(--paper-dim
 .status-review{ background:#FDF1DC; color:#8A5A00; }
 .data-table a{ text-decoration:underline; text-underline-offset:2px; }
 .checklist a{ text-decoration:underline; text-underline-offset:2px; }
+.status-done{ background:#E3F1E7; color:#1F5A32; }
+.status-partly{ background:#E8EEF5; color:#2C4A6E; }
+.status-open{ background:var(--paper-dim); color:var(--ink-soft); border:1px solid var(--line); }
+.data-table .status{ margin-right:0; white-space:nowrap; }
+/* three-column checklist tables stack into blocks on phones */
+@media (max-width:640px){
+  .data-table.stack thead{ display:none; }
+  .data-table.stack tr{ display:block; padding:0.9rem 0; border-bottom:1px solid var(--line); }
+  .data-table.stack td{ display:block; padding:0.2rem 0; border:none; }
+  .data-table.stack td:first-child{ font-weight:600; color:var(--ink); }
+  .data-table.stack td:empty{ display:none; }
+}
