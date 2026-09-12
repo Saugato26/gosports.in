@@ -19,8 +19,11 @@ Background lives elsewhere; read it before larger changes:
   off before launch.
 - Official copy (e.g. the film script from the YouTube description) goes in verbatim. Flag a
   possible typo to the user; don't silently fix it.
-- Anything that needs confirming before launch gets a `<div class="note"><b>Beta note:</b> …</div>`
-  next to it, and a line on `handover.html` where relevant.
+- Anything that needs confirming before launch gets a `<div class="note beta"><b>Beta note:</b> …</div>`
+  next to it, and a line on `handover.html` where relevant. The `beta` class matters: at launch one
+  CSS variable (`--beta-notes`) hides every beta note, while plain `.note` callouts stay public.
+- Decisions that need GoSports' input go in handover.html's "Waiting for review" table (item, where,
+  who), not just in the chat.
 - Prefer keeping visitors on the site: partner logos link to the programme that partner funds
   (see the funders page), not to the partner's social profiles.
 

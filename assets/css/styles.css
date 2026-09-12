@@ -269,9 +269,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .grid-2{ grid-template-columns:repeat(2,1fr); }
 .grid-3{ grid-template-columns:repeat(3,1fr); }
 .grid-4{ grid-template-columns:repeat(4,1fr); }
-@media (max-width:900px){ .grid-3,.grid-4{ grid-template-columns:repeat(2,1fr); } }
+.grid-5{ grid-template-columns:repeat(5,1fr); }
+@media (max-width:1100px){ .grid-5{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:900px){ .grid-3,.grid-4,.grid-5{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:600px){
-  .grid-2,.grid-3,.grid-4{ grid-template-columns:1fr; }
+  .grid-2,.grid-3,.grid-4,.grid-5{ grid-template-columns:1fr; }
   /* number + label stat cards are short enough to stay 2-up */
   .grid-4:has(> .card > .num + .small){ grid-template-columns:repeat(2,1fr); gap:0.75rem; }
   .grid-4:has(> .card > .num + .small) > .card{ padding:1.25rem 0.75rem; }
@@ -442,6 +444,10 @@ a.prog-card:hover{ border-color:var(--ink); transform:translateY(-2px); }
 a.link{ padding-block:0.5rem; margin-bottom:-0.5rem; }
 
 /* ---------- notes / callouts (for beta transparency) ---------- */
+/* Beta review notes carry class="note beta". PUBLIC LAUNCH: set --beta-notes to none
+   and every review note on the site disappears; plain .note callouts stay. */
+:root{ --beta-notes:block; }
+.note.beta{ display:var(--beta-notes); }
 .note{
   border:1px dashed var(--clay); background:#FCEDEE; color:var(--clay-deep);
   padding:1rem 1.25rem; font-size:0.88rem; margin-bottom:1.5rem;
@@ -672,3 +678,18 @@ code{ font-family:var(--font-mono); font-size:0.85em; background:var(--paper-dim
 .video-play svg{ width:32px; height:32px; margin-left:4px; }
 .video-poster:hover .video-play{ transform:translate(-50%,-50%) scale(1.06); background:var(--clay-deep); }
 .video-frame{ display:block; width:100%; aspect-ratio:16/9; border:0; border-radius:16px; background:#000; }
+
+/* ---------- skip link (every page) ---------- */
+.skip-link{ position:fixed; left:20px; top:10px; z-index:1000; background:#fff; color:var(--ink); padding:12px 20px; border:2px solid var(--clay); border-radius:8px; font-weight:600; transform:translateY(-180%); transition:transform .15s ease; }
+.skip-link:focus{ transform:none; }
+
+/* ---------- operating team (About) ---------- */
+.team-group + .team-group, .team-row + .team-group{ margin-top:2rem; }
+.team-row{ display:flex; flex-wrap:wrap; gap:2rem 4rem; }
+.team-row > .team-group{ margin-top:0; }
+.team-group h4{ font-family:var(--font-mono); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--clay); margin-bottom:1rem; }
+.team-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:1.25rem; }
+.team-member{ text-align:center; }
+.team-member img{ width:104px; height:104px; object-fit:cover; object-position:center 20%; border-radius:50%; margin:0 auto 0.75rem; background:var(--paper-dim); display:block; }
+.team-member b{ display:block; font-size:0.95rem; line-height:1.3; }
+.team-member span{ display:block; font-size:0.8rem; color:var(--ink-soft); margin-top:0.2rem; line-height:1.35; }
