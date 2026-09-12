@@ -57,19 +57,43 @@ RedirectMatch 404 /\.git(hub)?(/|$)
 </IfModule>
 
 # --- Caching ------------------------------------------------------------
-# Images are content-addressed by name and change rarely; HTML must stay fresh
-# so a git deploy is visible immediately rather than after a cache expiry.
+# Goal: a deploy is visible on the next page load, everywhere, without anyone
+# having to remember a manual step.
+#   - HTML, CSS, JS, manifest, txt: "no-cache" = browsers and the Hostinger CDN
+#     may keep a copy but must check with the server before using it. Unchanged
+#     files come back as a tiny 304, so this costs a round trip, not a download.
+#   - Images: 1 hour. mod_headers does not reach images on this host (LiteSpeed
+#     fast path, see DEPLOY.md), so they are set via mod_expires only. A photo
+#     replaced under the same filename shows within the hour.
+# Anything not listed would fall back to Hostinger's 7-day default, which is
+# what JS (served as application/x-javascript) and .webp were getting before.
 # Hostinger serves .webmanifest as text/plain without this
 AddType application/manifest+json .webmanifest
 
 <IfModule mod_expires.c>
     ExpiresActive On
-    ExpiresByType image/jpeg        "access plus 7 days"
-    ExpiresByType image/png         "access plus 7 days"
-    ExpiresByType image/svg+xml     "access plus 7 days"
-    ExpiresByType text/css          "access plus 1 day"
-    ExpiresByType application/javascript "access plus 1 day"
-    ExpiresByType text/html         "access plus 0 seconds"
+    ExpiresDefault                          "access plus 1 hour"
+    ExpiresByType image/jpeg                "access plus 1 hour"
+    ExpiresByType image/png                 "access plus 1 hour"
+    ExpiresByType image/webp                "access plus 1 hour"
+    ExpiresByType image/avif                "access plus 1 hour"
+    ExpiresByType image/gif                 "access plus 1 hour"
+    ExpiresByType image/svg+xml             "access plus 1 hour"
+    ExpiresByType image/x-icon              "access plus 1 hour"
+    ExpiresByType image/vnd.microsoft.icon  "access plus 1 hour"
+    ExpiresByType text/html                 "access plus 0 seconds"
+    ExpiresByType text/css                  "access plus 0 seconds"
+    ExpiresByType application/javascript    "access plus 0 seconds"
+    ExpiresByType application/x-javascript  "access plus 0 seconds"
+    ExpiresByType text/javascript           "access plus 0 seconds"
+    ExpiresByType application/manifest+json "access plus 0 seconds"
+    ExpiresByType text/plain                "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html?|css|js|webmanifest|txt)$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
 </IfModule>
 
 # --- Security headers ---------------------------------------------------

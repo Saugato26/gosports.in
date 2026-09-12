@@ -86,26 +86,31 @@ meta tag on every page.
 
 ## 4. Caching — and when to purge the CDN
 
-Set in `.htaccess`:
+Set in `.htaccess`. The aim is that a deploy is visible on the next page load
+without anyone remembering a manual step:
 
-| Type | Browser cache |
+| Type | Browser and CDN cache |
 |---|---|
-| HTML | none (`access plus 0 seconds`) — a deploy is visible on next load |
-| CSS, JS | 1 day |
-| JPEG, PNG, SVG | 7 days |
+| HTML, CSS, JS, `.webmanifest`, `.txt` | `no-cache`: a copy may be kept, but it is checked with the server on every load (an unchanged file is a tiny 304) |
+| Images (JPEG, PNG, WebP, SVG, ICO …) | 1 hour |
 
-Hostinger's CDN does **not** edge-cache HTML (`x-hcdn-cache-status: DYNAMIC`),
-but it **does** cache CSS, JS and images at the edge. So after a deploy:
-
-- HTML changes show immediately.
-- **CSS, JS or image changes may not.** Purge the CDN from the site's CDN page
-  in hPanel (Flush cache). Do this before concluding a deploy failed.
-- `styles.css` and `main.js` are linked with a `?v=YYYYMMDD` query string.
-  Bump it on every page whenever either file changes, or returning visitors
-  get new HTML with a stale stylesheet cached for up to a day:
-  `sed -i '' 's/?v=[0-9]*"/?v=NEWDATE"/' *.html`
-- Images are treated as immutable-by-name. To replace a photo, give the new
-  file a new name rather than overwriting the old one.
+- **CSS/JS versions are stamped automatically.** The deploy workflow rewrites
+  every `styles.css?v=…` and `main.js?v=…` to the commit's short SHA before
+  uploading, so the `?v=` numbers in the repo no longer need bumping by hand.
+  The workflow's verify step fails if the live homepage doesn't link the
+  new version, or if HTML/CSS/JS stop sending `no-cache`.
+- **Replacing an image under the same filename** shows within the hour.
+  Hostinger's CDN also keeps images at the edge for up to that hour; for an
+  instant swap, give the new file a new name, or clear the cache in hPanel
+  (Websites → betagsf.sreeb.dev → Cache / CDN → Flush cache).
+- Hostinger's CDN does not edge-cache HTML (`x-hcdn-cache-status: DYNAMIC`).
+- A browser tab left open (or restored) from before a change can still show
+  the old page until it is reloaded; if it looks very old, hard-reload
+  (Cmd+Shift+R). No server setting can reach a copy the browser never asks
+  about.
+- When the site is public and stable, image caching can be raised again (e.g.
+  7 days) for speed — at that point, rename replaced images rather than
+  overwriting them.
 
 HTTPS and the http→https redirect are handled at the CDN edge and are
 deliberately **not** repeated in `.htaccess` (doing so behind the CDN risks a
