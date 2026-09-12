@@ -1,0 +1,34 @@
+/* Shared legacy content: dates are explicit editorial milestones, not a rolling counter. */
+.legacy-note{scroll-margin-top:84px;background:var(--ink);color:#fff;padding:76px 0;}
+.legacy-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:8%;align-items:center;}
+.legacy-year{font-size:clamp(38px,4.7vw,68px);font-weight:700;letter-spacing:-.04em;line-height:1.1;}
+.legacy-year span{display:block;font-size:12px;line-height:1.5;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:#C7CACB;margin-bottom:18px;}
+.legacy-layout h2{font-size:clamp(27px,3vw,42px);font-weight:700;letter-spacing:-.025em;}
+.legacy-layout h2+p{color:#D5D7D8;max-width:52ch;margin-top:22px;line-height:1.65;}
+.legacy-link{display:inline-block;margin-top:23px;padding:10px 0;border-bottom:1px solid #999;font-weight:600;}
+.legacy-link:hover{color:#fff;border-color:#fff;}
+.foundation-journey{scroll-margin-top:95px;}
+.journey-intro{display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:end;margin-bottom:52px;}
+.journey-intro h2{font-size:clamp(36px,4.6vw,62px);font-weight:700;letter-spacing:-.04em;margin-top:20px;line-height:1.08;}
+.journey-intro>p{font-size:18px;color:var(--ink-soft);max-width:47ch;}
+.journey-chapters{list-style:none;padding:0;margin:0;}
+.journey-chapters>li{display:grid;grid-template-columns:1fr 2.6fr;gap:6%;padding:34px 0;border-top:1px solid var(--line);}
+.journey-date{font-family:var(--font-mono);font-size:clamp(20px,2.2vw,30px);color:var(--clay);font-weight:600;}
+.journey-chapters h3{font-size:clamp(24px,2.5vw,32px);font-weight:600;}
+.journey-chapters h3+p{max-width:65ch;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+.journey-next{display:flex;justify-content:space-between;gap:24px;align-items:center;padding:32px 0;border-top:1px solid var(--line);}
+.journey-next p{font-size:22px;font-weight:600;}
+.journey-archive{border-top:1px solid var(--line);}
+.journey-archive summary{padding:24px 0;cursor:pointer;font-weight:600;}
+.journey-archive summary:hover{color:var(--clay);}
+.journey-archive .timeline{margin-top:20px;margin-bottom:24px;}
+@media(max-width:700px){
+ .legacy-note{padding:48px 0;}
+ .legacy-layout,.journey-intro{grid-template-columns:1fr;gap:30px;}
+ .legacy-year{font-size:44px;}
+ .journey-intro{margin-bottom:36px;}
+ .journey-intro>p{font-size:17px;}
+ .journey-chapters>li{grid-template-columns:1fr;gap:13px;padding-block:27px;}
+ .journey-next{align-items:flex-start;flex-direction:column;}
+ .journey-next .btn{white-space:normal;text-align:center;}
+}
