@@ -59,6 +59,9 @@ RedirectMatch 404 /\.git(hub)?(/|$)
 # --- Caching ------------------------------------------------------------
 # Images are content-addressed by name and change rarely; HTML must stay fresh
 # so a git deploy is visible immediately rather than after a cache expiry.
+# Hostinger serves .webmanifest as text/plain without this
+AddType application/manifest+json .webmanifest
+
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresByType image/jpeg        "access plus 7 days"
