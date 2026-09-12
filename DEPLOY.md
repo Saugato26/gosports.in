@@ -100,8 +100,10 @@ but it **does** cache CSS, JS and images at the edge. So after a deploy:
 - HTML changes show immediately.
 - **CSS, JS or image changes may not.** Purge the CDN from the site's CDN page
   in hPanel (Flush cache). Do this before concluding a deploy failed.
-- `styles.css` and `main.js` are not fingerprinted, so returning visitors may
-  also hold a stale copy in their browser for up to a day.
+- `styles.css` and `main.js` are linked with a `?v=YYYYMMDD` query string.
+  Bump it on every page whenever either file changes, or returning visitors
+  get new HTML with a stale stylesheet cached for up to a day:
+  `sed -i '' 's/?v=[0-9]*"/?v=NEWDATE"/' *.html`
 - Images are treated as immutable-by-name. To replace a photo, give the new
   file a new name rather than overwriting the old one.
 
