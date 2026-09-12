@@ -1,6 +1,7 @@
 # GoSports Foundation — Beta Website
 
 **Status:** Beta / internal review
+**Current status, open items and sign-offs:** see [`handover.html`](https://betagsf.sreeb.dev/handover.html) — the living handover page for the content manager (not linked from the site nav). It supersedes the "still open" lists below where they differ.
 **Prepared for:** GoSports Foundation leadership
 **Source content:** vendor content & wireframe doc (Home, About Us, Programmes, Programme Pages, Get Involved — plus Careers, tone guidelines, and the 100x Accelerator narrative)
 
@@ -167,12 +168,12 @@ have been a fabrication:
 
 | Slot | What's needed |
 |---|---|
-| `about.html` ×3 | Headshots: Saugato Banerjee, Sonali Anna Philip, John Gloster |
-| `performance-institute.html:319` | John Gloster headshot (same asset as above) |
+| ~~`about.html` ×3~~ | ~~Headshots~~ — **filled 12 Sep 2026** with the team headshots from gosports.in (`team-saugato-banerjee`, `team-sonali-philip`, `board-john-gloster`) |
+| ~~`performance-institute.html`~~ | ~~John Gloster headshot~~ — **filled 12 Sep 2026** |
 | `performance-institute.html:66` | Architectural **render** of the PI laboratory building |
 | `performance-institute.html:202` | Photo of the Centre for Sports Excellence campus, Bengaluru |
 | `careers.html` ×3 | Staff portraits — **and** the three testimonial quotes, which are still "Testimonial to be added" |
-| `programme-cm-aces.html:69` | Biri Takar, Para-Badminton — no para-badminton photo in the report |
+| ~~`programme-cm-aces.html`~~ | Biri Takar, Para-Badminton — **12 Sep 2026:** now the CM ACES cohort photo, marked `REPRESENTATIVE IMAGE` |
 
 ### Unused assets held in the repo
 

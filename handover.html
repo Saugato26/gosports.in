@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website handover — GoSports Foundation (internal)</title>
+<meta name="description" content="Internal handover notes for the GoSports Foundation beta website: history, status, open items and sign-offs.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700,900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css?v=2026091205">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="nav-logo" aria-label="GoSports Foundation — home"><img src="assets/img/gallery/brand-logo-black.webp" alt="GoSports Foundation" width="264" height="88"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="programmes.html">Programmes</a></li>
+      <li><a href="funders.html">Our Funders</a></li>
+      <li><a href="get-involved.html">Get Involved</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li class="nav-menu-cta"><a href="get-involved.html" class="btn btn-primary">Partner With Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="get-involved.html" class="btn btn-ghost btn-sm">Partner With Us</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="breadcrumb">INTERNAL · NOT LINKED FROM THE SITE</span>
+      <h1>Website handover</h1>
+      <p class="lede">Where the GoSports Foundation beta site stands, how it got here, what's still open, and what needs sign-off. Written for the content manager taking it over. Status as of 12 September 2026.</p>
+    </div>
+  </section>
+
+  <!-- ============ AT A GLANCE ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">At a glance</span>
+        <h2>A working beta, in internal review</h2>
+        <p>The site is complete enough to review page by page. Every page is built from real source material. What's left is mostly content decisions, sign-offs and a few missing photos, not build work.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">21</span><span class="small">Pages</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">12</span><span class="small">Programme pages</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">170+</span><span class="small">Images in use</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">~40s</span><span class="small">From edit to live</span></div>
+      </div>
+      <table class="data-table mt-2">
+        <tbody>
+          <tr><td>Beta address</td><td><a href="https://betagsf.sreeb.dev/">betagsf.sreeb.dev</a>, hidden from search engines</td></tr>
+          <tr><td>Source code</td><td><a href="https://github.com/Saugato26/gosports.in" target="_blank" rel="noopener">github.com/Saugato26/gosports.in</a>, branch <code>main</code></td></tr>
+          <tr><td>How it's built</td><td>Plain HTML, one stylesheet and one small script. No CMS and no build step. The files in the repository <em>are</em> the site.</td></tr>
+          <tr><td>How it goes live</td><td>Every change pushed to <code>main</code> deploys automatically to Hostinger in about 40 seconds.</td></tr>
+          <tr><td>Password</td><td><span class="status status-review">Off</span> Basic-auth protection is switched off for now, so anyone with the link can view the beta. Switch it back on before sharing the link widely (see <em>Before public launch</em>).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ JOURNEY ============ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">The journey</span>
+        <h2>How the site evolved</h2>
+        <p>From a single landing page in July to a 21-page illustrated beta in September.</p>
+      </div>
+      <ol class="timeline">
+        <li>
+          <span class="t-date">14 Jul 2026</span>
+          <h3>First landing page</h3>
+          <p>A single GoSports landing page and a README describing the project.</p>
+        </li>
+        <li>
+          <span class="t-date">31 Jul 2026</span>
+          <h3>The full beta build</h3>
+          <p>The complete site was built from two sources: the vendor's content and wireframe document, and GoSports' FY 2025–26 Annual Report. The homepage became a six-part story (Who we are → What we do → How we do it → Who's funded us → What's next → Come work for us). A "Find your lane" section routes the seven audiences: academies, CSR professionals, athletes, ecosystem partners, philanthropists, job applicants and researchers. New pages were added for all 12 programmes, Our Funders, the SAPA Centre and the Performance Institute. Search-engine indexing was blocked.</p>
+        </li>
+        <li>
+          <span class="t-date">11 Sep 2026</span>
+          <h3>Hosting, brand and photography</h3>
+          <ul class="t-list">
+            <li><b>Automatic deploys:</b> pushing to GitHub publishes to Hostinger, with the server locked down so internal files are never served.</li>
+            <li><b>Photography:</b> 18 of 28 empty image slots filled with photos from the Annual Report. Athletes are only named where the report ties the photo to them.</li>
+            <li><b>Mobile menu fixed:</b> it was broken on every page, leaving most of the site unreachable on a phone.</li>
+            <li><b>Brand styleguide applied:</b> the live gosports.in red, dark, white and Satoshi typeface, plus the brand's rounded buttons.</li>
+            <li><b>Gallery and asset library:</b> reusable images imported from gosports.in, optimised, and catalogued on a new Gallery page. Trustee and funder images were upgraded.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="t-date">12 Sep 2026</span>
+          <h3>Real logo, full UI/UX audit, fixes</h3>
+          <ul class="t-list">
+            <li>The real GoSports logo and photography went onto the homepage.</li>
+            <li>A full audit of all 21 pages at phone and desktop sizes, using automated checks plus a page-by-page visual review. About 45 issues were found. The layout, image and accessibility ones were fixed the same day. The content decisions are listed below.</li>
+            <li>Among the fixes:
+              <ul>
+                <li>Testimonials on programme pages had been squeezed into a thin column.</li>
+                <li>Two programme logos showed as black boxes.</li>
+                <li>The Gallery's filter bar was hidden under the header.</li>
+                <li>Placeholder "PHOTO" boxes were replaced with real leadership headshots.</li>
+                <li>Partner logos now sit at similar sizes.</li>
+                <li>The mobile menu has a close button and the Partner call to action.</li>
+                <li>Some text had too little contrast to read comfortably.</li>
+              </ul>
+            </li>
+            <li>Phones were holding on to old copies of the design, so updates now reach them straight away.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ SITE MAP ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Site map</span>
+        <h2>What's on the site and where it came from</h2>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Page</th><th>File</th><th>Content source</th></tr></thead>
+          <tbody>
+            <tr><td><a href="index.html">Home</a></td><td><code>index.html</code></td><td>Vendor content and Annual Report figures</td></tr>
+            <tr><td><a href="about.html">About Us</a></td><td><code>about.html</code></td><td>Vendor content; Trustees, Board and bios from the Annual Report</td></tr>
+            <tr><td><a href="programmes.html">Programmes</a></td><td><code>programmes.html</code></td><td>All 12 programmes from the Annual Report</td></tr>
+            <tr><td>12 programme pages</td><td><code>programme-*.html</code></td><td>Annual Report: summary, stats, one athlete story, testimonials</td></tr>
+            <tr><td><a href="funders.html">Our Funders</a></td><td><code>funders.html</code></td><td>Every funder and partner named in the Annual Report</td></tr>
+            <tr><td><a href="sapa-centre.html">SAPA Centre</a></td><td><code>sapa-centre.html</code></td><td>sports-society.org (GoSports' incubated research and policy arm)</td></tr>
+            <tr><td><a href="performance-institute.html">Performance Institute</a></td><td><code>performance-institute.html</code></td><td>Partnership proposal material; see the sign-off list</td></tr>
+            <tr><td><a href="get-involved.html">Get Involved</a></td><td><code>get-involved.html</code></td><td>Vendor content, restructured around giving and partnering</td></tr>
+            <tr><td><a href="careers.html">Careers</a></td><td><code>careers.html</code></td><td>Vendor content</td></tr>
+            <tr><td><a href="gallery.html">Gallery</a></td><td><code>gallery.html</code></td><td>Catalogue of every reusable image and logo, with sources</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEEDS SIGN-OFF ============ -->
+  <section class="section section-alt" id="review">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Waiting for review</span>
+        <h2>Needs someone to confirm or decide</h2>
+        <p>Each of these is already on the site and works. It just needs a yes, a correction or a decision from the right person.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Item</th><th>Where</th><th>Who</th></tr></thead>
+          <tbody>
+            <tr><td><b>Performance Institute disclosure.</b> This page is built from a partnership that may not be public yet. Confirm timing with the partner before launch. If it isn't cleared, remove the budget table, the potential-experts list and the partner naming.</td><td><a href="performance-institute.html">Performance Institute</a></td><td>Leadership</td></tr>
+            <tr><td><b>Contact emails.</b> <code>partnerships@</code>, <code>volunteer@</code>, <code>giving@</code> and <code>careers@</code> were created for the beta so the buttons work. <code>gearforgold@</code> also needs checking. Confirm each inbox exists and is monitored, or replace it.</td><td>Most pages</td><td>Operations</td></tr>
+            <tr><td><b>Executive leadership titles.</b> Sonali Anna Philip ("Programmes") and John Gloster ("Director of Sports Science") are best-effort readings of the source material.</td><td><a href="about.html">About</a>, <a href="performance-institute.html">Performance Institute</a></td><td>HR</td></tr>
+            <tr><td><b>"What this funds" lines on donation amounts.</b> The amounts match the live donation page. The line under each one is illustrative, not a confirmed cost.</td><td><a href="get-involved.html#donate">Get Involved</a></td><td>Programme leads</td></tr>
+            <tr><td><b>"Sustaining the System" giving tier.</b> This is a <em>proposed</em> new category that GoSports doesn't run today. Adopt it, reword it or remove it.</td><td><a href="funders.html#sustaining">Our Funders</a></td><td>Leadership</td></tr>
+            <tr><td><b>SAPA Centre framing.</b> The page calls it GoSports' incubated research arm. Confirm that's how the relationship should be described publicly.</td><td><a href="sapa-centre.html">SAPA Centre</a></td><td>Leadership</td></tr>
+            <tr><td><b>Headlines.</b> The source document offered several options per page, and one was chosen for each.</td><td>All pages</td><td>Leadership</td></tr>
+            <tr><td><b>Photo consent.</b> The images were cleared for the Annual Report. Confirm that covers the website too, especially cohort photos with minors in them.</td><td>Programme pages, Gallery</td><td>Communications</td></tr>
+            <tr><td><b>Numbers that don't match.</b> Home says "five strategic pillars" but shows four. ABCSSW says "five sports" in the summary but "6" on its stat card.</td><td><a href="index.html">Home</a>, <a href="programme-abcssw.html">ABCSSW</a></td><td>Content</td></tr>
+            <tr><td><b>Representative photos.</b> Five programme stories use a sport-matched photo, not the named athlete. Each is marked in the page code. Swap each one when a real photo exists.</td><td>ABCSSW, PCP, RCB Cares, UBHAR, CM ACES</td><td>Communications</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STILL TO DO ============ -->
+  <section class="section" id="todo">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Still to do</span>
+        <h2>Missing content and assets</h2>
+        <p>These can't be finished from the material we have. Each needs a file, a link or a decision.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>What's missing</th><th>Where</th><th>What's needed</th></tr></thead>
+          <tbody>
+            <tr><td>Three staff photos and quotes ("Testimonial to be added")</td><td><a href="careers.html">Careers</a></td><td>Three staff portraits and quotes, or hide the section until they exist</td></tr>
+            <tr><td>"[ Render needed ]" and "[ Photo needed ]" boxes</td><td><a href="performance-institute.html">Performance Institute</a></td><td>A render of the lab building and a photo of the CSE campus, Bengaluru</td></tr>
+            <tr><td>"Read our Annual Report" button goes nowhere</td><td><a href="funders.html">Our Funders</a></td><td>A public link or PDF of the Annual Report</td></tr>
+            <tr><td>No site icon in the browser tab</td><td>All pages</td><td>A square GoSports icon (the live gosports.in doesn't have one either)</td></tr>
+            <tr><td>Two soft, low-resolution story photos</td><td><a href="programme-abcssw.html">ABCSSW</a>, <a href="programme-ehcep.html">EHCEP</a></td><td>Originals at least 1120px wide from the communications team</td></tr>
+            <tr><td>Partner logos cropped from the report PDF</td><td><a href="funders.html">Our Funders</a>, <a href="index.html">Home</a></td><td>Official logo files from each partner</td></tr>
+            <tr><td>Donation amounts look selectable but aren't</td><td><a href="get-involved.html#donate">Get Involved</a></td><td>Decide: link each amount to the live donation page, or restyle them as plain information</td></tr>
+            <tr><td>Three "What's next" cards have arrows but no link</td><td><a href="index.html">Home</a></td><td>Link them when the pages exist, or label them "Coming soon"</td></tr>
+            <tr><td>"See open positions" button leads to "no open roles"</td><td><a href="careers.html">Careers</a></td><td>Relabel it (for example, "Register your interest") or add real roles</td></tr>
+            <tr><td>Footer contact email differs between pages</td><td>All pages</td><td>Pick one contact address for the footer</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEFORE LAUNCH ============ -->
+  <section class="section section-alt" id="launch">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Before public launch</span>
+        <h2>Launch checklist</h2>
+        <p>The beta deliberately shows reviewers some things a public visitor should never see. Remove all of these before launch.</p>
+      </div>
+      <ul class="checklist">
+        <li><b>Remove the "Beta note" boxes and editorial asides.</b> They're currently on:
+          <ul>
+            <li><a href="index.html">Home</a>: "What's next" section</li>
+            <li><a href="about.html">About</a>: leadership titles, and the research hub</li>
+            <li><a href="get-involved.html">Get Involved</a>: donation amounts</li>
+            <li><a href="programmes.html">Programmes</a>: source line</li>
+            <li><a href="funders.html">Our Funders</a>: logo files, "keep in sync", "Sustaining the System" recommendation, "built to grow"</li>
+            <li><a href="sapa-centre.html">SAPA Centre</a></li>
+            <li>The Gallery page's audit notes</li>
+          </ul>
+        </li>
+        <li><b>Remove "Beta site — content in review."</b> from the footer of every page.</li>
+        <li><b>Remove or finish every item</b> in <a href="#todo">Still to do</a>. No placeholder boxes should remain.</li>
+        <li><b>Get sign-off</b> on everything in <a href="#review">Waiting for review</a>, especially the Performance Institute page.</li>
+        <li><b>Switch search engines back on.</b> Three separate blocks must all come out: <code>robots.txt</code>, the <code>noindex</code> tag at the top of every page, and a server setting. Your developer will know them from <code>DEPLOY.md</code>.</li>
+        <li><b>Until launch, switch the password back on</b> before sharing the beta link beyond the core team.</li>
+        <li><b>Decide the Gallery's future.</b> It's an internal asset catalogue that's currently in the main menu. Remove it from the menu, or rewrite it for the public.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ HOW TO EDIT ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Working on the site</span>
+        <h2>How to make changes safely</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Editing text</h3>
+          <p>Each page is one <code>.html</code> file in the repository, named after the page (see the site map). Edit the words between the tags and commit to <code>main</code>. The change is live in about 40 seconds. You can edit directly on GitHub in the browser: open the file, click the pencil icon, then commit.</p>
+        </div>
+        <div class="card">
+          <h3>Adding or replacing a photo</h3>
+          <p>Put new images in <code>assets/img/gallery/</code>. <b>Always give a replacement photo a new file name</b> rather than overwriting the old one, because browsers keep old images for a week. Resize to about 1600px wide before uploading.</p>
+        </div>
+        <div class="card">
+          <h3>Naming people in photos</h3>
+          <p>Only name an athlete in a photo's description when the source clearly shows it's them. Otherwise describe the scene, and mark the photo as representative with the same <code>REPRESENTATIVE IMAGE</code> comment used on the programme pages.</p>
+        </div>
+        <div class="card">
+          <h3>If a change doesn't show up</h3>
+          <p>Reload the page with the browser's reload button. On a phone, returning to an open tab can show an old copy. If you or a developer change the stylesheet (<code>styles.css</code>) or the script (<code>main.js</code>), bump the <code>?v=</code> number where every page links to them. This step is covered in <code>DEPLOY.md</code>.</p>
+        </div>
+        <div class="card">
+          <h3>Check on a phone</h3>
+          <p>Most visitors will be on a phone. After any layout change, look at the page on a phone or a narrow browser window, and open the menu once.</p>
+        </div>
+        <div class="card">
+          <h3>Deeper reference</h3>
+          <p><code>README.md</code> in the repository has the full reasoning behind the content and design choices, plus every image's source. <code>DEPLOY.md</code> covers hosting, caching and security. Neither file is published on the site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-logo"><img src="assets/img/gallery/brand-white-logo.svg" alt="GoSports Foundation" width="132" height="44"></div>
+        <p class="small mt-1" style="color:#8C9092;">A system-level sports development organisation building research-backed frameworks that champion excellence across Indian sport. Est. 2008.</p>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="funders.html">Our Funders</a></li>
+          <li><a href="sapa-centre.html">SAPA Centre</a></li>
+          <li><a href="performance-institute.html">Performance Institute</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get Involved</h2>
+        <ul>
+          <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+          <li><a href="get-involved.html#donate">Donate</a></li>
+          <li><a href="get-involved.html#partner">Partner</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:careers@gosports.in">careers@gosports.in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Follow</h2>
+        <ul>
+          <li><a href="https://www.instagram.com/gosportsvoices/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/gosports-foundation" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/user/GoSportsVoices" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://x.com/GoSportsVoices" target="_blank" rel="noopener">X</a></li>
+          <li><a href="https://www.facebook.com/GoSportsFoundation/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> GoSports Foundation. Beta site — content in review.</span>
+      <span>#ChampioningExcellence</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js?v=2026091205"></script>
+</body>
+</html>

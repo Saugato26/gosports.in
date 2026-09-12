@@ -592,3 +592,22 @@ dialog.lightbox::backdrop{ background:rgba(16,22,25,0.92); }
 .nav-logo img{ height:34px; width:auto; display:block; }
 .site-footer .nav-logo img{ height:38px; width:auto; }
 @media (max-width:640px){ .nav-logo img{ height:28px; } }
+
+/* ---------- handover page (handover.html): timeline, status pill, checklist ---------- */
+code{ font-family:var(--font-mono); font-size:0.85em; background:var(--paper-dim); border:1px solid var(--line); border-radius:4px; padding:0.05em 0.35em; }
+.timeline{ list-style:none; margin:0; padding:0 0 0 1.5rem; border-left:2px solid var(--line); max-width:72ch; }
+.timeline > li{ position:relative; padding:0 0 2.25rem 1rem; }
+.timeline > li:last-child{ padding-bottom:0; }
+.timeline > li::before{ content:''; position:absolute; left:calc(-1.5rem - 7px); top:0.3rem; width:12px; height:12px; border-radius:50%; background:var(--clay); box-shadow:0 0 0 4px var(--paper-dim); }
+.timeline h3{ font-size:1.2rem; margin:0.25rem 0 0.5rem; }
+.timeline p, .timeline li li, .t-list li{ color:var(--ink-soft); }
+.t-date{ font-family:var(--font-mono); font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--clay); }
+.t-list, .timeline ul ul, .checklist ul{ list-style:disc; padding-left:1.25rem; }
+.t-list li, .checklist ul li{ margin-top:0.4rem; }
+.checklist{ max-width:72ch; }
+.checklist > li{ position:relative; padding:0 0 1rem 2rem; }
+.checklist > li::before{ content:''; position:absolute; left:0; top:0.2rem; width:1.1rem; height:1.1rem; border:2px solid var(--ink); border-radius:4px; }
+.status{ display:inline-block; font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; padding:0.15rem 0.55rem; border-radius:100px; margin-right:0.4rem; }
+.status-review{ background:#FDF1DC; color:#8A5A00; }
+.data-table a{ text-decoration:underline; text-underline-offset:2px; }
+.checklist a{ text-decoration:underline; text-underline-offset:2px; }
