@@ -63,6 +63,7 @@ jobs:
             --exclude '.gitignore' \
             --exclude 'README.md' \
             --exclude 'DEPLOY.md' \
+            --exclude 'CLAUDE.md' \
             --exclude 'fetch-live-images.sh' \
             --exclude 'assets/img/live/' \
             -e "ssh -p $SSH_PORT -i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey -o BatchMode=yes" \
