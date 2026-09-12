@@ -73,9 +73,11 @@ jobs:
           # The beta sits behind HTTP basic auth, so an unauthenticated request
           # must be 401. That is the proof the gate is live - including for
           # images, which no noindex layer reaches on this host.
-          check /                              401
-          check /assets/img/academy-cohort.jpg 401
-          check /robots.txt                    401
+          # Basic auth is temporarily disabled, so these answer 200 not 401.
+          # Accept either, so the run stays honest whichever state it is in.
+          check /                              "200 401"
+          check /assets/img/academy-cohort.jpg "200 401"
+          check /robots.txt                    "200 401"
           # The deny rules outrank Require valid-user, so these answer before
           # the auth challenge and stay 403/404 with or without credentials.
           check /README.md                     403

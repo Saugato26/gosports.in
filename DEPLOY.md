@@ -59,6 +59,10 @@ against `git ls-files` so it still matches none of the site files.
 | `<meta name="robots" content="noindex, nofollow">` | all 20 pages | Pages, if a crawler fetches them anyway |
 | `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet` | `.htaccess` | Every response — including images and CSS, which meta tags can't cover |
 
+> ⚠️ **Basic auth is currently commented out in `.htaccess`** so the beta can be
+> browsed without a password. Layers 1-3 below are all that is active, and
+> layer 3 does not reach images. Re-enable before sharing the URL.
+
 **Layer 4, and the only airtight one: HTTP basic auth.** `.htaccess` requires a
 valid user for every request. A 401 cannot be indexed at all.
 

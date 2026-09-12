@@ -15,10 +15,18 @@
 # still surface. A 401 cannot be indexed at all. It also covers images, which
 # LiteSpeed serves on a fast path that skips mod_headers entirely.
 # .htpasswd lives OUTSIDE the web root - see DEPLOY.md section 5.
-AuthType Basic
-AuthName "GoSports beta"
-AuthUserFile /home/u306132917/domains/betagsf.sreeb.dev/.htpasswd
-Require valid-user
+# TEMPORARILY DISABLED at Sree's request so the beta can be browsed without a
+# password. .htpasswd is still on the server, so re-enabling is just deleting
+# the four "# " prefixes below -- no need to recreate the credentials.
+#
+# While these lines are commented out the ONLY thing keeping this beta out of
+# search results is robots.txt + the noindex meta tag + the X-Robots-Tag
+# header -- and the header measurably does not reach images on this host, so
+# every photograph is uncovered. Re-enable before sharing the URL anywhere.
+# AuthType Basic
+# AuthName "GoSports beta"
+# AuthUserFile /home/u306132917/domains/betagsf.sreeb.dev/.htpasswd
+# Require valid-user
 
 # --- Deny repository files that are not part of the site ---------------
 <FilesMatch "(^\.|\.md$|\.sh$|^LICENSE$)">
