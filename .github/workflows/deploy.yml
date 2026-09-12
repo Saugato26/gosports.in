@@ -68,6 +68,7 @@ jobs:
             --exclude 'README.md' \
             --exclude 'DEPLOY.md' \
             --exclude 'CLAUDE.md' \
+            --exclude 'tools/' \
             --exclude 'fetch-live-images.sh' \
             --exclude 'assets/img/live/' \
             -e "ssh -p $SSH_PORT -i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey -o BatchMode=yes" \
@@ -96,6 +97,8 @@ jobs:
           check /                              "200 401"
           check /assets/img/academy-cohort.jpg "200 401"
           check /robots.txt                    "200 401"
+          check /assets/img/og/index.jpg       "200 401"
+          check /tools/og/build.py             "404 403"
           # The deny rules outrank Require valid-user, so these answer before
           # the auth challenge and stay 403/404 with or without credentials.
           check /README.md                     403

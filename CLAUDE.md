@@ -60,6 +60,11 @@ Background lives elsewhere; read it before larger changes:
 - HTML, CSS and JS are `no-cache`; images are cached for 1 hour. Don't change this without
   reading DEPLOY.md section 4. To swap an image instantly, use a new filename or clear the
   Hostinger cache (hPanel, or the Hostinger API's clear-website-cache for betagsf.sreeb.dev).
+- Every page has a link-preview (Open Graph) card. After adding a page or changing a page's
+  headline or title, add or update its entry in `PAGES` in `tools/og/build.py` and run
+  `python3 tools/og/build.py <page>`. It renders `assets/img/og/<page>.jpg` and rewrites the
+  tags between `<!-- og:start -->` and `<!-- og:end -->`; don't hand-edit that block. When the
+  site moves to its production domain, change `BASE_URL` there and re-run for all pages.
 - A new repo-only file (docs, scripts) must be added to the rsync excludes in
   `.github/workflows/deploy.yml`. `.htaccess` also denies `*.md` and dotfiles as a second layer.
 
