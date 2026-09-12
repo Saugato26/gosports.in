@@ -119,7 +119,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .nav{
   display:flex; align-items:center; justify-content:space-between;
-  padding:1.1rem 0;
+  /* padding-block only: the nav is also a .container, whose side padding must survive */
+  padding-block:1.1rem;
 }
 .nav-logo{
   font-family:var(--font-display);
@@ -159,7 +160,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .nav-links li{ width:100%; }
   .nav-links a{ padding:0.9rem 0; width:100%; display:block; border-bottom:1px solid var(--line); }
   .nav-toggle{ display:block; }
-  .nav-cta .btn-ghost{ display:none; }
+  /* hide the whole wrapper, not just its button: an empty flex item would still
+     take a space-between slot and pull the toggle into the middle of the bar */
+  .nav-cta{ display:none; }
 }
 
 /* ---------- hero ---------- */
@@ -243,6 +246,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .section-tight{ padding:2.5rem 0; }
 .section-alt{ background:var(--paper-dim); }
 .section-ink{ background:var(--ink); color:var(--paper); }
+/* brand red on ink is only 3.1:1 — use gold, as the hero does */
+.section-ink .eyebrow{ color:var(--gold); }
+.section-ink .eyebrow::before{ background:var(--gold); }
 .section-head{ max-width:64ch; margin-bottom:2.5rem; }
 .section-head h2{ font-size:clamp(1.65rem,3vw,2.2rem); }
 .section-head p{ color:var(--ink-soft); margin-top:1rem; font-size:1.03rem; }
@@ -364,13 +370,13 @@ figure.media{ margin:0; }
 /* ---------- footer ---------- */
 .footer-cta{ background:var(--clay); color:#fff; padding:4rem 0; text-align:left; }
 .footer-cta h2{ font-size:clamp(1.75rem,3.3vw,2.4rem); color:#fff; }
-.footer-cta p{ margin-top:0.75rem; color:#F7D9DA; max-width:50ch; }
+.footer-cta p{ margin-top:0.75rem; color:#fff; max-width:50ch; } /* pink #F7D9DA was 4.4:1 on red */
 .footer-cta-row{ display:flex; justify-content:space-between; align-items:flex-end; gap:2rem; flex-wrap:wrap; }
 .hashtag{ font-family:var(--font-mono); font-size:0.85rem; letter-spacing:0.06em; margin-top:1.5rem; display:inline-block; }
 
 .site-footer{ background:var(--ink); color:#C7CACB; padding:3.5rem 0 2rem; }
 .footer-grid{ display:grid; grid-template-columns:1.4fr repeat(4,1fr); gap:2rem; }
-.footer-grid h4{ font-family:var(--font-body); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em; color:#fff; margin-bottom:1rem; font-weight:700; }
+.footer-grid h2{ font-family:var(--font-body); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em; color:#fff; margin-bottom:1rem; font-weight:700; }
 .footer-grid ul li{ margin-bottom:0.6rem; font-size:0.9rem; }
 .footer-grid ul li a:hover{ color:#fff; }
 .footer-bottom{
@@ -384,6 +390,8 @@ figure.media{ margin:0; }
 .page-hero h1{ font-size:clamp(1.85rem,3.7vw,2.7rem); color:#fff; max-width:22ch; }
 .page-hero .lede{ color:#C7CACB; max-width:60ch; margin-top:1rem; font-size:1.05rem; }
 .breadcrumb{ font-family:var(--font-mono); font-size:0.75rem; color:var(--gold); margin-bottom:1rem; letter-spacing:0.04em; }
+/* grow the tap target without moving the line: padding out, equal negative margin back */
+.breadcrumb a{ display:inline-block; padding:0.6rem 0; margin:-0.6rem 0; }
 
 /* ---------- programme cards ---------- */
 .prog-card{
@@ -393,6 +401,8 @@ figure.media{ margin:0; }
 .prog-card .tag{ font-family:var(--font-mono); font-size:0.7rem; color:var(--clay); letter-spacing:0.05em; }
 .prog-card h3{ font-size:1.25rem; }
 .prog-card a.link{ font-size:0.85rem; font-weight:700; color:var(--ink); margin-top:auto; }
+/* "See the programme →" style links: a 24px+ tap target; the negative bottom margin keeps the card's bottom spacing */
+a.link{ padding-block:0.5rem; margin-bottom:-0.5rem; }
 
 /* ---------- notes / callouts (for beta transparency) ---------- */
 .note{
