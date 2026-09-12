@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700,900&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css?v=2026091210">
+<link rel="stylesheet" href="assets/css/home-story.css?v=20260912a">
+<link rel="preload" as="image" href="assets/img/home-ecosystem.jpg" fetchpriority="high">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icons/icon-192.png">
 <link rel="apple-touch-icon" href="assets/img/icons/icon-180.png">
@@ -18,59 +20,58 @@
 <meta name="theme-color" content="#C71B23">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
+<body class="home-story">
+<a class="story-skip" href="#main-content">Skip to content</a>
 
 <header class="site-header">
   <nav class="nav container">
     <a href="index.html" class="nav-logo" aria-label="GoSports Foundation — home"><img src="assets/img/gallery/brand-logo-black.webp" alt="GoSports Foundation" width="264" height="88"></a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <ul class="nav-links">
-      <li><a href="index.html" aria-current="page">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="home-navigation"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="home-navigation">
+      <li><a href="about.html">About us</a></li>
       <li><a href="programmes.html">Programmes</a></li>
-      <li><a href="funders.html">Our Funders</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li class="nav-menu-cta"><a href="get-involved.html" class="btn btn-primary">Partner With Us</a></li>
+      <li><a href="#impact">Our impact</a></li>
+      <li class="nav-menu-cta"><a href="get-involved.html#partner" class="btn btn-primary">Partner with us</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="get-involved.html" class="btn btn-ghost btn-sm">Partner With Us</a>
+      <a href="get-involved.html#partner" class="btn btn-primary btn-sm">Partner with us</a>
     </div>
   </nav>
 </header>
 
-<main>
+<main id="main-content">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow">GoSports Foundation · Est. 2008</span>
-        <h1>Behind every champion is a system that works.</h1>
-        <p class="lede">We build the ecosystem around India's athletes — coaches, academies, sports science, and policy — so talent turns into consistent, global-level performance.</p>
-        <div class="hero-ctas">
-          <a href="#impact" class="btn btn-primary">See our impact</a>
-          <a href="get-involved.html" class="btn btn-ghost-light">Get involved</a>
-        </div>
+  <!-- Featured opening: use only approved photography and copy. Website consent remains a launch review item. -->
+  <section class="athlete-opening" aria-labelledby="opening-title">
+    <img class="opening-photo" src="assets/img/home-ecosystem.jpg" alt="Para javelin thrower preparing to release the javelin at an international competition" width="1229" height="691" fetchpriority="high" decoding="async">
+    <img class="opening-rings" src="assets/img/hero-support-rings.png" alt="" width="1000" height="1000" aria-hidden="true">
+    <div class="story-container opening-content">
+      <span class="opening-eyebrow">The wider frame</span>
+      <h1 id="opening-title">Behind every<br class="desktop-break"> athlete is a team.<br class="desktop-break"> Help us build theirs.</h1>
+      <p>We bring people, expertise and<br class="desktop-break"> opportunity together around athletes.</p>
+      <div class="opening-actions">
+        <a class="btn btn-primary" href="programmes.html">Explore our work<img src="assets/img/icons/arrow-right.svg" alt="" width="22" height="22"></a>
+        <a class="opening-link" href="get-involved.html">Get involved</a>
       </div>
-      <div class="rings-wrap" role="img" aria-label="Diagram of four concentric layers: the athlete at the centre, surrounded by coaches and family, then academies and systems, then policy and partners">
-        <svg viewBox="0 0 400 400">
-          <circle cx="200" cy="200" r="185" fill="none" stroke="rgba(244,245,240,0.14)" stroke-width="1"/>
-          <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(244,245,240,0.22)" stroke-width="1"/>
-          <circle cx="200" cy="200" r="95" fill="none" stroke="#E8A62A" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>
-          <circle cx="200" cy="200" r="40" fill="#C71B23"/>
-          <circle cx="200" cy="200" r="40" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.25"/>
-        </svg>
-      </div>
+      <a class="opening-scroll" href="#support-team"><img src="assets/img/icons/arrow-down.svg" alt="" width="44" height="44"><span>Discover the team behind the moment</span></a>
     </div>
-    <div class="container">
-      <ul class="small" style="display:flex;gap:1.75rem;flex-wrap:wrap;margin-top:1.5rem;color:#C7CACB;list-style:none;padding:0;">
-        <li style="display:flex;align-items:center;gap:0.5rem;"><span style="width:9px;height:9px;border-radius:50%;background:#C71B23;display:inline-block;"></span>Athlete</li>
-        <li style="display:flex;align-items:center;gap:0.5rem;"><span style="width:9px;height:9px;border-radius:50%;background:#E8A62A;display:inline-block;"></span>Coaches &amp; family</li>
-        <li style="display:flex;align-items:center;gap:0.5rem;"><span style="width:9px;height:9px;border-radius:50%;border:1px solid #C7CACB;display:inline-block;"></span>Academies &amp; systems</li>
-        <li style="display:flex;align-items:center;gap:0.5rem;"><span style="width:9px;height:9px;border-radius:50%;border:1px solid #6B6F71;display:inline-block;"></span>Policy &amp; partners</li>
-      </ul>
+  </section>
+
+  <section class="support-team" id="support-team" aria-labelledby="support-title">
+    <div class="story-container support-intro">
+      <h2 id="support-title">Excellence takes a team.</h2>
+      <nav aria-label="Explore the support around athletes" class="support-links">
+        <a href="#support-coaching">Coaching</a><a href="#support-science">Sports science</a><a href="#support-academies">Academies</a><a href="#support-partners">Partners</a>
+      </nav>
+    </div>
+    <div class="story-container support-stories">
+      <div class="support-heading"><span class="eyebrow">Around the athlete</span><h2>Progress is a<br>shared effort.</h2><p>Discover how GoSports brings different kinds of support together.</p><a href="programmes.html" class="support-text-link">Explore our programmes</a></div>
+      <div class="support-list">
+        <article id="support-coaching"><h3>Coaching</h3><p>Coaches and mentors help athletes turn ambition into a pathway for development.</p><a href="programme-rdamp.html">Explore athlete mentorship</a></article>
+        <article id="support-science"><h3>Sports science</h3><p>Specialist expertise supports the training and development needs of athletes.</p><a href="programme-gear-for-gold.html">See the academy development model</a></article>
+        <article id="support-academies"><h3>Academies</h3><p>Stronger training environments give athletes the support to keep progressing.</p><a href="programme-ubhar.html">Explore academy support</a></article>
+        <article id="support-partners"><h3>Partners</h3><p>Funders and ecosystem partners help make sustained support possible.</p><a href="funders.html">Meet our funders</a></article>
+      </div>
     </div>
   </section>
 
@@ -433,5 +434,6 @@
 </footer>
 
 <script src="assets/js/main.js?v=2026091210"></script>
+<script src="assets/js/home-story.js?v=20260912a" defer></script>
 </body>
 </html>
