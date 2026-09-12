@@ -99,6 +99,13 @@ jobs:
           check /robots.txt                    "200 401"
           check /assets/img/og/index.jpg       "200 401"
           check /tools/og/build.py             "404 403"
+          # Until launch, robots.txt must still shut out search engines: the
+          # catch-all group has to be "Disallow: /" (only preview bots are let in).
+          if curl -s "https://betagsf.sreeb.dev/robots.txt" | tr -d '\r' | grep -A1 -x 'User-agent: \*' | grep -qx 'Disallow: /'; then
+            echo "ok   robots.txt disallows all crawlers except link-preview bots"
+          else
+            echo "FAIL robots.txt no longer disallows search engines"; fail=1
+          fi
           # The deny rules outrank Require valid-user, so these answer before
           # the auth challenge and stay 403/404 with or without credentials.
           check /README.md                     403

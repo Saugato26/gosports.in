@@ -55,8 +55,8 @@ against `git ls-files` so it still matches none of the site files.
 
 | Layer | Where | Covers |
 |---|---|---|
-| `robots.txt` → `Disallow: /` | repo root | Tells compliant crawlers not to fetch anything |
-| `<meta name="robots" content="noindex, nofollow">` | all 20 pages | Pages, if a crawler fetches them anyway |
+| `robots.txt` → `Disallow: /` for every crawler except named link-preview bots | repo root | Tells compliant crawlers (Google, Bing, AI crawlers) not to fetch anything. LinkedIn, X, Facebook/WhatsApp, Slack and Telegram preview bots are allowed so shared links show the preview card; they build previews, not a search index |
+| `<meta name="robots" content="noindex, nofollow">` | every page | Pages, if a crawler fetches them anyway |
 | `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet` | `.htaccess` | Every response — including images and CSS, which meta tags can't cover |
 
 > ⚠️ **Basic auth is currently commented out in `.htaccess`** so the beta can be

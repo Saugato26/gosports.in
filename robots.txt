@@ -1,2 +1,17 @@
+# Beta site: keep every search engine and crawler out until launch.
+# Only link-preview bots are allowed in, so shared links still show the
+# preview card on LinkedIn, X, Facebook/WhatsApp and Slack. These bots
+# fetch a page to build a preview; they do not add it to a search index.
+# At launch, replace this whole file (see DEPLOY.md section 3).
+
+User-agent: LinkedInBot
+User-agent: Twitterbot
+User-agent: facebookexternalhit
+User-agent: Facebot
+User-agent: WhatsApp
+User-agent: Slackbot-LinkExpanding
+User-agent: TelegramBot
+Allow: /
+
 User-agent: *
 Disallow: /
