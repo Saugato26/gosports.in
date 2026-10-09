@@ -1,0 +1,73 @@
+{
+  "title": "UBHAR Programme",
+  "description": "Junior-to-senior transition and academy strengthening for Olympic and Para sports, supported by Tata Trusts.",
+  "breadcrumb": "UBHAR",
+  "h1": "UBHAR Programme",
+  "lede": "Junior-to-senior transition and academy strengthening for Olympic and Para sports, supported by Tata Trusts.",
+  "summary": {
+    "paragraphs": [
+      "The UBHAR Programme is focused on strengthening India's high-performance sports ecosystem by supporting young athletes as they transition from junior to senior competition, with structured, long-term support across training, sports science, and competition exposure.",
+      "Alongside athlete development, UBHAR works closely with academies to strengthen infrastructure, systems, and institutional capacity across sports including boxing, gymnastics, kho kho, kabaddi, archery, and athletics.",
+      "In FY 2025&ndash;26, from over 650 athlete applications, 13 athletes were selected across international, national, and state levels, while two academies &mdash; Bhoir Gymkhana and Eklavya Krida Mandal &mdash; were onboarded after detailed due diligence."
+    ],
+    "logo": {
+      "src": "assets/img/logo-ubhar.webp",
+      "alt": "UBHAR — Fuelling Future of Sports",
+      "width": 740,
+      "height": 345,
+      "max_width": "240px"
+    },
+    "supporter": "<b>Supported by:</b> Tata Trusts"
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "13",
+        "label": "Supported athletes"
+      },
+      {
+        "value": "7",
+        "label": "Sports"
+      },
+      {
+        "value": "650+",
+        "label": "Applications received"
+      },
+      {
+        "value": "2",
+        "label": "Academies onboarded"
+      }
+    ]
+  },
+  "story": {
+    "image_comment": "REPRESENTATIVE IMAGE (sport-matched, from the FY2025-26 Annual Report) - swap for a photo of this athlete when one is available",
+    "image": {
+      "src": "assets/img/academy-cohort.jpg",
+      "alt": "Young athletes at a GoSports programme induction",
+      "width": 681,
+      "height": 681,
+      "shape": "square"
+    },
+    "name": "Bhoir Gymkhana",
+    "role": "Academy partner",
+    "paragraphs": [
+      "<b>The story:</b> A high-performance gymnastics academy seeking a transparent, structured way to formalise its athlete development systems.",
+      "<b>The GSF impact:</b> UBHAR's rigorous, data-driven selection and onboarding process assessed the academy's background, performance, and systems in detail.",
+      "<b>The result:</b> Onboarding gave the academy's athletes more visibility, organised support, and a chance to compete at a higher level."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;We were confident in the system because the selection process was transparent and well-organized, particularly the thorough assessment of the academy's background and performance.&rdquo;",
+        "name": "Pawan Bhoir",
+        "role": "Owner &amp; High Performance Coach, Bhoir Gymkhana"
+      },
+      {
+        "quote": "&ldquo;Coming from a Tier 3&ndash;4 setup where such structured support is rare, the selection process made us reflect deeply on our 27 years of on-ground work and systems.&rdquo;",
+        "name": "Nirmalchandra Thorat",
+        "role": "Founder, Eklavya Krida Mandal"
+      }
+    ]
+  }
+}

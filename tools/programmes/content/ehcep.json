@@ -1,0 +1,59 @@
+{
+  "title": "Equal Hue Cricket Excellence Programme",
+  "description": "Scholarship and high-performance development for emerging women cricketers across India.",
+  "breadcrumb": "EHCEP",
+  "h1": "Equal Hue Cricket Excellence Programme",
+  "lede": "Scholarship and high-performance development for emerging women cricketers across India.",
+  "summary": {
+    "paragraphs": [
+      "EHCEP supports emerging women cricketers in India through structured scholarships, high-performance training, and holistic athlete development &mdash; building a sustainable talent pipeline as athletes transition from junior to elite levels.",
+      "FY 2025&ndash;26 was a strong year, marked by improved athlete performance and programme maturity: 4 championship wins, 18 individual awards, 3 international representations, and participation in the Women's Premier League.",
+      "The programme supported 20 athletes across 14 states, creating a strong pan-India presence and contributing to the growth of women's cricket."
+    ]
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "20",
+        "label": "Women cricketers"
+      },
+      {
+        "value": "14",
+        "label": "States reached"
+      },
+      {
+        "value": "10",
+        "label": "Wins"
+      },
+      {
+        "value": "82",
+        "label": "Tournaments competed"
+      }
+    ]
+  },
+  "story": {
+    "image": {
+      "src": "assets/img/athlete-tanmayee-behera.jpg",
+      "alt": "Tanmayee Behera walking out to bat in Odisha colours",
+      "width": 407,
+      "height": 407,
+      "shape": "square"
+    },
+    "name": "Tanmayee Behera",
+    "role": "Cricket",
+    "paragraphs": [
+      "<b>The story:</b> A torn finger ligament sustained mid-match, sidelining her and jeopardising her Inter-Zonal selection.",
+      "<b>The GSF impact:</b> She was referred to specialist sports physician Dr. Deepak Bhatia, with a focused rehabilitation plan of rest, medication, and structured physiotherapy, alongside continuous monitoring.",
+      "<b>The result:</b> Despite the injury, she scored a match-winning century and won Player of the Match &mdash; then went on to make her List-A debut for East Zone, scoring 47 runs."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;I'm grateful to GoSports Foundation for their support during my recovery. Special thanks to John Gloster for his guidance in rehabilitation.&rdquo;",
+        "name": "Kashvee Gautam",
+        "role": "Cricket"
+      }
+    ]
+  }
+}

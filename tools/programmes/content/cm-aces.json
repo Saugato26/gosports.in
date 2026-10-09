@@ -1,0 +1,67 @@
+{
+  "title": "Chief Minister's Athlete Coaching and Empowerment Scheme",
+  "description": "High-performance athlete development for Arunachal Pradesh, built with the state government.",
+  "breadcrumb": "CM ACES",
+  "h1": "Chief Minister's Athlete Coaching and Empowerment Scheme",
+  "lede": "High-performance athlete development for Arunachal Pradesh, built with the state government.",
+  "summary": {
+    "paragraphs": [
+      "CM ACES is a high-performance athlete development programme, implemented in collaboration with the Government of Arunachal Pradesh, to create structured pathways for emerging sporting talent from the state &mdash; spanning training, competition exposure, athlete management, and sports science.",
+      "In FY 2025&ndash;26, the programme supported 30 athletes across 9 disciplines. Athletes secured podium finishes at national events including the Inter-Services Weightlifting Championship, Senior National Taekwondo Championships, and National Karate Championships, as well as international competitions such as the Egypt Para Badminton International.",
+      "The programme's sports science ecosystem expanded to include physiotherapy, strength and conditioning, nutrition, and sports psychology, with dedicated Athlete Managers ensuring consistent monitoring throughout the year."
+    ],
+    "supporter": "<b>Exclusive partner:</b> Government of Arunachal Pradesh"
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "30",
+        "label": "Supported athletes"
+      },
+      {
+        "value": "9",
+        "label": "Sports"
+      },
+      {
+        "value": "42",
+        "label": "Medals won"
+      },
+      {
+        "value": "21",
+        "label": "Tournaments competed"
+      }
+    ]
+  },
+  "story": {
+    "image_comment": "REPRESENTATIVE IMAGE (CM ACES athlete induction) - swap for a photo of this athlete when one is available",
+    "image": {
+      "src": "assets/img/gallery/photo-cm-aces-cohort.webp",
+      "alt": "CM ACES scholarship athletes at their induction",
+      "width": 1600,
+      "height": 1065,
+      "shape": "natural",
+      "caption": "CM ACES athlete induction"
+    },
+    "name": "Biri Takar",
+    "role": "Para-Badminton",
+    "paragraphs": [
+      "<b>The story:</b> One of Arunachal Pradesh's promising para-sport athletes, his path to elite competition was held back by limited access to structured training, rehabilitation, and competition exposure.",
+      "<b>The GSF impact:</b> Physiotherapy, strength &amp; conditioning, and rehabilitation at specialist centres built his physical foundation, alongside nutrition guidance, equipment support, and an Athlete Manager handling travel and logistics.",
+      "<b>The result:</b> Gold at the North East Para Sports Meet, then a Bronze at the Egypt Para Badminton International in Cairo &mdash; the first international medal won by an athlete supported under the programme."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;The programme support has given me the opportunity to train in better facilities and compete at major events. It motivates me to continue performing and representing Arunachal Pradesh.&rdquo;",
+        "name": "Tinwong Wangpan",
+        "role": "Para-Athletics"
+      },
+      {
+        "quote": "&ldquo;CM ACES has provided me with the support I needed to train better and compete internationally. The rehabilitation, nutrition, and competition support have helped me improve my performance.&rdquo;",
+        "name": "Biri Takar",
+        "role": "Para-Badminton"
+      }
+    ]
+  }
+}

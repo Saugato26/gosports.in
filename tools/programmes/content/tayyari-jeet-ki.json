@@ -1,0 +1,67 @@
+{
+  "title": "Tayyari Jeet Ki",
+  "description": "A high-performance athlete support initiative for emerging Indian athletes, supported by Mondelez India.",
+  "breadcrumb": "TAYYARI JEET KI",
+  "h1": "Tayyari Jeet Ki",
+  "lede": "A high-performance athlete support initiative for emerging Indian athletes, supported by Mondelez India.",
+  "summary": {
+    "paragraphs": [
+      "Tayyari Jeet Ki is a high-performance athlete support initiative focused on enabling emerging Indian athletes to access structured training, competition exposure, and holistic performance services.",
+      "Q1 2026 marked the programme's successful launch: 15 athletes were selected from 22 shortlisted candidates across 8 sports, following a rigorous process evaluated by a joint Mondelez&ndash;GoSports panel.",
+      "During the quarter, athletes secured 4 podium finishes, including 3 gold medals, supported by 54 targeted interventions spanning equipment, competition travel, and specialised coaching."
+    ],
+    "logo": {
+      "src": "assets/img/logo-tayyari-jeet-ki.webp",
+      "alt": "Tayyari Jeet Ki programme logo",
+      "width": 710,
+      "height": 440,
+      "max_width": "200px"
+    },
+    "supporter": "<b>Exclusive partner:</b> Mondelez India"
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "15",
+        "label": "Supported athletes"
+      },
+      {
+        "value": "8",
+        "label": "Sports"
+      },
+      {
+        "value": "4",
+        "label": "Podium finishes"
+      },
+      {
+        "value": "13",
+        "label": "Tournaments competed"
+      }
+    ]
+  },
+  "story": {
+    "image": {
+      "src": "assets/img/athlete-mishka-choudhary.jpg",
+      "alt": "Mishka Choudhary on a competition climbing wall",
+      "width": 1100,
+      "height": 1100,
+      "shape": "square"
+    },
+    "name": "Mishka Choudhary",
+    "role": "Sports Climbing",
+    "paragraphs": [
+      "<b>The story:</b> Maintaining consistency in international participation was critical, and any disruption to travel or competition exposure risked her momentum.",
+      "<b>The GSF impact:</b> The athlete management team provided timely visa support and managed end-to-end travel and accommodation logistics for the Asian Championship in China.",
+      "<b>The result:</b> Competed successfully at the Asian Championship, gaining valuable exposure against some of Asia's top climbers while maintaining continuity through the season."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;Recognising the importance of reliable equipment, GSF procured a dedicated 10m rifle for me ahead of the competition season &mdash; improving my confidence, control, and overall training quality.&rdquo;",
+        "name": "Sandrata Roy",
+        "role": "Shooting"
+      }
+    ]
+  }
+}

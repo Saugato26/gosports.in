@@ -35,27 +35,35 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
-  <nav class="nav container">
+  <nav class="nav container" aria-label="Main">
     <a href="index.html" class="nav-logo" aria-label="GoSports Foundation — home"><img src="assets/img/gallery/brand-logo-black.webp" alt="GoSports Foundation" width="264" height="88"></a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="programmes.html" aria-current="page">Programmes</a></li>
-      <li><a href="funders.html">Our Funders</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li class="nav-menu-cta"><a href="get-involved.html" class="btn btn-primary">Partner With Us</a></li>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="site-navigation">
+      <li class="nav-group">
+        <a href="about.html">About us</a><button class="nav-sub-toggle" aria-expanded="false" aria-controls="nav-sub-about" aria-label="Show About us pages"></button>
+        <ul class="nav-sub" id="nav-sub-about">
+          <li><a href="about.html">About GoSports</a></li>
+          <li><a href="sapa-centre.html">SAPA Centre</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </li>
+      <li><a href="programmes.html" aria-current="true">Programmes</a></li>
+      <li class="nav-group">
+        <a href="get-involved.html">Get involved</a><button class="nav-sub-toggle" aria-expanded="false" aria-controls="nav-sub-involved" aria-label="Show Get involved pages"></button>
+        <ul class="nav-sub" id="nav-sub-involved">
+          <li><a href="funders.html">Partner with us</a></li>
+          <li><a href="get-involved.html">Ways to get involved</a></li>
+        </ul>
+      </li>
+      <li class="nav-menu-cta"><a href="get-involved.html#donate" class="btn btn-primary">Donate</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="get-involved.html" class="btn btn-ghost btn-sm">Partner With Us</a>
+      <a href="get-involved.html#donate" class="btn btn-primary btn-sm">Donate</a>
     </div>
   </nav>
 </header>
 
 <main id="main-content">
-
   <section class="page-hero">
     <div class="container">
       <span class="breadcrumb"><a href="programmes.html" style="color:var(--gold);">PROGRAMMES</a> / TAYYARI JEET KI</span>
@@ -64,59 +72,72 @@
     </div>
   </section>
 
+  <!-- SUMMARY -->
   <section class="section">
     <div class="container">
-      <span class="eyebrow">Executive summary</span>
-      <p class='mt-1' style='color:var(--ink-soft);'>Tayyari Jeet Ki is a high-performance athlete support initiative focused on enabling emerging Indian athletes to access structured training, competition exposure, and holistic performance services.</p>
-<p class='mt-1' style='color:var(--ink-soft);'>Q1 2026 marked the programme's successful launch: 15 athletes were selected from 22 shortlisted candidates across 8 sports, following a rigorous process evaluated by a joint Mondelez&ndash;GoSports panel.</p>
-<p class='mt-1' style='color:var(--ink-soft);'>During the quarter, athletes secured 4 podium finishes, including 3 gold medals, supported by 54 targeted interventions spanning equipment, competition travel, and specialised coaching.</p>
-      <img src="assets/img/logo-tayyari-jeet-ki.webp" alt="Tayyari Jeet Ki programme logo" width="710" height="440" style="max-width:200px;height:auto;margin:1.5rem 0 0;" loading="lazy" decoding="async">
-      <div class="note" style="border-color:var(--ink-soft);background:var(--paper-dim);color:var(--ink-soft);"><b>Exclusive partner:</b> Mondelez India</div>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <span class="eyebrow">FY 2025–26 snapshot</span>
-      <h2 style="font-size:1.6rem;margin-bottom:1.25rem;">The programme in numbers</h2>
-      <div class="grid grid-4">
-<div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">15</span><span class="small">Supported athletes</span></div>
-<div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">8</span><span class="small">Sports</span></div>
-<div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">4</span><span class="small">Podium finishes</span></div>
-<div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">13</span><span class="small">Tournaments competed</span></div>
-</div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">Athlete impact story</span>
-      <h2 style="font-size:1.6rem;margin-bottom:1.25rem;">From the field</h2>
-      <div class="grid grid-2" style="gap:2rem;align-items:start;">
-  <figure class="media square"><img src="assets/img/athlete-mishka-choudhary.jpg" alt="Mishka Choudhary on a competition climbing wall" width="1100" height="1100" loading="lazy" decoding="async"></figure>
-  <div>
-    <h3 style="font-size:1.3rem;">Mishka Choudhary <span class="small" style="font-weight:400;">— Sports Climbing</span></h3>
-    <p class="mt-1"><b>The story:</b> Maintaining consistency in international participation was critical, and any disruption to travel or competition exposure risked her momentum.</p>
-    <p class="mt-1"><b>The GSF impact:</b> The athlete management team provided timely visa support and managed end-to-end travel and accommodation logistics for the Asian Championship in China.</p>
-    <p class="mt-1"><b>The result:</b> Competed successfully at the Asian Championship, gaining valuable exposure against some of Asia's top climbers while maintaining continuity through the season.</p>
-  </div>
-</div>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <span class="eyebrow">In their words</span>
-      <h2 style="font-size:1.6rem;margin-bottom:1.25rem;">Beneficiary testimonials</h2>
-      <div class="grid grid-2">
-        <div class="testimonial">
-  <blockquote>&ldquo;Recognising the importance of reliable equipment, GSF procured a dedicated 10m rifle for me ahead of the competition season &mdash; improving my confidence, control, and overall training quality.&rdquo;</blockquote>
-  <cite><b>Sandrata Roy</b>Shooting</cite>
-</div>
+      <div>
+        <span class="eyebrow">Executive summary</span>
+        <p class="mt-1" style="color:var(--ink-soft);">Tayyari Jeet Ki is a high-performance athlete support initiative focused on enabling emerging Indian athletes to access structured training, competition exposure, and holistic performance services.</p>
+        <p class="mt-1" style="color:var(--ink-soft);">Q1 2026 marked the programme's successful launch: 15 athletes were selected from 22 shortlisted candidates across 8 sports, following a rigorous process evaluated by a joint Mondelez&ndash;GoSports panel.</p>
+        <p class="mt-1" style="color:var(--ink-soft);">During the quarter, athletes secured 4 podium finishes, including 3 gold medals, supported by 54 targeted interventions spanning equipment, competition travel, and specialised coaching.</p>
+        <img src="assets/img/logo-tayyari-jeet-ki.webp" alt="Tayyari Jeet Ki programme logo" width="710" height="440" style="max-width:200px;height:auto;margin:1.5rem 0 0;" loading="lazy" decoding="async">
+        <div class="note" style="border-color:var(--ink-soft);background:var(--paper-dim);color:var(--ink-soft);"><b>Exclusive partner:</b> Mondelez India</div>
       </div>
     </div>
   </section>
 
+  <!-- NUMBERS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">FY 2025–26 snapshot</span>
+        <h2>The programme in numbers</h2>
+      </div>
+      <div class="grid grid-4">
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">15</span><span class="small">Supported athletes</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">8</span><span class="small">Sports</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">4</span><span class="small">Podium finishes</span></div>
+        <div class="card" style="text-align:center;"><span class="num" style="display:block;font-size:1.8rem;color:var(--ink);font-family:var(--font-mono);">13</span><span class="small">Tournaments competed</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Athlete impact story</span>
+        <h2>From the field</h2>
+      </div>
+      <div class="grid grid-2" style="gap:2rem;align-items:start;">
+        <figure class="media square"><img src="assets/img/athlete-mishka-choudhary.jpg" alt="Mishka Choudhary on a competition climbing wall" width="1100" height="1100" loading="lazy" decoding="async"></figure>
+        <div>
+          <h3 style="font-size:1.3rem;">Mishka Choudhary <span class="small" style="font-weight:400;">— Sports Climbing</span></h3>
+          <p class="mt-1"><b>The story:</b> Maintaining consistency in international participation was critical, and any disruption to travel or competition exposure risked her momentum.</p>
+          <p class="mt-1"><b>The GSF impact:</b> The athlete management team provided timely visa support and managed end-to-end travel and accommodation logistics for the Asian Championship in China.</p>
+          <p class="mt-1"><b>The result:</b> Competed successfully at the Asian Championship, gaining valuable exposure against some of Asia's top climbers while maintaining continuity through the season.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">In their words</span>
+        <h2>Beneficiary testimonials</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="testimonial">
+          <blockquote>&ldquo;Recognising the importance of reliable equipment, GSF procured a dedicated 10m rifle for me ahead of the competition season &mdash; improving my confidence, control, and overall training quality.&rdquo;</blockquote>
+          <cite><b>Sandrata Roy</b>Shooting</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT -->
   <section class="section">
     <div class="container grid grid-3">
       <div class="card">

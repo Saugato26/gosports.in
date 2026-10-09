@@ -137,9 +137,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-size:0.92rem; font-weight:600; color:var(--ink-soft);
   position:relative; padding:0.3rem 0;
 }
-.nav-links a:hover, .nav-links a[aria-current="page"]{ color:var(--ink); }
-.nav-links a[aria-current="page"]::after{
+.nav-links a:hover, .nav-links a[aria-current]{ color:var(--ink); }
+/* aria-current="page" marks this page, "true" the section it sits in */
+.nav-links > li > a[aria-current]::after{
   content:''; position:absolute; left:0; right:0; bottom:-4px; height:2px; background:var(--clay);
+}
+/* dropdown parents: the label is a link to the section's main page, the
+   chevron opens the menu for touch and keyboard users; hover opens it too */
+.nav-group{ position:relative; display:flex; align-items:center; gap:0.2rem; }
+.nav-sub-toggle{ background:none; border:none; cursor:pointer; padding:0.35rem; color:var(--ink-soft); display:inline-flex; border-radius:4px; }
+.nav-sub-toggle::before{ content:''; width:0.4rem; height:0.4rem; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:translateY(-2px) rotate(45deg); transition:transform .15s ease; }
+.nav-sub-toggle[aria-expanded="true"]::before{ transform:translateY(1px) rotate(-135deg); }
+.nav-sub{
+  position:absolute; top:calc(100% + 0.6rem); left:-1rem; min-width:13.5rem; z-index:10;
+  background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:0.45rem;
+  box-shadow:0 10px 28px rgba(16,22,25,0.08); display:none;
+}
+/* bridge the gap so the menu doesn't close on the way down to it */
+.nav-sub::before{ content:''; position:absolute; left:0; right:0; top:-0.7rem; height:0.7rem; }
+.nav-group.open > .nav-sub{ display:block; }
+.nav-sub a{ display:block; padding:0.55rem 0.75rem; border-radius:8px; }
+.nav-sub a[aria-current="page"]{ color:var(--clay); }
+@media (hover:hover) and (pointer:fine){
+  .nav-group:hover > .nav-sub{ display:block; }
+  .nav-sub a:hover{ background:var(--paper-dim); color:var(--ink); }
+  .nav-sub-toggle:hover{ color:var(--ink); }
 }
 .nav-cta{ display:flex; align-items:center; gap:0.9rem; }
 .nav-toggle{ display:none; background:none; border:none; cursor:pointer; padding:0.4rem; }
@@ -149,7 +171,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 .nav-links .nav-menu-cta{ display:none; }
 
-/* collapse at 1000px, not 900: the seven links + CTA wrap onto two lines up to ~945px */
+/* collapse at 1000px: below that the three items, two dropdowns and the
+   Donate button get tight against the logo */
 @media (max-width: 1000px){
   /* NOTE: .site-header uses backdrop-filter, which makes it the containing
      block for position:fixed children. So `inset`/`%` here resolve against the
@@ -166,6 +189,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .nav-links.open{ transform:translateY(0); visibility:visible; }
   .nav-links li{ width:100%; }
   .nav-links a{ padding:0.9rem 0; width:100%; display:block; border-bottom:1px solid var(--line); }
+  .nav-links > li > a[aria-current]::after{ display:none; }
+  /* in the open menu every section's pages are listed under it: no toggles */
+  .nav-group{ display:block; }
+  .nav-sub-toggle{ display:none; }
+  .nav-sub{ display:block; position:static; min-width:0; border:none; border-radius:0; box-shadow:none; padding:0 0 0 1rem; background:none; }
+  .nav-sub::before{ display:none; }
+  .nav-sub a{ border-radius:0; font-weight:500; padding:0.7rem 0; }
   .nav-toggle{ display:block; }
   /* hide the whole wrapper, not just its button: an empty flex item would still
      take a space-between slot and pull the toggle into the middle of the bar */
@@ -255,6 +285,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .section{ padding:4.5rem 0; }
 .section-tight{ padding:2.5rem 0; }
 .section-alt{ background:var(--paper-dim); }
+/* in-page links (funders "I represent…", the Donate button) land below the sticky header */
+.section[id]{ scroll-margin-top:var(--header-h); }
 .section-ink{ background:var(--ink); color:var(--paper); }
 /* brand red on ink is only 3.1:1 — use gold, as the hero does */
 .section-ink .eyebrow{ color:var(--gold); }

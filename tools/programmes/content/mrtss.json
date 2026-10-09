@@ -1,0 +1,60 @@
+{
+  "title": "Murugappa Rising Talent Sports Scholarship",
+  "description": "High-performance scholarships for elite athletes, para athletes, and coaches, supported by AMM Foundation.",
+  "breadcrumb": "MRTSS",
+  "h1": "Murugappa Rising Talent Sports Scholarship",
+  "lede": "High-performance scholarships for elite athletes, para athletes, and coaches, supported by AMM Foundation.",
+  "summary": {
+    "paragraphs": [
+      "MRTSS is a high-performance development programme that supports elite and emerging athletes, Para Athletes, and coaches through holistic performance support &mdash; improving access to quality coaching, sports science, equipment, and competition exposure.",
+      "In FY 2025&ndash;26, the programme supported 15 beneficiaries across 5 sports and 5 states, including athletes, Para Athletes, and coaches, and delivered 156 interventions across physiotherapy, strength &amp; conditioning, nutrition, and more.",
+      "These interventions contributed to 31 total medals, including 24 international, with several athletes now strong contenders for the Asian Games 2026, Asian Para Games 2026, and 2028 Paralympics."
+    ],
+    "supporter": "<b>Exclusive partner:</b> AMM Foundation"
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "15",
+        "label": "Beneficiaries"
+      },
+      {
+        "value": "5",
+        "label": "Sports"
+      },
+      {
+        "value": "31",
+        "label": "Medals won"
+      },
+      {
+        "value": "111",
+        "label": "Tournaments competed"
+      }
+    ]
+  },
+  "story": {
+    "image": {
+      "src": "assets/img/athlete-mantra-lokesh.jpg",
+      "alt": "Mantra Lokesh with a medal at the track",
+      "width": 1100,
+      "height": 1100,
+      "shape": "square"
+    },
+    "name": "Mantra Lokesh",
+    "role": "Para Athletics",
+    "paragraphs": [
+      "<b>The story:</b> Transitioning from high jump to blade running in the 100m category, limited access to specialised sprinting prosthetics held back his progress.",
+      "<b>The GSF impact:</b> MRTSS connected him with Ottobock and Paralympic champion Heinrich Popow to customise a running blade suited to his classification and needs.",
+      "<b>The result:</b> A stronger, more confident training base and a clearer pathway towards qualification for the Asian Para Games 2026."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;The past year has been amazing, a learning curve as I prepare for the Asian Para Games 2026. I am fortunate that with the support of AMM Foundation, I was able to travel to the USA and get my running blade properly fitted.&rdquo;",
+        "name": "Pranav Desai",
+        "role": "Blade Running"
+      }
+    ]
+  }
+}

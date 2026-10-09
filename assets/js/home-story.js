@@ -21,7 +21,7 @@
     });
   }
   const toggle = document.querySelector('.nav-toggle');
-  const menu = document.querySelector('#home-navigation');
+  const menu = document.querySelector('#site-navigation');
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && menu?.classList.contains('open')) {
       menu.classList.remove('open');

@@ -35,21 +35,30 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
-  <nav class="nav container">
+  <nav class="nav container" aria-label="Main">
     <a href="index.html" class="nav-logo" aria-label="GoSports Foundation — home"><img src="assets/img/gallery/brand-logo-black.webp" alt="GoSports Foundation" width="264" height="88"></a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="site-navigation">
+      <li class="nav-group">
+        <a href="about.html">About us</a><button class="nav-sub-toggle" aria-expanded="false" aria-controls="nav-sub-about" aria-label="Show About us pages"></button>
+        <ul class="nav-sub" id="nav-sub-about">
+          <li><a href="about.html">About GoSports</a></li>
+          <li><a href="sapa-centre.html">SAPA Centre</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </li>
       <li><a href="programmes.html">Programmes</a></li>
-      <li><a href="funders.html" aria-current="page">Our Funders</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li class="nav-menu-cta"><a href="get-involved.html#partner" class="btn btn-primary">Become a Funder</a></li>
+      <li class="nav-group">
+        <a href="get-involved.html" aria-current="true">Get involved</a><button class="nav-sub-toggle" aria-expanded="false" aria-controls="nav-sub-involved" aria-label="Show Get involved pages"></button>
+        <ul class="nav-sub" id="nav-sub-involved">
+          <li><a href="funders.html" aria-current="page">Partner with us</a></li>
+          <li><a href="get-involved.html">Ways to get involved</a></li>
+        </ul>
+      </li>
+      <li class="nav-menu-cta"><a href="get-involved.html#donate" class="btn btn-primary">Donate</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="get-involved.html#partner" class="btn btn-ghost btn-sm">Become a Funder</a>
+      <a href="get-involved.html#donate" class="btn btn-primary btn-sm">Donate</a>
     </div>
   </nav>
 </header>
@@ -67,8 +76,20 @@
     </div>
   </section>
 
+  <!-- I REPRESENT… (sends each kind of funder to the part of this page written for them) -->
+  <section class="section section-tight">
+    <div class="container">
+      <span class="eyebrow">I represent…</span>
+      <div class="grid grid-3">
+        <a class="prog-card" href="#csr-partners"><h3>A corporate / CSR team</h3><p class="small">Backing named, measurable programmes</p><span class="link">Go to section ↓</span></a>
+        <a class="prog-card" href="#foundation-partners"><h3>A foundation or philanthropy</h3><p class="small">They invest in the institution, not just the athletes</p><span class="link">Go to section ↓</span></a>
+        <a class="prog-card" href="#join"><h3>An individual donor</h3><p class="small">Fund a system, not just a season</p><span class="link">Go to section ↓</span></a>
+      </div>
+    </div>
+  </section>
+
   <!-- FOUNDATION PARTNERS (real logos) -->
-  <section class="section">
+  <section class="section section-alt" id="foundation-partners">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Foundation partners</span>
@@ -87,8 +108,43 @@
     </div>
   </section>
 
-  <!-- HOW WE'RE FUNDED -->
+  <!-- DONOR WALL -->
   <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our supporters</span>
+        <h2>Every name that's backed this work</h2>
+        <p>A running record of who's funded GoSports, however large or small the contribution.</p>
+      </div>
+      <div class="donor-wall">
+        <div>Infosys Foundation</div>
+        <div>IndusInd Bank</div>
+        <div>Tata Trusts</div>
+        <div>Aditya Birla Capital</div>
+        <div>Aditya Birla Group</div>
+        <div>AMM Foundation</div>
+        <div>Hyundai Motor India Foundation</div>
+        <div>Mondelez India</div>
+        <div>Royal Challengers Bengaluru</div>
+        <div>Sports Interactive</div>
+        <div>BIWORLDWIDE India</div>
+        <div>Government of Arunachal Pradesh</div>
+        <div>BCCI</div>
+        <div>International Shooting Sport Federation</div>
+        <div>Government of India</div>
+        <div>Rainmatter by Zerodha</div>
+        <div>Nandi Housing</div>
+        <div>Law NK</div>
+        <div>Dr. Syed Ahmed Memorial Charitable Trust</div>
+        <div>Fusion Finance</div>
+        <div>MVS</div>
+      </div>
+      <p class="small mt-2">Collated from GoSports' FY 2025–26 Annual Report — Foundation Partners, programme-specific funders, and federation/government partners. It's built to grow — add each new supporter here as they come on board.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE'RE FUNDED -->
+  <section class="section section-alt">
     <div class="container grid grid-2" style="gap:3rem;align-items:center;">
       <div>
         <span class="eyebrow">How we're funded</span>
@@ -104,7 +160,7 @@
   </section>
 
   <!-- CORPORATE CSR PARTNERS -->
-  <section class="section section-alt">
+  <section class="section" id="csr-partners">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Corporate &amp; foundation partners</span>
@@ -162,7 +218,7 @@
   </section>
 
   <!-- OTHER CORPORATE SUPPORTERS -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Additional partners</span>
@@ -227,43 +283,8 @@
     </div>
   </section>
 
-  <!-- DONOR WALL -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Our supporters</span>
-        <h2>Every name that's backed this work</h2>
-        <p>A running record of who's funded GoSports, however large or small the contribution.</p>
-      </div>
-      <div class="donor-wall">
-        <div>Infosys Foundation</div>
-        <div>IndusInd Bank</div>
-        <div>Tata Trusts</div>
-        <div>Aditya Birla Capital</div>
-        <div>Aditya Birla Group</div>
-        <div>AMM Foundation</div>
-        <div>Hyundai Motor India Foundation</div>
-        <div>Mondelez India</div>
-        <div>Royal Challengers Bengaluru</div>
-        <div>Sports Interactive</div>
-        <div>BIWORLDWIDE India</div>
-        <div>Government of Arunachal Pradesh</div>
-        <div>BCCI</div>
-        <div>International Shooting Sport Federation</div>
-        <div>Government of India</div>
-        <div>Rainmatter by Zerodha</div>
-        <div>Nandi Housing</div>
-        <div>Law NK</div>
-        <div>Dr. Syed Ahmed Memorial Charitable Trust</div>
-        <div>Fusion Finance</div>
-        <div>MVS</div>
-      </div>
-      <p class="small mt-2">Collated from GoSports' FY 2025–26 Annual Report — Foundation Partners, programme-specific funders, and federation/government partners. It's built to grow — add each new supporter here as they come on board.</p>
-    </div>
-  </section>
-
   <!-- CTA -->
-  <section class="section">
+  <section class="section" id="join">
     <div class="container grid grid-2" style="align-items:center;gap:3rem;">
       <div>
         <span class="eyebrow">Join them</span>

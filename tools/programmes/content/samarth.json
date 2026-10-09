@@ -1,0 +1,65 @@
+{
+  "title": "Samarth Para Sports Programme",
+  "description": "High-performance Para-sports preparation for the Asian Para Games and Paralympics, supported by Hyundai Motor India Foundation.",
+  "breadcrumb": "SAMARTH",
+  "h1": "Samarth Para Sports Programme",
+  "lede": "High-performance Para-sports preparation for the Asian Para Games and Paralympics, supported by Hyundai Motor India Foundation.",
+  "summary": {
+    "paragraphs": [
+      "Launched in 2024, Samarth helps India's elite and emerging Para Athletes prepare for the Asian Para Games 2026, Commonwealth Games 2026, and 2028 Paralympics, through holistic, athlete-centric support.",
+      "In FY 2025&ndash;26, the programme supported 20 Para Athletes across 9 sports and 6 states, receiving 1,231 interventions spanning physiotherapy, nutrition, assistive devices, and high-performance stints.",
+      "These interventions contributed to 68 medals, including 38 international, with 9 gold medals at the 24th National Para Athletics Championships alone."
+    ],
+    "supporter": "<b>Exclusive partner:</b> Hyundai Motor India Foundation"
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "20",
+        "label": "Para athletes"
+      },
+      {
+        "value": "9",
+        "label": "Sports"
+      },
+      {
+        "value": "68",
+        "label": "Medals won"
+      },
+      {
+        "value": "139",
+        "label": "Tournaments competed"
+      }
+    ]
+  },
+  "story": {
+    "image": {
+      "src": "assets/img/athlete-yash-kumar-v2.jpg",
+      "alt": "Yash Kumar training on the water in his canoe",
+      "width": 606,
+      "height": 606,
+      "shape": "square"
+    },
+    "name": "Yash Kumar",
+    "role": "Para Canoe",
+    "paragraphs": [
+      "<b>The story:</b> Accessibility challenges at home affected his independence, added physical strain, and disrupted his training routine.",
+      "<b>The GSF impact:</b> Samarth supported relocation to a wheelchair-accessible home near his training centre, a high-performance camp in Europe, and customised canoe seating and equipment.",
+      "<b>The result:</b> Represented India at the World Championships, won Bronze at the ICF World Para Canoe Cup, and was honoured with the Laxman Award."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;With the support of the Samarth Parasports Programme, I received excellent rehabilitation and came back stronger &mdash; winning three gold medals at the National Championships since.&rdquo;",
+        "name": "Sathi Mondal",
+        "role": "Para Swimming"
+      },
+      {
+        "quote": "&ldquo;Your support with training, competition expenses, nutrition, coaching, sports psychology, recovery, and performance analysis has helped me focus on my training and perform at my best.&rdquo;",
+        "name": "Rachana Patel",
+        "role": "Para Badminton"
+      }
+    ]
+  }
+}

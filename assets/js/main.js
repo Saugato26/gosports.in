@@ -16,6 +16,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
+  // Nav dropdowns (About us, Get involved): the chevron button opens the menu
+  // for touch and keyboard users; Escape or a click elsewhere closes it.
+  const groups = document.querySelectorAll('.nav-group');
+  const closeGroups = except => groups.forEach(g => {
+    if (g === except) return;
+    g.classList.remove('open');
+    g.querySelector('.nav-sub-toggle')?.setAttribute('aria-expanded', 'false');
+  });
+  groups.forEach(g => {
+    const btn = g.querySelector('.nav-sub-toggle');
+    btn?.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = g.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      closeGroups(g);
+    });
+    // tabbing out of an open menu closes it
+    g.addEventListener('focusout', e => { if (!g.contains(e.relatedTarget)) closeGroups(); });
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.nav-group')) closeGroups(); });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    const open = document.querySelector('.nav-group.open');
+    closeGroups();
+    open?.querySelector('.nav-sub-toggle')?.focus();
+  });
+
   // Accordion (FAQ / selection process)
   document.querySelectorAll('.accordion-item').forEach(item => {
     const trigger = item.querySelector('.accordion-trigger');

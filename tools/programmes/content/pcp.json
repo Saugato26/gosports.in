@@ -1,0 +1,66 @@
+{
+  "title": "Para Champions Programme",
+  "description": "Holistic performance support for India's Para Athletes, since 2015 &mdash; incepted with founding partner IndusInd Bank.",
+  "breadcrumb": "PCP",
+  "h1": "Para Champions Programme",
+  "lede": "Holistic performance support for India's Para Athletes, since 2015 &mdash; incepted with founding partner IndusInd Bank.",
+  "summary": {
+    "paragraphs": [
+      "PCP supports India's elite and emerging Para Athletes through holistic performance support while strengthening the broader Para sports ecosystem.",
+      "In FY 2025&ndash;26, PCP supported 40 athletes across 15 sports and 11 states, delivering 601 interventions spanning physiotherapy, nutrition, equipment, coaching, and competition exposure.",
+      "These efforts resulted in 229 medals, including 164 international, with highlights including Rakesh Kumar winning two gold medals at the Rome 2025 European Para Archery Cup. Several athletes are progressing toward the Asian Para Games 2026 and LA 2028 Paralympics."
+    ],
+    "supporter": "<b>Founding partner:</b> IndusInd Bank (since 2015)"
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "40",
+        "label": "Supported athletes"
+      },
+      {
+        "value": "15",
+        "label": "Sports"
+      },
+      {
+        "value": "229",
+        "label": "Medals won"
+      },
+      {
+        "value": "206",
+        "label": "Tournaments competed"
+      }
+    ]
+  },
+  "story": {
+    "image_comment": "REPRESENTATIVE IMAGE (sport-matched, from the FY2025-26 Annual Report) - swap for a photo of this athlete when one is available",
+    "image": {
+      "src": "assets/img/sport-swimming-v2.jpg",
+      "alt": "Swimmer racing in a national competition",
+      "width": 671,
+      "height": 671,
+      "shape": "square"
+    },
+    "name": "Himanshu Nandal",
+    "role": "Para Swimming",
+    "paragraphs": [
+      "<b>The story:</b> Technical and structural challenges around body awareness, recovery, and stroke mechanics limited his progression, with limited access to specialised coaching.",
+      "<b>The GSF impact:</b> PCP supported a high-performance training stint at Loughborough University, plus remote strength and conditioning support, improving his technique and race readiness.",
+      "<b>The result:</b> Qualified for the World Championships, won three gold medals at the National Para Swimming Championships, and moved from World Rank 14 to 10 in the 100m backstroke."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;Thank you for giving me the opportunity to train in the USA with Coach Jeremy Fisher. This training has helped me improve my high jump and given me more confidence for the upcoming World Championships.&rdquo;",
+        "name": "Varun Singh Bhati",
+        "role": "Para High Jump"
+      },
+      {
+        "quote": "&ldquo;After severe pain from my running prosthesis cost me Paralympic qualification by just one rank, GoSports connected me with a prosthetist in the U.S. whose expertise transformed my prosthetic fit.&rdquo;",
+        "name": "Shashruti Nakade",
+        "role": "Para Tri Athlete"
+      }
+    ]
+  }
+}

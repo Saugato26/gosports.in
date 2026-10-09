@@ -1,0 +1,64 @@
+{
+  "title": "Rahul Dravid Athlete Mentorship Programme",
+  "description": "Elite athlete support aligned to the Los Angeles 2028 Olympic Games.",
+  "breadcrumb": "RDAMP",
+  "h1": "Rahul Dravid Athlete Mentorship Programme",
+  "lede": "Elite athlete support aligned to the Los Angeles 2028 Olympic Games.",
+  "summary": {
+    "paragraphs": [
+      "RDAMP is an elite athlete support initiative aligned with the LA 2028 Olympic Games, supporting athletes across high-performance training, sports science, and holistic development interventions.",
+      "FY 2025&ndash;26 was a landmark year: athletes secured 30 international medals, including 8 gold, along with 18 national medals. A major highlight was Chirag Shetty and Satwiksairaj Rankireddy being conferred the Major Dhyan Chand Khel Ratna Award.",
+      "The programme delivered 698 targeted interventions during the year, and the Athletes' Conclave 2025 brought together 125 attendees for sessions on AI for athletes, financial planning, and personal branding."
+    ]
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "28",
+        "label": "Supported athletes"
+      },
+      {
+        "value": "10",
+        "label": "Sports"
+      },
+      {
+        "value": "48",
+        "label": "Wins"
+      },
+      {
+        "value": "153",
+        "label": "Tournaments competed"
+      }
+    ]
+  },
+  "story": {
+    "image": {
+      "src": "assets/img/athlete-raja-muthupandi.jpg",
+      "alt": "Raja Muthupandi with his competition medals",
+      "width": 960,
+      "height": 960,
+      "shape": "square"
+    },
+    "name": "Raja Muthupandi",
+    "role": "Weightlifting",
+    "paragraphs": [
+      "<b>The story:</b> Performance setbacks following an injury-prone phase affected his lifting mechanics, mobility, and physical readiness.",
+      "<b>The GSF impact:</b> RDAMP supported an integrated rehabilitation approach combining physiotherapy, medical support, and targeted mobility work through dedicated athlete management.",
+      "<b>The result:</b> Recorded the highest total in his category and qualified for the Commonwealth and World Championship trials."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;GoSports Foundation has been instrumental in my journey, providing unwavering support throughout my recovery from a hamstring injury &mdash; which led to winning a gold medal at the Nationals.&rdquo;",
+        "name": "Ram Baboo",
+        "role": "Racewalking"
+      },
+      {
+        "quote": "&ldquo;This year we didn't win big titles but continuing to compete against the best gave us a lot of confidence. I'm grateful to GoSports for backing us with the right support system and expertise.&rdquo;",
+        "name": "Satwiksairaj Rankireddy",
+        "role": "Badminton"
+      }
+    ]
+  }
+}

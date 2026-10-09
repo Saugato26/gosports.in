@@ -1,0 +1,64 @@
+{
+  "title": "GoSports Long-Term Athlete Development Programme",
+  "description": "Long-term, individualised development for future Olympians and Paralympians.",
+  "breadcrumb": "GLTADP",
+  "h1": "GoSports Long-Term Athlete Development Programme",
+  "lede": "Long-term, individualised development for future Olympians and Paralympians.",
+  "summary": {
+    "paragraphs": [
+      "GLTADP is a long-term initiative focused on identifying and nurturing high-potential Indian athletes through sustained, individualised support &mdash; building a strong pipeline of future Olympians and Paralympians.",
+      "In FY 2025&ndash;26, the programme supported 21 athletes across 11 sports and 10 states, with a balanced cohort of 11 male and 10 female athletes spanning emerging and elite talent.",
+      "Athletes received holistic support through 463 interventions, contributing to 61 podium finishes and positioning several athletes as strong contenders for the Commonwealth Games 2026, Asian Games 2026, and LA 2028 Paralympics."
+    ]
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "21",
+        "label": "Supported athletes"
+      },
+      {
+        "value": "11",
+        "label": "Sports"
+      },
+      {
+        "value": "79",
+        "label": "Wins"
+      },
+      {
+        "value": "308",
+        "label": "Tournaments competed"
+      }
+    ]
+  },
+  "story": {
+    "image": {
+      "src": "assets/img/athlete-aneesh-gowda.jpg",
+      "alt": "Aneesh Gowda mid-stroke in competition",
+      "width": 885,
+      "height": 885,
+      "shape": "square"
+    },
+    "name": "Aneesh Gowda",
+    "role": "Swimming",
+    "paragraphs": [
+      "<b>The story:</b> Limited access to consistent high-performance coaching affected his training intensity and race preparation.",
+      "<b>The GSF impact:</b> GLTADP supported an international training stint in Slovenia under his coach, giving him access to world-class facilities and immediate technical feedback.",
+      "<b>The result:</b> Gold medals at the Senior National Championships 2025, the All India Inter-University Championships, and the Khelo India University Games."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;Competing at the Belgium Satellite Competition after a year was a great learning experience for me. I'm thankful to GoSports for their support throughout this journey.&rdquo;",
+        "name": "Oinam Jubraj Singh",
+        "role": "Fencing"
+      },
+      {
+        "quote": "&ldquo;Equipment issues with my rifle affected my performance and consistency. With timely support, I was able to replace it, regain my confidence, and secure my place back on the national team.&rdquo;",
+        "name": "Shahu Mane",
+        "role": "Air Rifle Shooting (10m)"
+      }
+    ]
+  }
+}

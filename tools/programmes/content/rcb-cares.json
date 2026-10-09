@@ -1,0 +1,66 @@
+{
+  "title": "The RCB Cares Sports Development Programme",
+  "description": "An inclusive, high-performance sporting ecosystem across Karnataka, built with three partner organisations.",
+  "breadcrumb": "RCB CARES",
+  "h1": "The RCB Cares Sports Development Programme",
+  "lede": "An inclusive, high-performance sporting ecosystem across Karnataka, built with three partner organisations.",
+  "summary": {
+    "paragraphs": [
+      "The RCB Cares Sports Development Programme builds inclusive, high-performance sporting ecosystems in Karnataka through three partner organisations. In FY 2025&ndash;26, the programme supported 71 athletes across athletics, shooting, and hockey &mdash; while reaching 1,200+ individuals from underserved communities.",
+      "The year was defined by system-building: sports science integration, performance monitoring, and infrastructure upgrades created a more data-driven athlete development environment. Grassroots screening expanded across 60+ villages, and structured school hockey programmes widened participation.",
+      "Together, these efforts advanced both high-performance outcomes and inclusive access &mdash; the dual mandate at the core of the programme."
+    ],
+    "supporter": "<b>Partner:</b> Royal Challengers Bengaluru (RCB)"
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "71",
+        "label": "Supported athletes"
+      },
+      {
+        "value": "3",
+        "label": "Sports"
+      },
+      {
+        "value": "1,200+",
+        "label": "Community reach"
+      },
+      {
+        "value": "31",
+        "label": "Wins"
+      }
+    ]
+  },
+  "story": {
+    "image_comment": "REPRESENTATIVE IMAGE (sport-matched, from the FY2025-26 Annual Report) - swap for a photo of this athlete when one is available",
+    "image": {
+      "src": "assets/img/sport-athletics-highjump.jpg",
+      "alt": "Athletics session at a GoSports high-performance training camp",
+      "width": 681,
+      "height": 681,
+      "shape": "square"
+    },
+    "name": "Anish Mangalwalkar",
+    "role": "Athletics",
+    "paragraphs": [
+      "<b>The story:</b> Access to elite rehabilitation expertise abroad was out of reach for an athlete recovering from injury.",
+      "<b>The GSF impact:</b> RCB Cares supported travel to the UK to work with therapist Gordon Bosworth, one of the best in the world, on a structured recovery programme.",
+      "<b>The result:</b> Steady week-on-week strength gains and continued progress in training, with recovery on track."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;Coming to the UK has been a great opportunity, and I am very grateful for it. Thank you to RCB for your amazing support.&rdquo;",
+        "name": "Anish Mangalwalkar",
+        "role": "Athletics"
+      },
+      {
+        "quote": "&ldquo;Thank you RCB for supporting me throughout my athletic journey in terms of my nutrition and physiotherapy which helps me train and recover faster.&rdquo;",
+        "name": "Nimiksha",
+        "role": "Athletics"
+      }
+    ]
+  }
+}

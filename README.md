@@ -99,6 +99,17 @@ tags in each `<head>`.
 
 ---
 
+### Generated parts: nav and programme pages
+
+- **Header/nav** (all public pages except `handover.html` and `checklist.html`): defined once in
+  `tools/nav/build.py`. Edit `NAV` there and run `python3 tools/nav/build.py`; don't hand-edit a
+  page's `<header>`.
+- **Programme pages** (`programme-*.html`): one shared layout in `tools/programmes/build.py`, copy
+  in `tools/programmes/content/<slug>.json`. Edit the JSON and run
+  `python3 tools/programmes/build.py <slug>`; don't hand-edit the HTML. Sections a programme has no
+  copy for are left out. A 13th programme = a new JSON file, a card on `programmes.html`, and an
+  entry in `tools/og/build.py`'s `PAGES` (then run that for its link-preview card).
+
 ## 3. What's real content vs. what's a placeholder
 
 This beta now pulls real data from two source documents: the original vendor content/wireframe doc, and GoSports' **FY 2025–26 Annual Report** (`GSF_ANNUAL_REPORT_-_VERSION_4_.pdf`). Here's what's real, what's extracted, and what's still a placeholder:

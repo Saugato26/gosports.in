@@ -1,0 +1,66 @@
+{
+  "title": "Aditya Birla Capital Sports Scholarship for Women",
+  "description": "Scholarship and high-performance development for young women athletes across five sports.",
+  "breadcrumb": "ABCSSW",
+  "h1": "Aditya Birla Capital Sports Scholarship for Women",
+  "lede": "Scholarship and high-performance development for young women athletes across five sports.",
+  "summary": {
+    "paragraphs": [
+      "ABCSSW is a dedicated initiative to advance India's standing as a sporting nation by empowering young women athletes through early talent identification, scientific training, and structured high-performance support.",
+      "In FY 2025&ndash;26, the programme supported 10 female athletes across Athletics, Badminton, Boxing, Fencing, and Table Tennis. The cohort secured 19 medals: 12 international, including 8 gold, and 7 national, including 5 gold.",
+      "Sustaining that performance required 386 targeted interventions across the year, including 93 sessions of physiotherapy and strength &amp; conditioning alone."
+    ],
+    "supporter": "<b>Exclusive partner:</b> Aditya Birla Capital"
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "10",
+        "label": "Women athletes"
+      },
+      {
+        "value": "6",
+        "label": "Sports"
+      },
+      {
+        "value": "19",
+        "label": "Medals won"
+      },
+      {
+        "value": "97",
+        "label": "Tournaments competed"
+      }
+    ]
+  },
+  "story": {
+    "image_comment": "REPRESENTATIVE IMAGE (sport-matched, from the FY2025-26 Annual Report) - swap for a photo of this athlete when one is available",
+    "image": {
+      "src": "assets/img/sport-badminton-doubles.jpg",
+      "alt": "Doubles partners celebrating a win in India colours",
+      "width": 450,
+      "height": 450,
+      "shape": "square"
+    },
+    "name": "Treesa Jolly",
+    "role": "Badminton",
+    "paragraphs": [
+      "<b>The story:</b> Returning to high-level competition after a five-month break, while carrying the pressure of defending a major international title.",
+      "<b>The GSF impact:</b> GoSports facilitated a timely mentorship session with Suhas L. Yathiraj, helping Treesa regain confidence and mental clarity ahead of the finals.",
+      "<b>The result:</b> Treesa and her partner successfully defended their title at the Syed Modi International &mdash; the first successful title defence in that category in the tournament's 17-year history."
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "&ldquo;I'm grateful to GoSports and Aditya Birla for their continued support and for providing the right guidance and resources. This year, my focus is to keep improving and perform strongly at major events like the Asian Games.&rdquo;",
+        "name": "Treesa Jolly",
+        "role": "Badminton"
+      },
+      {
+        "quote": "&ldquo;One of the key challenges was maintaining my weight and ensuring proper recovery, and I'm glad that the effort translated into my first World Cup gold this year.&rdquo;",
+        "name": "Nikhat Zareen",
+        "role": "Boxing"
+      }
+    ]
+  }
+}

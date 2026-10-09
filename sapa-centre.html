@@ -35,21 +35,30 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
-  <nav class="nav container">
+  <nav class="nav container" aria-label="Main">
     <a href="index.html" class="nav-logo" aria-label="GoSports Foundation — home"><img src="assets/img/gallery/brand-logo-black.webp" alt="GoSports Foundation" width="264" height="88"></a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="site-navigation">
+      <li class="nav-group">
+        <a href="about.html" aria-current="true">About us</a><button class="nav-sub-toggle" aria-expanded="false" aria-controls="nav-sub-about" aria-label="Show About us pages"></button>
+        <ul class="nav-sub" id="nav-sub-about">
+          <li><a href="about.html">About GoSports</a></li>
+          <li><a href="sapa-centre.html" aria-current="page">SAPA Centre</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </li>
       <li><a href="programmes.html">Programmes</a></li>
-      <li><a href="funders.html">Our Funders</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li class="nav-menu-cta"><a href="get-involved.html" class="btn btn-primary">Partner With Us</a></li>
+      <li class="nav-group">
+        <a href="get-involved.html">Get involved</a><button class="nav-sub-toggle" aria-expanded="false" aria-controls="nav-sub-involved" aria-label="Show Get involved pages"></button>
+        <ul class="nav-sub" id="nav-sub-involved">
+          <li><a href="funders.html">Partner with us</a></li>
+          <li><a href="get-involved.html">Ways to get involved</a></li>
+        </ul>
+      </li>
+      <li class="nav-menu-cta"><a href="get-involved.html#donate" class="btn btn-primary">Donate</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="get-involved.html" class="btn btn-ghost btn-sm">Partner With Us</a>
+      <a href="get-involved.html#donate" class="btn btn-primary btn-sm">Donate</a>
     </div>
   </nav>
 </header>

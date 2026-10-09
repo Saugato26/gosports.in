@@ -1,0 +1,211 @@
+{
+  "title": "Gear for Gold",
+  "description": "Gear for Gold strengthens athlete-centric academies across India with sports science, infrastructure, technology, and performance systems.",
+  "breadcrumb": "GEAR FOR GOLD",
+  "h1": "Academy-driven. Coach-led. Athlete-centric.",
+  "lede": "Gear for Gold strengthens athlete-centric academies across India by supporting them with sports science, infrastructure, technology, and performance systems to drive long-term excellence.",
+  "summary": {
+    "eyebrow": null,
+    "image": {
+      "src": "assets/img/gfg-academy.jpg",
+      "alt": "Training session underway on the courts of a partner badminton academy",
+      "width": 1359,
+      "height": 765,
+      "shape": "wide"
+    },
+    "paragraphs": [
+      "Gear for Gold, an initiative of the Infosys Foundation, is designed to build stronger, athlete-centric academies across India. By using GoSports' Academy Development Model, the programme empowers academies, enables coaches, and drives athlete development for long-term sporting excellence."
+    ],
+    "chips": [
+      "Academy-Driven",
+      "Coach-Led",
+      "Athlete-Centric"
+    ]
+  },
+  "partnership": {
+    "eyebrow": "About the partnership",
+    "heading": "A flagship collaboration",
+    "paragraphs": [
+      "Gear for Gold is a flagship partnership between Infosys Foundation and GoSports Foundation, designed to strengthen athlete-centric academies across India. Building on the <i>Girls for Gold</i> initiative, the programme now supports male, female, and para-athletes across Olympic disciplines."
+    ],
+    "quote": {
+      "quote": "\"Infosys Foundation and GoSports Foundation share a joint passion for strengthening the sports ecosystem in India. We are delighted with the progress we have made together in nurturing exceptional youngsters across sporting disciplines.\"",
+      "name": "Sumit Virmani",
+      "role": "Global Chief Marketing Officer, Infosys; Trustee, Infosys Foundation"
+    }
+  },
+  "numbers": {
+    "items": [
+      {
+        "value": "8",
+        "label": "Academies across 15 states &amp; 2 UTs"
+      },
+      {
+        "value": "70",
+        "label": "Supported athletes, 6 sports"
+      },
+      {
+        "value": "175",
+        "label": "Medals won (77 gold, 48 silver, 50 bronze)"
+      },
+      {
+        "value": "564",
+        "label": "Tournaments (138 international, 426 domestic)"
+      }
+    ],
+    "footnote": "130+ high-performance camps delivered across the year."
+  },
+  "academies": {
+    "id": "academies",
+    "comment": "roster from gosports.in's Gear for Gold page",
+    "eyebrow": "The academies",
+    "heading": "Eight academies at the heart of the programme",
+    "intro": "Gear for Gold works through eight athlete-centric academies, most of them founded by Olympians and national coaches who now develop the next generation.",
+    "items": [
+      {
+        "tag": "SHOOTING &middot; 10M &amp; 50M",
+        "name": "Lakshya Shooting Club",
+        "meta": "Mumbai, Maharashtra &middot; est. 2006",
+        "text": "Founded by Olympian and Dronacharya awardee Suma Shirur: a high-performance centre for 10m and 50m shooting."
+      },
+      {
+        "tag": "BOXING",
+        "name": "Mary Kom Regional Boxing Foundation",
+        "meta": "Imphal, Manipur &middot; est. 2005",
+        "text": "Set up by Olympic medallist Mary Kom, with residential training for boxers from across the region."
+      },
+      {
+        "tag": "TABLE TENNIS",
+        "name": "Raman Table Tennis High Performance Centre",
+        "meta": "Chetpet, Chennai &middot; est. 2016",
+        "text": "Founded by Olympian and Dronacharya awardee S. Raman with former national player Bhuvaneswari B."
+      },
+      {
+        "tag": "BADMINTON",
+        "name": "Yadav Pro Badminton Academy",
+        "meta": "est. 2011",
+        "text": "Founded by former international shuttler Jagadish Yadav and recognised under Khelo India."
+      },
+      {
+        "tag": "ACADEMY",
+        "name": "Sathish Sivalingam Sports Foundation",
+        "meta": "Sathuvachari, Vellore &middot; est. 2017",
+        "text": "Founded by Olympian and Arjuna awardee Sathish Sivalingam after his 2018 Commonwealth Games gold."
+      },
+      {
+        "tag": "ATHLETICS",
+        "name": "Usha School of Athletics",
+        "meta": "Balussery, Kerala &middot; est. 2000",
+        "text": "Founded by Olympian P.T. Usha to train young women athletes in sprints, jumps and middle distance."
+      },
+      {
+        "tag": "BADMINTON",
+        "name": "Malik Badminton Academy",
+        "meta": "Sonepat, Haryana &middot; est. 2012",
+        "text": "Founded by Harender Malik, with a structured grassroots-to-international pathway open to underprivileged players."
+      },
+      {
+        "tag": "WEIGHTLIFTING",
+        "name": "Karnam Malleswari Foundation",
+        "meta": "Yamunanagar &middot; est. 2017",
+        "text": "Founded by Olympic bronze medallist Karnam Malleswari, with coaching, nutrition and residential support."
+      }
+    ],
+    "beta_note": "academy profiles are condensed from gosports.in&rsquo;s Gear for Gold page. It doesn&rsquo;t state Yadav Pro Badminton Academy&rsquo;s location or which sports the Sathish Sivalingam Sports Foundation covers; confirm both. The live page also carries Gear for Gold / Infosys Foundation branding and a programme video (see handover)."
+  },
+  "pillars": {
+    "eyebrow": "Interventions",
+    "heading": "Pillars of the Academy Development Model",
+    "items": [
+      {
+        "title": "Athlete development pathway",
+        "text": "A structured system to identify, train, progress, and transition athletes across levels."
+      },
+      {
+        "title": "Coaching &amp; support ecosystem",
+        "text": "A tech-driven, integrated support ecosystem around athletes training at the academy."
+      },
+      {
+        "title": "Infrastructure &amp; sports science",
+        "text": "International-standard facilities and performance centres built for athlete and coach development."
+      },
+      {
+        "title": "Governance &amp; programme management",
+        "text": "Clear governance frameworks that drive decision-making, accountability, and effective delivery."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Voices of excellence",
+    "heading": "What our partners &amp; athletes say",
+    "items": [
+      {
+        "quote": "\"This programme takes a holistic approach — supporting both athletes and coaches. Even at an early stage, it is already showing strong results.\"",
+        "name": "Peter Davis",
+        "role": ""
+      },
+      {
+        "quote": "\"The high-performance training camp in Germany helped me refine both technical and mental aspects of my performance. Every session pushed me to grow.\"",
+        "name": "Khyati Chaudhury",
+        "role": "International Shooter, Lakshya Shooting Club"
+      },
+      {
+        "quote": "\"Coaches now have the opportunity to travel with athletes to tournaments and understand current standards — this helps us identify gaps and work on improvement.\"",
+        "name": "Harender Malik",
+        "role": "Founder &amp; Head Coach, Malik Badminton Academy"
+      }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Photo gallery",
+    "heading": "Capturing impact",
+    "images": [
+      {
+        "src": "assets/img/gfg-gallery-1.jpg",
+        "alt": "Badminton rally at an international tournament",
+        "width": 640,
+        "height": 640
+      },
+      {
+        "src": "assets/img/gfg-gallery-2.jpg",
+        "alt": "Weightlifter completing a lift in competition",
+        "width": 700,
+        "height": 700
+      },
+      {
+        "src": "assets/img/gfg-gallery-3.jpg",
+        "alt": "Swimmer breathing mid-butterfly in competition",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "src": "assets/img/gfg-gallery-4.jpg",
+        "alt": "Sports science testing session with athletes and coaches",
+        "width": 700,
+        "height": 700
+      }
+    ]
+  },
+  "next": [
+    {
+      "title": "Programme enquiries",
+      "text": "Reach out to us at <a href=\"mailto:gearforgold@gosports.in\" style=\"color:var(--clay);font-weight:600;\">gearforgold@gosports.in</a>"
+    },
+    {
+      "title": "Explore more",
+      "text": "Discover our full portfolio of initiatives across Indian sport.",
+      "link": {
+        "href": "programmes.html",
+        "label": "Our programmes"
+      }
+    },
+    {
+      "title": "Partner with us",
+      "text": "Work with us to build impactful, high-performance systems.",
+      "link": {
+        "href": "get-involved.html",
+        "label": "Get involved"
+      }
+    }
+  ]
+}
